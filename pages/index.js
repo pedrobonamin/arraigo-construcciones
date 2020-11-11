@@ -1,5 +1,6 @@
 import Head from "next/head";
-import { Footer, Navbar } from "./components";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
