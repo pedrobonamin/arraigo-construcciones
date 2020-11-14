@@ -8,6 +8,7 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 
 const Footer = styled.footer`
   display: flex;
+  z-index: 10;
   width: 100%;
   padding: 20px 0;
   border-top: 8px solid ${colors.greyDivider};

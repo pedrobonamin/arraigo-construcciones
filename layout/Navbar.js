@@ -4,8 +4,14 @@ import styled from "styled-components";
 import { colors, units } from "styles";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import Headroom from "react-headroom";
+import HeadroomComponent from "react-headroom";
 
+const Headroom = styled(HeadroomComponent)`
+position: absolute;
+top: 0;
+width: 100%;
+z-index: 100;
+`
 const Nav = styled.nav`
   width: 100%;
   background: ${colors.grey};
@@ -83,7 +89,6 @@ const Navbar = () => {
           width={width}
           height={height}
           layout='fixed'
-
         />
       </Nav>
     </Headroom>
