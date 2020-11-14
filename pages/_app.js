@@ -1,7 +1,11 @@
+import React from "react";
 
+export default function MyApp({ Component, pageProps }) {
+  const Layout = Component.Layout ? Component.Layout : React.Fragment;
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  )
 }
-
-export default MyApp
