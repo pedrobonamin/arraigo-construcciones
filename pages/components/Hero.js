@@ -27,13 +27,19 @@ const TextContainer = styled.div`
   color: white;
   text-shadow: 1px 1px 1px black;
 `;
+
+const TextSubContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 const Title = styled.div`
   font-size: ${units.HeroTitle};
   z-index: 1;
   :after {
 	content: '';
-	display: block;
-	width: 30%;
+    display: block;
+    margin:${(props) => (props.underline === "center" ? "0 30%" : "0 60% 0 0")};
 	height: 4px;
 	background-color: ${colors.white};
 }
@@ -42,13 +48,23 @@ const Title = styled.div`
 
 const Text = styled.div`
   font-size: ${units.HeroText};
-  width: 60%;
-  text-align: center;
+  text-align: ${(props) => props.textAlign};
   line-height: 1.5em;
-  margin-bottom: 16px;
+  margin: 16px 0px;
+  ${(props) => props.textAlign === "left" && " align-self: flex-start;"}
+  max-width: ${(props) => props.maxWidth};
 `;
 
-const Hero = ({ src, title, text, button }) => {
+const Hero = ({
+  src,
+  title,
+  text,
+  button,
+  buttonAction,
+  underline,
+  textAlign = "center",
+  textMaxWidth
+}) => {
   return (
     <HeroContainer>
       <Filter />
@@ -61,9 +77,11 @@ const Hero = ({ src, title, text, button }) => {
         priority
       />
       <TextContainer>
-        <Title>{title}</Title>
-        <Text>{text}</Text>
-        {button && <Button text={button} />}
+        <TextSubContainer>
+          <Title underline={underline}>{title}</Title>
+          <Text maxWidth={textMaxWidth} textAlign={textAlign}>{text}</Text>
+          {button && <Button text={button} onClick={buttonAction} />}
+        </TextSubContainer>
       </TextContainer>
     </HeroContainer>
   );

@@ -10,10 +10,15 @@ export default function Home() {
   return (
     <Main>
       <Hero
-        title="ESCRIBINOS"
+        title={
+          <>
+            MÉTODO ICI
+            <span style={{ fontSize: "36px", verticalAlign: "super" }}>®</span> 
+          </>
+        }
         text="AMPLIANDO TUS LÍMITES"
-        textAlign="left"
-        src={"/contacto/contacto-hero.jpg"}
+        textAlign='left'
+        src={"/metodo/metodo-hero.png"}
       />
     </Main>
   );
