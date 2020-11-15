@@ -14,5 +14,7 @@ export const units = {
     NavbarTitles: '20px',
     NavbarHeight: '186px',
     HeroTitle: '72px',
-    HeroText: '24px'
+    HeroText: '24px',
+    SectionTitle: '36px',
+    SectionText: '16px'
 }
