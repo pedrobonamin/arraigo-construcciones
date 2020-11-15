@@ -8,7 +8,7 @@ import { units, colors } from "styles";
 
 const Main = styled.main``;
 const SecondBlock = styled.div`
-position: relative;
+  position: relative;
   min-height: 600px;
   display: flex;
   justify-content: flex-end;
@@ -31,12 +31,11 @@ const TextContainer = styled.div`
   min-width: 750px;
   min-width: 500px;
   padding: 32px;
-  background: linear-gradient(245deg,white 70%,transparent 70%);
-  >div {
+  background: linear-gradient(245deg, white 70%, transparent 70%);
+  > div {
     width: 500px;
     max-width: 70%;
   }
-
 `;
 const Title = styled.div`
   font-size: ${units.SectionTitle};
@@ -58,6 +57,49 @@ const Text = styled.div`
 const StyledButton = styled(Button)`
   align-self: flex-end !important;
 `;
+
+const ThirdBlock = styled.div`
+  position: relative;
+  min-height: 600px;
+`;
+
+const ThirdBlockImageContainer = styled.div`
+  width: 100vw;
+  height: 100%;
+  position: absolute;
+  ${(props) => (props.first ? 
+    `left: 0;
+    clip-path: polygon(70% 0, 50% 100%, 0 100%, 0 0);
+    :hover {
+      clip-path: polygon(70% 0, 70% 100%, 0 100%, 0 0);
+      z-index: 1;
+    }
+    ` 
+  : 
+  `right: 0;
+  clip-path: polygon(100% 0, 100% 100%, 30% 100%, 70% 0);
+  :hover {
+    clip-path: polygon(100% 0, 100% 100%, 30% 100%, 30% 0);
+    z-index: 1;
+  }
+  `)};
+  transition: all 1s ease;
+
+`;
+const Filter = styled.div`
+  width: 100%;
+  height: 100%;
+  background: ${(props) => (props.first ? colors.red : colors.black)};
+  opacity: 0.4;
+  z-index: 2;
+  position: absolute;
+  transition: all 1s ease;
+  :hover {
+    background: transparent;
+  }
+`;
+
+
 export default function Home() {
   const router = useRouter();
 
@@ -94,18 +136,37 @@ export default function Home() {
             <div style={{ color: colors.red }}>NUESTRA TRAYECTORIA</div>
             <div>ES SINÓNIMO DE CALIDAD</div>
           </Title>
-            <Text>
-              Somos un estudio de arquitectura especializado en la construcción
-              de viviendas. Cuidamos cada detalle, desde el inicio hasta el
-              final, para que nuestros clientes se sientan felices en su nuevo
-              hogar.
-            </Text>
+          <Text>
+            Somos un estudio de arquitectura especializado en la construcción de
+            viviendas. Cuidamos cada detalle, desde el inicio hasta el final,
+            para que nuestros clientes se sientan felices en su nuevo hogar.
+          </Text>
           <StyledButton
             text="VER MÁS"
             onClick={() => router.push("/nosotros")}
           />
         </TextContainer>
       </SecondBlock>
+      <ThirdBlock>
+        <ThirdBlockImageContainer first>
+          <Filter first />
+          <Image
+            src={"/home/home-industria.jpg"}
+            alt={"Industria"}
+            layout="fill"
+            loading="eager"
+          />
+        </ThirdBlockImageContainer>
+        <ThirdBlockImageContainer>
+          <Filter />
+          <Image
+            src={"/home/home-hogar.png"}
+            alt={"Hogar"}
+            layout="fill"
+            loading="eager"
+          />
+        </ThirdBlockImageContainer>
+      </ThirdBlock>
     </Main>
   );
 }
