@@ -8,8 +8,11 @@ import InputLabel from "@material-ui/core/InputLabel";
 import Hero from "./components/Hero";
 import Image from "next/image";
 import { colors, units } from "styles";
-import { createMuiTheme, ThemeProvider , withStyles} from "@material-ui/core/styles";
-
+import {
+  createMuiTheme,
+  ThemeProvider,
+  withStyles,
+} from "@material-ui/core/styles";
 
 const styledComponentsTheme = {
   primary: colors.red,
@@ -76,7 +79,7 @@ const StyledTextField = styled(TextField)`
     color: white;
     border-radius: 0;
     :hover {
-      border-color: white;
+      border-color: white !important;
     }
     @media (max-width: 640px) {
       width: 100%;
@@ -88,10 +91,6 @@ const StyledTextField = styled(TextField)`
     > div {
       border-radius: 0;
       color: white;
-      > fieldset {
-        border-color: white;
-  
-      }
     }
   }
 `;
@@ -99,7 +98,6 @@ const StyledTextField = styled(TextField)`
 const StyledSelect = styled(Select)`
   && {
     border-radius: 0;
-    color: white;
     @media (max-width: 640px) {
       width: 100%;
     }
@@ -110,30 +108,61 @@ const StyledSelect = styled(Select)`
 `;
 
 const StyledFormControl = styled(FormControl)`
-&& {
-  margin: 8px 0;
-  width: 45%;
-  color: white;
-  @media (max-width: 640px) {
-    width: 100%;
+  && {
+    margin: 8px 0;
+    width: ${(props) => (props.fullWidth ? "100%" : "45%")};
+    color: white;
+    border-radius: 0;
+    @media (max-width: 640px) {
+      width: 100%;
+    }
+    > label {
+      color: white;
+    }
+
+    > div {
+      border-radius: 0;
+      color: white;
+    }
   }
-}
 `;
 const MuiTheme = createMuiTheme({
-  root: { 
-      borderRadius: 0,
+  root: {
+    borderRadius: 0,
   },
-palette: {
-  primary: {
-    main: colors.red,
+  palette: {
+    primary: {
+      main: colors.red,
+    },
+    secondary: {
+      main: colors.grey,
+    },
+
   },
-  secondary: {
-    main: colors.grey,
+  overrides: {
+    MuiOutlinedInput: {
+      root: {
+          position: 'relative',
+          '& $notchedOutline': {
+              borderColor: colors.white,
+          },
+          '&:hover:not($disabled):not($focused):not($error) $notchedOutline': {
+              borderColor: colors.red,
+              // Reset on touch devices, it doesn't add specificity
+              '@media (hover: none)': {
+                  borderColor: 'rgba(0, 0, 0, 0.23)',
+              },
+          },
+          '&$focused $notchedOutline': {
+              borderColor: colors.red,
+              borderWidth: 1,
+          },
+      },
   },
-},
-typography: {
-  fontFamily: "Roboto",
-},
+  },
+  typography: {
+    fontFamily: "Roboto",
+  },
 });
 
 const Contact = () => {
