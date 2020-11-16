@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import MyLayout from "../layout";
@@ -67,42 +68,77 @@ const ThirdBlockImageContainer = styled.div`
   width: 100vw;
   height: 100%;
   position: absolute;
-  ${(props) => (props.first ? 
-    `left: 0;
-    clip-path: polygon(70% 0, 50% 100%, 0 100%, 0 0);
+  display: flex;
+  align-items: center;
+  transition: all 1s ease;
+  ${(props) =>
+    props.first
+      ? `left: 0;
+    clip-path: polygon(60% 0, 50% 100%, 0 100%, 0 0);
     :hover {
-      clip-path: polygon(70% 0, 70% 100%, 0 100%, 0 0);
+      clip-path: polygon(60% 0, 60% 100%, 0 100%, 0 0);
       z-index: 1;
     }
-    ` 
-  : 
-  `right: 0;
-  clip-path: polygon(100% 0, 100% 100%, 30% 100%, 70% 0);
+    `
+      : `right: 0;
+  clip-path: polygon(100% 0, 100% 100%, 40% 100%, 60% 0);
   :hover {
-    clip-path: polygon(100% 0, 100% 100%, 30% 100%, 30% 0);
+    clip-path: polygon(100% 0, 100% 100%, 40% 100%, 40% 0);
     z-index: 1;
   }
-  `)};
-  transition: all 1s ease;
-
+  `};
 `;
 const Filter = styled.div`
   width: 100%;
   height: 100%;
-  background: ${(props) => (props.first ? colors.red : colors.black)};
-  opacity: 0.4;
   z-index: 2;
   position: absolute;
   transition: all 1s ease;
   :hover {
-    background: transparent;
+    background: ${colors.redHighlight};
+    opacity: 0.5;
   }
+  ${(props) => 
+      props.first &&
+      props.hover === "first" &&
+      `
+    background: ${colors.redHighlight};
+    opacity: 0.5;
+    `
+    
+  };
+  ${(props) => 
+      !props.first &&
+      props.hover === "second" &&
+      `
+    background: ${colors.redHighlight};
+    opacity: 0.5;
+    `
+    }
 `;
 
+const LogoText = styled.div`
+  z-index: 3;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  ${(props) => (props.first ? `left: 20%` : `right: 20%`)};
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+const ThirdBlockText = styled.div`
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  font-size: ${units.SectionTitle};
+`;
 
 export default function Home() {
   const router = useRouter();
-
+  const [hover, setHover] = useState();
   return (
     <Main>
       <Hero
@@ -147,20 +183,48 @@ export default function Home() {
           />
         </TextContainer>
       </SecondBlock>
-      <ThirdBlock>
+      <ThirdBlock onMouseLeave={() => setHover()}>
         <ThirdBlockImageContainer first>
-          <Filter first />
+          <Filter hover={hover} first />
+          <LogoText
+            first
+            onMouseEnter={() => setHover("first")}
+            onMouseLeave={() => setHover()}
+          >
+            <Image
+              src={"/icons/industry.png"}
+              alt={"Industria"}
+              height="160"
+              width="160"
+              layout="fixed"
+            />
+            <ThirdBlockText>INDUSTRIA</ThirdBlockText>
+          </LogoText>
           <Image
-            src={"/home/home-industria.jpg"}
+            src={"/home/home-industria-bw.jpg"}
             alt={"Industria"}
             layout="fill"
             loading="eager"
           />
         </ThirdBlockImageContainer>
         <ThirdBlockImageContainer>
-          <Filter />
+          <Filter  hover={hover} />
+          <LogoText
+            hover={hover}
+            onMouseEnter={() => setHover("second")}
+            onMouseLeave={() => setHover()}
+          >
+            <Image
+              src={"/icons/industry.png"}
+              alt={"Industria"}
+              height="160"
+              width="160"
+              layout="fixed"
+            />
+            <ThirdBlockText>HOGAR</ThirdBlockText>
+          </LogoText>
           <Image
-            src={"/home/home-hogar.png"}
+            src={"/home/home-hogar-bw.png"}
             alt={"Hogar"}
             layout="fill"
             loading="eager"
