@@ -36,7 +36,7 @@ const MUIButton = withStyles({
 const Component = ({ text, fontSize='18px', onClick}) => {
   return (
     <ThemeProvider theme={MuiTheme}>
-      <MUIButton onClick={onClick} fontSize={fontSize} variant="contained" color="primary">
+      <MUIButton style={{marginTop: '16px'}} onClick={onClick} fontSize={fontSize} variant="contained" color="primary">
         {text}
       </MUIButton>
     </ThemeProvider>
