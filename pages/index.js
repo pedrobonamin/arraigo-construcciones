@@ -6,6 +6,7 @@ import Hero from "./components/Hero";
 import Image from "next/image";
 import Button from "./components/Button";
 import { units, colors } from "styles";
+import Link from "next/link";
 
 const Main = styled.main``;
 const SecondBlock = styled.div`
@@ -98,23 +99,20 @@ const Filter = styled.div`
     background: ${colors.redHighlight};
     opacity: 0.5;
   }
-  ${(props) => 
-      props.first &&
-      props.hover === "first" &&
-      `
+  ${(props) =>
+    props.first &&
+    props.hover === "first" &&
+    `
     background: ${colors.redHighlight};
     opacity: 0.5;
+    `};
+  ${(props) =>
+    !props.first &&
+    props.hover === "second" &&
     `
-    
-  };
-  ${(props) => 
-      !props.first &&
-      props.hover === "second" &&
-      `
     background: ${colors.redHighlight};
     opacity: 0.5;
-    `
-    }
+    `}
 `;
 
 const LogoText = styled.div`
@@ -184,52 +182,57 @@ export default function Home() {
         </TextContainer>
       </SecondBlock>
       <ThirdBlock onMouseLeave={() => setHover()}>
-        <ThirdBlockImageContainer first>
-          <Filter hover={hover} first />
-          <LogoText
-            first
-            onMouseEnter={() => setHover("first")}
-            onMouseLeave={() => setHover()}
-          >
+        <Link href="industria">
+          <ThirdBlockImageContainer first>
+            <Filter hover={hover} first />
+            <LogoText
+              first
+              onMouseEnter={() => setHover("first")}
+              onMouseLeave={() => setHover()}
+            >
+              <Image
+                src={"/icons/industry.png"}
+                alt={"Industria"}
+                height="160"
+                width="160"
+                layout="fixed"
+              />
+              <ThirdBlockText>INDUSTRIA</ThirdBlockText>
+            </LogoText>
             <Image
-              src={"/icons/industry.png"}
+              src={"/home/home-industria-bw.jpg"}
               alt={"Industria"}
-              height="160"
-              width="160"
-              layout="fixed"
+              layout="fill"
+              loading="eager"
             />
-            <ThirdBlockText>INDUSTRIA</ThirdBlockText>
-          </LogoText>
-          <Image
-            src={"/home/home-industria-bw.jpg"}
-            alt={"Industria"}
-            layout="fill"
-            loading="eager"
-          />
-        </ThirdBlockImageContainer>
-        <ThirdBlockImageContainer>
-          <Filter  hover={hover} />
-          <LogoText
-            hover={hover}
-            onMouseEnter={() => setHover("second")}
-            onMouseLeave={() => setHover()}
-          >
+          </ThirdBlockImageContainer>
+        </Link>
+
+        <Link href="/hogar">
+          <ThirdBlockImageContainer>
+            <Filter hover={hover} />
+            <LogoText
+              hover={hover}
+              onMouseEnter={() => setHover("second")}
+              onMouseLeave={() => setHover()}
+            >
+              <Image
+                src={"/icons/industry.png"}
+                alt={"Industria"}
+                height="160"
+                width="160"
+                layout="fixed"
+              />
+              <ThirdBlockText>HOGAR</ThirdBlockText>
+            </LogoText>
             <Image
-              src={"/icons/industry.png"}
-              alt={"Industria"}
-              height="160"
-              width="160"
-              layout="fixed"
+              src={"/home/home-hogar-bw.png"}
+              alt={"Hogar"}
+              layout="fill"
+              loading="eager"
             />
-            <ThirdBlockText>HOGAR</ThirdBlockText>
-          </LogoText>
-          <Image
-            src={"/home/home-hogar-bw.png"}
-            alt={"Hogar"}
-            layout="fill"
-            loading="eager"
-          />
-        </ThirdBlockImageContainer>
+          </ThirdBlockImageContainer>
+        </Link>
       </ThirdBlock>
     </Main>
   );
