@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import { units, colors } from "styles";
@@ -52,6 +52,9 @@ const Tab = styled.div`
   position: relative;
   filter: grayscale(100%);
   transition: all 1s ease;
+  ${props => props.selectedTab === props.tabName && !props.hover &&`
+  filter: none;
+`}
   :hover {
     filter: none;
   }
@@ -76,10 +79,6 @@ const Text = styled.div`
   text-align: center;
 `;
 const Filter = styled.div`
-  &:hover ${LogoText} {
-    background: ${colors.redHighlight};
-    opacity: 0.5;
-  }
   width: 100%;
   height: 100%;
   position: absolute;
@@ -92,6 +91,12 @@ const Filter = styled.div`
     opacity: 0.5;
   }
   ${(props) =>
+    props.selectedTab === props.tabName &&
+    `
+  background: ${colors.redHighlight};
+  opacity: 0.5;
+  `};
+  ${(props) =>
     props.hover === props.text &&
     `
     background: ${colors.redHighlight};
@@ -99,7 +104,7 @@ const Filter = styled.div`
     `};
 `;
 
-const Component = ({ tabs, handleClick }) => {
+const Component = ({ tabs, handleClick, selectedTab }) => {
   const [hover, setHover] = useState();
 
   return (
@@ -107,12 +112,21 @@ const Component = ({ tabs, handleClick }) => {
       {tabs?.map((tab, index) => {
         const { image, icon, text, position, tabName } = tab;
         return (
-          <Tab 
-          onClick={() => handleClick(tabName)}
-          key={index + text} 
-          position={position} 
-          url={image}>
-            <Filter text={text} hover={hover} />
+          <Tab
+          selectedTab={selectedTab}
+          tabName={tabName}
+          hover={hover}
+            onClick={() => handleClick(tabName)}
+            key={index + text}
+            position={position}
+            url={image}
+          >
+            <Filter
+              selectedTab={selectedTab}
+              tabName={tabName}
+              text={text}
+              hover={hover}
+            />
             <LogoText
               onMouseEnter={() => setHover(text)}
               onMouseLeave={() => setHover()}

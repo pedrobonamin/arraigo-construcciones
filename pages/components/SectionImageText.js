@@ -90,12 +90,12 @@ const Text = styled.div`
   margin: 32px 0;
 `;
 
-const Component = ({ reverse, last }) => {
+const Component = ({ reverse, last, image }) => {
   return (
     <Main reverse={reverse} last={last}>
       <ImageContainer>
         <ImageBefore reverse={reverse}>
-          <Image src={"/home/home-trayectoria.jpg"} alt={"trayectoria"} />
+          <Image src={image} alt={"trayectoria"} />
         </ImageBefore>
       </ImageContainer>
       <TextContainer last={last}>

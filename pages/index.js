@@ -72,6 +72,11 @@ const ThirdBlockImageContainer = styled.div`
   display: flex;
   align-items: center;
   transition: all 1s ease;
+  // filter: grayscale(100%);
+  // :hover {
+  //   filter: none;
+  // }
+
   ${(props) =>
     props.first
       ? `left: 0;
@@ -140,6 +145,7 @@ export default function Home() {
   return (
     <Main>
       <Hero
+      addSquares={false}
         title={
           <>
             MÉTODO ICI

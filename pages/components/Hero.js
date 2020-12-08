@@ -6,12 +6,40 @@ import Button from "./Button";
 const HeroContainer = styled.div`
   position: relative;
 `;
+
 const Filter = styled.div`
   width: 100%;
   height: 100%;
   background: #0e0e0e75;
   z-index: 1;
   position: absolute;
+  overflow: hidden;
+  ${(props) =>
+    props.addSquares &&
+    `
+  ::before {
+    z-index: 0;
+    content: "";
+    width: 200px;
+    height: 500px;
+    border: 2px solid white;
+    position: absolute;
+    top: 60px;
+    left: -150px;
+    transform: rotate(45deg)
+  }
+  ::after {
+    z-index: 0;
+    content: "";
+    width: 300px;
+    height: 300px;
+    border: 2px solid white;
+    position: absolute;
+    top: 320px;
+    left: 100px;
+    transform: rotate(45deg)
+  }
+  `}
 `;
 
 const TextContainer = styled.div`
@@ -63,11 +91,12 @@ const Hero = ({
   buttonAction,
   underline,
   textAlign = "center",
-  textMaxWidth
+  textMaxWidth,
+  addSquares = true,
 }) => {
   return (
     <HeroContainer>
-      <Filter />
+      <Filter addSquares={addSquares} />
       <Image
         src={src}
         alt={src}
@@ -79,7 +108,9 @@ const Hero = ({
       <TextContainer>
         <TextSubContainer>
           <Title underline={underline}>{title}</Title>
-          <Text maxWidth={textMaxWidth} textAlign={textAlign}>{text}</Text>
+          <Text maxWidth={textMaxWidth} textAlign={textAlign}>
+            {text}
+          </Text>
           {button && <Button text={button} onClick={buttonAction} />}
         </TextSubContainer>
       </TextContainer>
