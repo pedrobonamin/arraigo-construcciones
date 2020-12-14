@@ -11,13 +11,13 @@ const Main = styled.div`
   ${(props) =>
     props.last &&
     `
-    background: rgb(38,29,23);
-background: linear-gradient(125deg, rgba(38,29,23) 66%, rgba(255,255,255,1) 66%);
+    background: ${colors.footerBackground};
+background: linear-gradient(125deg, ${colors.footerBackground} 66%, rgba(255,255,255,1) 66%);
     `}
     @media (max-width: 800px) {
       ${(props) =>
         props.last && `
-      background: rgb(38,29,23);`}
+      background: ${colors.footerBackground};`}
     }
 `;
 const ImageContainer = styled.div`

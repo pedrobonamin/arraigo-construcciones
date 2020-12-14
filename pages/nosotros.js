@@ -9,7 +9,7 @@ const Main = styled.main`
 
 const TextContainer = styled.div`
   min-height: 1000px;
-  background: rgb(38, 29, 23);
+  background: ${colors.footerBackground};
   padding: 100px 20px;
 `;
 const Title = styled.div`

@@ -65,7 +65,7 @@ const LogoText = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 80%;
+  max-width: 60%;
   ${(props) => (props.first ? `left: 20%` : `right: 20%`)};
   z-index: 3;
   &:hover {

@@ -11,13 +11,17 @@ const Headroom = styled(HeadroomComponent)`
   top: 0;
   width: 100%;
   z-index: 100;
+  .headroom--unpinned {
+    position: fixed;
+    transform: translateY(0%);
+  }
 `;
 const Nav = styled.nav`
 // position: fixed;
 // top: 0;
 // z-index: 1;
   width: 100%;
-  background: ${colors.grey};
+  background: ${props => props.secondary ? colors.black: colors.grey};
   color: ${colors.white};
   display: flex;
   flex-wrap: wrap-reverse;
@@ -103,13 +107,12 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  console.log("SECONDARY?", secondary);
 
   const height = 70;
   const width = height * 3.2;
   return (
     <Headroom > 
-      <Nav>
+      <Nav secondary={secondary}>
         <Ul>
           {(links || []).map((link, index) => (
             <Li key={index} selected={router.route === link.ref}>

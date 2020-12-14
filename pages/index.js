@@ -132,7 +132,7 @@ const LogoText = styled.div`
 const ThirdBlockText = styled.div`
   color: white;
   text-shadow: 1px 1px 1px black;
-  font-size: ${units.SectionTitle};
+  font-size: 48px;
 `;
 
 export default function Home() {
@@ -170,8 +170,8 @@ export default function Home() {
               <Image
                 src={"/icons/industry.png"}
                 alt={"Industria"}
-                height="160"
-                width="160"
+                height="200"
+                width="200"
                 layout="fixed"
               />
               <ThirdBlockText>INDUSTRIA</ThirdBlockText>
@@ -196,8 +196,8 @@ export default function Home() {
               <Image
                 src={"/icons/industry.png"}
                 alt={"Industria"}
-                height="160"
-                width="160"
+                height="200"
+                width="200"
                 layout="fixed"
               />
               <ThirdBlockText>HOGAR</ThirdBlockText>

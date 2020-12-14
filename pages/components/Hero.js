@@ -10,7 +10,7 @@ const HeroContainer = styled.div`
 const Filter = styled.div`
   width: 100%;
   height: 100%;
-  background: #0e0e0e75;
+  background: #0e0e0ea3;
   z-index: 1;
   position: absolute;
   overflow: hidden;
@@ -20,22 +20,22 @@ const Filter = styled.div`
   ::before {
     z-index: 0;
     content: "";
-    width: 200px;
+    width: 260px;
     height: 500px;
     border: 2px solid white;
     position: absolute;
-    top: 60px;
-    left: -150px;
+    bottom : 0;
+    left: -190px;
     transform: rotate(45deg)
   }
   ::after {
     z-index: 0;
     content: "";
-    width: 300px;
-    height: 300px;
+    width: 260px;
+    height: 260px;
     border: 2px solid white;
     position: absolute;
-    top: 320px;
+    bottom : 0;
     left: 100px;
     transform: rotate(45deg)
   }

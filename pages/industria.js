@@ -36,7 +36,7 @@ const TextContainer = styled.div`
   justify-content: center;
   align-items: center;
   // background: ${colors.black};
-  background: rgb(38, 29, 23);
+  background: ${colors.footerBackground};
   position: relative;
 
 `;
@@ -52,6 +52,8 @@ const Text = styled.div`
 `;
 const BackgroundText = styled.div`
   position: absolute;
+  display: flex;
+  align-items: flex-end;
   z-index: 0;
   font-size: 15vw;
   font-weight: 800;

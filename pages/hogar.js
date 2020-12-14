@@ -23,7 +23,7 @@ const TextContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgb(38, 29, 23);
+  background: ${colors.footerBackground};
   position: relative;
 `;
 const Text = styled.div`

@@ -1,10 +1,11 @@
 export const colors = {
-    grey: 'rgba(79, 82,93, 0.8)',
-    greyWithOpacity: 'rgba(56,56,56,0.6)',
+    grey: 'rgba(79, 82,93, 0.1)',
+    grey2: 'rgba(79, 82,93, 0.7)',
+    greyWithOpacity: 'rgba(56,56,56,0.1)',
     greyDivider : 'rgb(88 89 91)',
     white: '#FFFFFF',
     red: '#790016',
-    redHighlight: '#d61f1f',
+    redHighlight: '#790016',
     black: 'rgb(20, 19, 19)',
     blackWithOpacity: 'rgba(0, 0, 0, 0.8)',
     footerBackground: "#131212"
@@ -12,7 +13,7 @@ export const colors = {
 }
 
 export const units = {
-    NavbarTitles: '20px',
+    NavbarTitles: '16px',
     NavbarHeight: '186px',
     HeroTitle: '72px',
     HeroText: '24px',

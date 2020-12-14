@@ -14,14 +14,14 @@ const SecondSection = styled.div`
   ${(props) =>
     props.last &&
     `
-    background: rgb(38,29,23);
-    background: linear-gradient(114deg, rgba(38,29,23,1) 45%, rgba(255,255,255,1) 45%);
+    background: ${colors.footerBackground};
+    background: linear-gradient(114deg, ${colors.footerBackground} 45%, rgba(255,255,255,1) 45%);
     `}
   @media (max-width: 800px) {
     ${(props) =>
       props.last &&
       `
-      background: rgb(38,29,23);`}
+      background: ${colors.footerBackground};`}
   }
 `;
 const ImageContainer = styled.div`
@@ -109,7 +109,7 @@ const Title = styled.div`
 `;
 const Text = styled.div`
   padding: 1em;
-  background: rgb(38, 29, 23);
+  background: ${colors.footerBackground}
   font-size: ${units.SectionText};
   margin: 32px 0;
   line-height: 1.5em;
