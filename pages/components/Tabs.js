@@ -121,6 +121,8 @@ const Component = ({ tabs, handleClick, selectedTab }) => {
             key={index + text}
             position={position}
             url={image}
+            onMouseEnter={() => setHover(text)}
+            onMouseLeave={() => setHover()}
           >
             <Filter
               selectedTab={selectedTab}
@@ -129,8 +131,7 @@ const Component = ({ tabs, handleClick, selectedTab }) => {
               hover={hover}
             />
             <LogoText
-              onMouseEnter={() => setHover(text)}
-              onMouseLeave={() => setHover()}
+       
             >
               <Image
                 src={icon}
