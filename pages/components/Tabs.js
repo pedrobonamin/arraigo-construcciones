@@ -86,21 +86,22 @@ const Filter = styled.div`
   left: 0;
   z-index: 2;
   transition: all 1s ease;
+  filter: none;
   :hover {
     background: ${colors.redHighlight};
-    opacity: 0.5;
+    opacity: 0.8;
   }
   ${(props) =>
     props.selectedTab === props.tabName &&
     `
   background: ${colors.redHighlight};
-  opacity: 0.5;
+  opacity: 0.8;
   `};
   ${(props) =>
     props.hover === props.text &&
     `
     background: ${colors.redHighlight};
-    opacity: 0.5;
+    opacity: 0.8;
     `};
 `;
 

@@ -72,10 +72,6 @@ const ThirdBlockImageContainer = styled.div`
   display: flex;
   align-items: center;
   transition: all 1s ease;
-  // filter: grayscale(100%);
-  // :hover {
-  //   filter: none;
-  // }
 
   ${(props) =>
     props.first
@@ -102,21 +98,21 @@ const Filter = styled.div`
   transition: all 1s ease;
   :hover {
     background: ${colors.redHighlight};
-    opacity: 0.5;
+    opacity: 0.8;
   }
   ${(props) =>
     props.first &&
     props.hover === "first" &&
     `
     background: ${colors.redHighlight};
-    opacity: 0.5;
+    opacity: 0.8;
     `};
   ${(props) =>
     !props.first &&
     props.hover === "second" &&
     `
     background: ${colors.redHighlight};
-    opacity: 0.5;
+    opacity: 0.8;
     `}
 `;
 
@@ -162,32 +158,7 @@ export default function Home() {
         src={"/home/home-hero.jpg"}
       />
 
-      <SecondBlock>
-        <ImageContainer>
-          <Image
-            src={"/home/home-trayectoria.jpg"}
-            alt={"trayectoria"}
-            layout="fill"
-            loading="eager"
-          />
-        </ImageContainer>
-        <TextContainer>
-          <Title>
-            <div style={{ color: colors.red }}>NUESTRA TRAYECTORIA</div>
-            <div>ES SINÓNIMO DE CALIDAD</div>
-          </Title>
-          <Text>
-            Somos un estudio de arquitectura especializado en la construcción de
-            viviendas. Cuidamos cada detalle, desde el inicio hasta el final,
-            para que nuestros clientes se sientan felices en su nuevo hogar.
-          </Text>
-          <StyledButton
-            text="VER MÁS"
-            onClick={() => router.push("/nosotros")}
-          />
-        </TextContainer>
-      </SecondBlock>
-      <ThirdBlock onMouseLeave={() => setHover()}>
+<ThirdBlock onMouseLeave={() => setHover()}>
         <Link href="industria">
           <ThirdBlockImageContainer first>
             <Filter hover={hover} first />
@@ -240,6 +211,36 @@ export default function Home() {
           </ThirdBlockImageContainer>
         </Link>
       </ThirdBlock>
+
+
+      <SecondBlock>
+        <ImageContainer>
+          <Image
+            src={"/home/home-trayectoria.jpg"}
+            alt={"trayectoria"}
+            layout="fill"
+            loading="eager"
+          />
+        </ImageContainer>
+        <TextContainer>
+          <Title>
+            <div style={{ color: colors.red }}>NUESTRA TRAYECTORIA</div>
+            <div>ES SINÓNIMO DE CALIDAD</div>
+          </Title>
+          <Text>
+            Somos un estudio de arquitectura especializado en la construcción de
+            viviendas. Cuidamos cada detalle, desde el inicio hasta el final,
+            para que nuestros clientes se sientan felices en su nuevo hogar.
+          </Text>
+          <StyledButton
+            text="VER MÁS"
+            onClick={() => router.push("/nosotros")}
+          />
+        </TextContainer>
+      </SecondBlock>
+
+
+
     </Main>
   );
 }

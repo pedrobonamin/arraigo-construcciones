@@ -2,32 +2,40 @@ import styled from "styled-components";
 import { units, colors } from "styles";
 
 const Main = styled.div`
-  height: 600px;
+  min-height: 600px;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   flex-direction: ${(props) => (props.reverse ? "row-reverse" : "row")};
-  justify-content: space-between;
+  padding: 80px 0;
   ${(props) =>
     props.last &&
     `
     background: rgb(38,29,23);
 background: linear-gradient(125deg, rgba(38,29,23) 66%, rgba(255,255,255,1) 66%);
     `}
+    @media (max-width: 800px) {
+      ${(props) =>
+        props.last && `
+      background: rgb(38,29,23);`}
+    }
 `;
 const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 65vw;
+  height: 0;
+  flex-grow: 1;
+  width: 60vw;
   min-width: 320px;
-  flex-shrink: 0;
-  padding: 20px 0 0 20px;
+  padding: 40px 20px;
+  height: 40vw;
+  min-height: 400px;
 `;
 
 const ImageBefore = styled.div`
   width: 80%;
-  height: 80%;
+  height: 100%;
   position: relative;
   z-index: 2;
   ::before {
@@ -72,6 +80,13 @@ const TextContainer = styled.div`
   }
   ${props => props.last && `
   color: white;`}
+  @media (max-width: 800px) {
+  >div {
+    width: 90%;
+    max-width: unset;
+  } 
+  }
+  
 `;
 const Title = styled.div`
   font-size: ${units.SectionTitle};

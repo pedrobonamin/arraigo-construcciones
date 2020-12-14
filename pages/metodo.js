@@ -5,37 +5,45 @@ import { units, colors } from "styles";
 
 const Main = styled.div``;
 const SecondSection = styled.div`
-  height: 1000px;
+  min-height: 600px;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  padding: 80px 0px;
   flex-direction: ${(props) => (props.reverse ? "row-reverse" : "row")};
-  justify-content: space-between;
+  padding: 80px 20px;
   ${(props) =>
     props.last &&
     `
     background: rgb(38,29,23);
     background: linear-gradient(114deg, rgba(38,29,23,1) 45%, rgba(255,255,255,1) 45%);
     `}
+  @media (max-width: 800px) {
+    ${(props) =>
+      props.last &&
+      `
+      background: rgb(38,29,23);`}
+  }
 `;
 const ImageContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: column;
-  height: 50%;
-  width: 65vw;
+  width: 55vw;
   min-width: 320px;
-  flex-shrink: 0;
-  padding: 20px 0 0 20px;
-  height: 100%;
+  min-height: 400px;
+  @media (max-width: 800px) {
+    width: 100vw;
+  }
 `;
 
 const ImageBefore = styled.div`
+  flex-shrink: 0;
   width: 80%;
   height: 40%;
   position: relative;
   z-index: 2;
+  min-height: 400px;
   ::before {
     z-index: 0;
     content: "";
@@ -54,6 +62,7 @@ const ImageBefore = styled.div`
   }
 `;
 const Image = styled.div`
+  flex-shrink: 0;
   background-image: url(${(props) => props.src});
   background-position: center;
   background-size: cover;
@@ -61,11 +70,11 @@ const Image = styled.div`
   height: 100%;
   position: relative;
   z-index: 2;
+  min-height: 400px;
 `;
 const TextContainer = styled.div`
   display: flex;
   z-index: 1;
-  height: 100%;
   width: 35vw;
   min-width: 320px;
   flex-direction: column;
@@ -74,8 +83,17 @@ const TextContainer = styled.div`
   > div {
     width: 500px;
     max-width: 70%;
+    @media (max-width: 800px) {
+      width: 100vw;
+      max-width: unset;
+      padding: 1em;
+    }
   }
   color: white;
+  @media (max-width: 800px) {
+    width: 100vw;
+    padding: 40px 20px;
+  }
 `;
 const Title = styled.div`
   font-size: ${units.SectionTitle};
@@ -99,14 +117,18 @@ const Text = styled.div`
   letter-spacing: 1px;
 `;
 const ImageText = styled.div`
-padding: 1em;
-font-size: ${units.SectionText};
-margin: 32px 0;
-line-height: 1.5em;
-margin: 16px 0px;
-letter-spacing: 1px;
-self-align: flex-end;
-
+  padding: 1em;
+  font-size: ${units.SectionText};
+  margin: 32px 0;
+  line-height: 1.5em;
+  margin: 16px 0px;
+  letter-spacing: 1px;
+  max-width: 700px;
+  @media (max-width: 800px) {
+    max-width: unset;
+    width: 100vw;
+    color: white;
+  }
 `;
 
 export default function Home() {

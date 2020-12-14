@@ -37,6 +37,8 @@ const TextContainer = styled.div`
   align-items: center;
   // background: ${colors.black};
   background: rgb(38, 29, 23);
+  position: relative;
+
 `;
 const Text = styled.div`
   animation: ${fadeIn} 1s ease forwards 1;
@@ -46,7 +48,22 @@ const Text = styled.div`
   max-width: 60%;
   line-height: 1.5rem;
   letter-spacing: 1px;
+  z-index: 1;
 `;
+const BackgroundText = styled.div`
+  position: absolute;
+  z-index: 0;
+  font-size: 15vw;
+  font-weight: 800;
+  letter-spacing: 6px;
+  color: white;
+  text-transform: uppercase;
+  bottom: 0;
+  color: rgb(45 45 45 / 80%);
+  overflow: hidden;
+  white-space: nowrap;
+`;
+
 
 export default function Industry() {
   const [selectedTab, setSelectedTab] = useState("civ");
@@ -96,9 +113,13 @@ export default function Industry() {
       />
       <TextContainer>
         {tabsInfo.map((tab) => {
-          console.log(tab, selectedTab);
           if (tab.tabName === selectedTab) {
             return <Text>{tab.detailText}</Text>;
+          } else return null;
+        })}
+            {tabsInfo.map((tab) => {
+          if (tab.tabName === selectedTab) {
+            return <BackgroundText> {tab.text} </BackgroundText>;
           } else return null;
         })}
       </TextContainer>
