@@ -108,7 +108,7 @@ const Navbar = () => {
     };
   }, []);
 
-  const height = 70;
+  const height = 40;
   const width = height * 3.2;
   return (
     <Headroom > 
