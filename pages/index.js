@@ -77,17 +77,17 @@ const ThirdBlockImageContainer = styled.div`
     props.first
       ? `left: 0;
     clip-path: polygon(60% 0, 50% 100%, 0 100%, 0 0);
-    :hover {
-      clip-path: polygon(60% 0, 60% 100%, 0 100%, 0 0);
-      z-index: 1;
-    }
+    // :hover {
+    //   clip-path: polygon(60% 0, 60% 100%, 0 100%, 0 0);
+    //   z-index: 1;
+    // }
     `
       : `right: 0;
   clip-path: polygon(100% 0, 100% 100%, 40% 100%, 60% 0);
-  :hover {
-    clip-path: polygon(100% 0, 100% 100%, 40% 100%, 40% 0);
-    z-index: 1;
-  }
+  // :hover {
+  //   clip-path: polygon(100% 0, 100% 100%, 40% 100%, 40% 0);
+  //   z-index: 1;
+  // }
   `};
 `;
 const Filter = styled.div`
