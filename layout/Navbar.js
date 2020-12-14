@@ -27,7 +27,7 @@ const Nav = styled.nav`
   flex-wrap: wrap-reverse;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 6px 2px 0px rgba(0, 0, 0, 0.27);
+  // box-shadow: 0px 6px 2px 0px rgba(0, 0, 0, 0.27);
 `;
 
 const Ul = styled.ul`
