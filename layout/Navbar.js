@@ -17,17 +17,21 @@ const Headroom = styled(HeadroomComponent)`
   }
 `;
 const Nav = styled.nav`
-// position: fixed;
+position: fixed;
 // top: 0;
 // z-index: 1;
+// position: absolute;
+top: 0;
+width: 100%;
+z-index: 100;
   width: 100%;
-  background: ${props => props.secondary ? colors.black: colors.grey};
+  background: ${props => props.scrolled ? colors.blackWithOpacity: 'transparent'};
   color: ${colors.white};
   display: flex;
   flex-wrap: wrap-reverse;
   justify-content: center;
   align-items: center;
-  // box-shadow: 0px 6px 2px 0px rgba(0, 0, 0, 0.27);
+  transition: all 1s ease;
 `;
 
 const Ul = styled.ul`
@@ -49,7 +53,7 @@ const ImageContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${colors.blackWithOpacity};
+  // background: ${colors.blackWithOpacity};
   padding: 8px 60px;
   clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
   min-width: 350px;
@@ -92,13 +96,13 @@ const Navbar = () => {
     []
   );
 
-  const [secondary, setSecondary] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const handleScroll = () => {
     const scroll = window.scrollY;
-    if (scroll > 100) {
-      setSecondary(true);
+    if (scroll >= 200) {
+      setScrolled(prev => prev < 200 && true);
     } else {
-      setSecondary(false);
+      setScrolled(prev => prev > 200 && false);
     }
   };
   useEffect(() => {
@@ -108,11 +112,11 @@ const Navbar = () => {
     };
   }, []);
 
-  const height = 40;
+  const height = 60;
   const width = height * 3.2;
   return (
-    <Headroom > 
-      <Nav secondary={secondary}>
+    // <Headroom > 
+      <Nav scrolled={scrolled}>
         <Ul>
           {(links || []).map((link, index) => (
             <Li key={index} selected={router.route === link.ref}>
@@ -123,7 +127,7 @@ const Navbar = () => {
           ))}
         </Ul>
         <ImageContainer>
-          {secondary && (
+          {scrolled && (
             <Image
               src="/logoalt.png"
               alt="Picture"
@@ -132,18 +136,18 @@ const Navbar = () => {
               layout="fixed"
             />
           )}
-          {!secondary && (
+          {!scrolled && (
             <Image
               src="/logo.png"
               alt="Picture"
-              width={width}
+              width={width }
               height={height}
               layout="fixed"
             />
           )}
         </ImageContainer>
       </Nav>
-     </Headroom>
+    //  </Headroom>
   );
 };
 export default Navbar;

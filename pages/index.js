@@ -135,6 +135,16 @@ const ThirdBlockText = styled.div`
   font-size: 48px;
 `;
 
+const ImageDiv = styled.div`
+background-image: url(${(props) => props.src});
+background-position: right;
+background-size: cover;
+height: 100%;
+width: 60%;
+position: absolute;
+${props =>props.position};
+`
+
 export default function Home() {
   const router = useRouter();
   const [hover, setHover] = useState();
@@ -176,7 +186,8 @@ export default function Home() {
               />
               <ThirdBlockText>INDUSTRIA</ThirdBlockText>
             </LogoText>
-            <Image
+            <ImageDiv
+              position={'left: 0;'}
               src={"/home/home-industria-bw.jpg"}
               alt={"Industria"}
               layout="fill"
@@ -199,10 +210,11 @@ export default function Home() {
                 height="200"
                 width="200"
                 layout="fixed"
-              />
+                />
               <ThirdBlockText>HOGAR</ThirdBlockText>
             </LogoText>
-            <Image
+            <ImageDiv
+                position={'right: 0;'}
               src={"/home/home-hogar-bw.png"}
               alt={"Hogar"}
               layout="fill"

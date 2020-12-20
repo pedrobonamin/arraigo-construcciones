@@ -64,6 +64,7 @@ const BackgroundText = styled.div`
   color: rgb(45 45 45 / 80%);
   overflow: hidden;
   white-space: nowrap;
+  max-width: 100%;
 `;
 
 

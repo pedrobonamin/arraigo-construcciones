@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import { useState } from "react";
 import styled from "styled-components";
 import MyLayout from "../layout";
 import TextField from "@material-ui/core/TextField";
@@ -9,33 +9,49 @@ import InputLabel from "@material-ui/core/InputLabel";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import Hero from "./components/Hero";
 import { colors, units } from "styles";
-import Button from './components/Button'
+import Button from "./components/Button";
 
 const Main = styled.main``;
 const SecondBlock = styled.div`
   background-image: url("/contacto/contact.png");
-  height: 600px;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 100% 100vw;
+  background-size: cover;
   display: flex;
   justify-content: flex-end;
+  @media (max-width: 800px) {
+  padding: 20px;
+  }
 `;
 
 const FormContainer = styled.div`
   width: 70vw;
   height: 100%;
-  background: #231f20;
+  background: ${colors.footerBackground};
   clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
   color: white;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 20px 20px 20px 18%;
   text-align: center;
-  > div {
-    max-width: 50%;
+  min-height: 800px;
+  @media (max-width: 800px) {
+    width: 100%;
+    clip-path: none;
+  padding: 20px;
+  border-radius: 8px;
+
+
   }
+  // > div {
+  //   max-width: 50%;
+  //   @media (max-width: 800px) {
+  //     max-width: 100%;
+  //   }
+  // }
 `;
 
 const Title = styled.div`
@@ -103,7 +119,7 @@ const Map = styled.iframe`
 
 const StyledFormControl = styled(FormControl)`
   && {
-    margin: ${props => props.fullWidth ? '8px 0 32px 0' : '8px 0'};
+    margin: ${(props) => (props.fullWidth ? "8px 0 32px 0" : "8px 0")};
     width: ${(props) => (props.fullWidth ? "100%" : "45%")};
 
     color: white;
@@ -161,22 +177,21 @@ const MuiTheme = createMuiTheme({
 
 const Contact = () => {
   const [formState, setFormState] = useState({
-    nombre: '',
-    telefono: '',
-    email: '',
-    asunto: '',
-    mensaje: ''
-  })
+    nombre: "",
+    telefono: "",
+    email: "",
+    asunto: "",
+    mensaje: "",
+  });
 
   const handleChange = (e, input) => {
-    setFormState({ ...formState, [input]: e.target.value })
-  }
+    setFormState({ ...formState, [input]: e.target.value });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log('FORM STATE', formState)
- 
-  }
+    console.log("FORM STATE", formState);
+  };
   return (
     <ThemeProvider theme={MuiTheme}>
       <Main>
@@ -188,6 +203,7 @@ const Contact = () => {
         />
         <SecondBlock>
           <FormContainer>
+
             <Title>CONTACTO</Title>
             <Text>
               Estamos esperandote para poder ayudarte en lo que necesites.
@@ -247,8 +263,8 @@ const Contact = () => {
                 value={formState.mensaje}
                 onChange={(event) => handleChange(event, "mensaje")}
               />
-              <div style={{flexGrow: 1, width: '30px'}}/>
-              <Button text='ENVIAR' onClick={handleSubmit} />
+              <div style={{ flexGrow: 1, width: "30px" }} />
+              <Button text="ENVIAR" onClick={handleSubmit} />
             </InputsContainer>
           </FormContainer>
         </SecondBlock>

@@ -1,17 +1,18 @@
 import styled from "styled-components";
 import MyLayout from "../layout";
 import Hero from "./components/Hero";
+import Link from "next/link";
 
 import { units, colors } from "styles";
-const Main = styled.main`
-  // height: 3000px;
-`;
 
 const TextContainer = styled.div`
-  min-height: 1000px;
   background: ${colors.footerBackground};
-  padding: 100px 20px;
+  padding: 60px 20px;
+  @media (max-width: 800px) {
+    padding: 20px;
+  }
 `;
+
 const Title = styled.div`
   font-size: ${units.SectionTitle};
   text-align: left;
@@ -26,15 +27,35 @@ const Title = styled.div`
     background-color: ${colors.red};
   }
 `;
+const PContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
 const Text = styled.div`
-color: ${colors.white};
-line-height: 1.5em;
-margin: 16px 0px;
-letter-spacing: 1px;
+  color: ${colors.white};
+  line-height: 1.5em;
+  margin: 8px 0px;
+  letter-spacing: 1.2px;
+  width: 45%;
+  @media (max-width: 800px) {
+    width: 100%;
+  }
+`;
+
+const LastText = styled.div`
+  color: ${colors.white};
+  line-height: 1.5em;
+  margin: 16px 0px;
+  letter-spacing: 1.2px;
+`;
+const StyledLink = styled.span`
+  text-decoration: underline !important;
+  font-weight: bold;
 `;
 export default function Home() {
   return (
-    <Main>
+    <>
       <Hero
         title="CONOCENOS"
         text="AMPLIANDO TUS LÍMITES"
@@ -45,16 +66,38 @@ export default function Home() {
         <Title>
           <div>AMPLIANDO TUS LÍMITES</div>
         </Title>
-        <Text>
-          Somos una empresa con una cultura de compromiso con el cliente, cuyo
-          objetivo es alcanzar la calidad y el cumplimiento del plazo de los
-          proyectos, priorizando la seguridad en obra y nuestra vocación de
-          servicio. Más que Obras, Construimos Proyectos Integrales, abarcamos
-          obras civiles, metalúrgicas, combinando proyecto, dirección y
-          servicios, dando soluciones definitivas a cada proyecto en particular.
-        </Text>
+        <PContainer>
+          <Text>
+            <p>
+              Arraigo inicia en 2005, desarrollando sus primeros pasos en el
+              ámbito de la construcción y dando nuestro mayor esfuerzo proyecto
+              a proyecto. De esta manera logramos consolidar un equipo
+              experimentado, eficaz y orientado al clientes siendo flexibles,
+              responsables, innovadores, resolutivos, con alta capacidad de
+              respuesta y cumpliendo con los plazos acordados.
+            </p>
+          </Text>
+
+          <Text>
+            <p>
+              A su vez, nuestra esencia de evolucionar constantemente nos llevó
+              a brindar un servicio integrador para poder cubrir sus necesidades
+              en un solo lugar, reinventándonos como ingeniería de proyectos. De
+              esta manera, diseñamos una nueva forma de trabajo,{" "}
+              <Link href="/metodo">
+                <StyledLink>Método ICI</StyledLink>
+              </Link>
+              , para entregarles soluciones innovadoras.
+            </p>
+          </Text>
+          <LastText>
+
+            Nuestro objetivo es ampliar sus límites, esforzándonos codo a codo
+            para potenciar su crecimiento al máximo.
+          </LastText>
+        </PContainer>
       </TextContainer>
-    </Main>
+    </>
   );
 }
 

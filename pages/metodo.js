@@ -8,19 +8,20 @@ const SecondSection = styled.div`
   min-height: 600px;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   flex-direction: ${(props) => (props.reverse ? "row-reverse" : "row")};
   padding: 80px 20px;
   ${(props) =>
     props.last &&
     `
     background: ${colors.footerBackground};
-    background: linear-gradient(114deg, ${colors.footerBackground} 45%, rgba(255,255,255,1) 45%);
+    background: linear-gradient(114deg, ${colors.footerBackground} 50%, rgba(255,255,255,1) 45%);
     `}
   @media (max-width: 800px) {
     ${(props) =>
       props.last &&
       `
+      padding: 20px 20px;
       background: ${colors.footerBackground};`}
   }
 `;
@@ -29,21 +30,22 @@ const ImageContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 55vw;
+  width: 50vw;
   min-width: 320px;
   min-height: 400px;
   @media (max-width: 800px) {
     width: 100vw;
+    min-height: 320px;
   }
 `;
 
 const ImageBefore = styled.div`
-  flex-shrink: 0;
+  // flex-shrink: 0;
   width: 80%;
-  height: 40%;
+  // height: 40%;
   position: relative;
   z-index: 2;
-  min-height: 400px;
+  // min-height: 400px;
   ::before {
     z-index: 0;
     content: "";
@@ -71,15 +73,19 @@ const Image = styled.div`
   position: relative;
   z-index: 2;
   min-height: 400px;
+  @media (max-width: 800px) {
+    min-height: 80vw;
+  }
 `;
+
 const TextContainer = styled.div`
   display: flex;
   z-index: 1;
-  width: 35vw;
+  width: 45vw;
   min-width: 320px;
   flex-direction: column;
   letter-spacing: 1px;
-  align-items: center;
+  align-items: flex-start;
   > div {
     width: 500px;
     max-width: 70%;
@@ -93,6 +99,8 @@ const TextContainer = styled.div`
   @media (max-width: 800px) {
     width: 100vw;
     padding: 40px 20px;
+  align-items: center;
+
   }
 `;
 const Title = styled.div`
@@ -149,20 +157,13 @@ export default function Home() {
       <SecondSection last reverse>
         <ImageContainer>
           <ImageBefore reverse={true}>
-            <Image src={"/metodo/metodo.png"} alt={"trayectoria"} />
+            <Image reverse src={"/metodo/metodo.png"} alt={"trayectoria"} />
           </ImageBefore>
           <ImageText>
             <p>
-              Somos un estudio de arquitectura especializado en la construcción
-              de viviendas. Cuidamos cada detalle, desde el inicio hasta el
-              final, para que nuestros clientes se sientan felices en su nuevo
-              hogar.
-            </p>
-            <p>
-              Somos un estudio de arquitectura especializado en la construcción
-              de viviendas. Cuidamos cada detalle, desde el inicio hasta el
-              final, para que nuestros clientes se sientan felices en su nuevo
-              hogar.
+              Está construcción se afronta de manera integral para cubrir
+              constantemente cada necesidad. Ofreciendo un abanico muy amplio de
+              servicios, dando una excelente calidad de producto final.
             </p>
           </ImageText>
         </ImageContainer>
@@ -173,16 +174,20 @@ export default function Home() {
           </Title>
           <Text>
             <p>
-              Somos un estudio de arquitectura especializado en la construcción
-              de viviendas. Cuidamos cada detalle, desde el inicio hasta el
-              final, para que nuestros clientes se sientan felices en su nuevo
-              hogar.
+              Para ampliar tus límites es necesario accionar de forma innovadora
+              y eficaz, pero a su vez empleando la experiencia adquirida a
+              través de cada paso. Esto nos llevó a desarrollar un método propio
+              para llevar a otro nivel la ejecución de cada proyecto,
+              materializando sus ideas y haciendo realidad sus sueños.
             </p>
             <p>
-              Somos un estudio de arquitectura especializado en la construcción
-              de viviendas. Cuidamos cada detalle, desde el inicio hasta el
-              final, para que nuestros clientes se sientan felices en su nuevo
-              hogar.
+              La metodología de trabajo es inteligente partiendo de su esencia
+              proactiva en la auditoría exhaustiva de los requerimientos y
+              objetivos de cada proyecto. Generando una planificación de las
+              previsiones actuales e incluso creando soluciones para acciones
+              futuras. De este modo logramos la optimización de los recursos,
+              disponiendo de personal capacitado para que el crecimiento de su
+              empresa llegue hasta el último detalle.
             </p>
           </Text>
         </TextContainer>

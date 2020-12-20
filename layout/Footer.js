@@ -57,7 +57,10 @@ const Component = () => {
           <li>
             <Titles>CONTACTO:</Titles>
           </li>
-          <li>info@arraigo.com.ar</li>
+          <li> <a href="mailto:administracion@grupoarraigo.com">
+            administracion@grupoarraigo.com
+            </a>
+            </li>
           <li> +54 (341) 4683676 | +54 (341) 3871945</li>
           <li> J.M Gutierrez 1994, Rosario, Argentina</li>
           <li>

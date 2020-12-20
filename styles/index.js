@@ -7,7 +7,7 @@ export const colors = {
     red: '#790016',
     redHighlight: '#790016',
     black: 'rgb(20, 19, 19)',
-    blackWithOpacity: 'rgba(0, 0, 0, 0.8)',
+    blackWithOpacity: 'rgba(0, 0, 0, 0.9)',
     footerBackground: "#131212"
 
 }

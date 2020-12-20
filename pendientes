@@ -1,0 +1,57 @@
+Método: 
+    Falta textos.
+
+Conocenos:
+    Falta texto
+
+Contacto
+    Email para configurarlo
+    Dirección del lugar.
+
+
+Industria:
+    Imagenes en blanco y negro
+    Acomodar texto al fondo.
+
+Hogar:
+    Textos.
+    Imágenes en blanco y negro.
+    Iconos correspondientes.
+General:
+    Dimensiones del isologo - mejor todavía iso logo en png  - svg o lo que sea.
+
+
+
+
+TODO:
+    Configurar email para formulario.
+    cambiar logo de heros
+    cambiar imágenes a BN hogar e industria
+    Terminar de acomodar responsive en:
+        Inicio
+        Hogar e industria, acomodar tabs
+
+
+DONE:
+    Home Page:
+        Navbar = siempre fijo, cambia de color y fondo con scroll
+        Cambiar imágenes blanco y negro.
+    Método:
+        Texto modificado.
+    Nosotros:
+        Texto modificado    
+    Contacto:
+        Color de fondo igual al resto del sitio.
+
+
+PENDIENTE GODI / EQUI / DISEÑADOR
+    Página de inicio
+        Texto de Hero.
+        Texto de última sección.
+        Saber que filtro va (color y opacidad)
+    Contacto:
+        Contraseña email.
+        Dirección del lugar.
+
+    
+
