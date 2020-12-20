@@ -48,6 +48,7 @@ const LastText = styled.div`
   line-height: 1.5em;
   margin: 16px 0px;
   letter-spacing: 1.2px;
+
 `;
 const StyledLink = styled.span`
   text-decoration: underline !important;
@@ -77,7 +78,6 @@ export default function Home() {
               respuesta y cumpliendo con los plazos acordados.
             </p>
           </Text>
-
           <Text>
             <p>
               A su vez, nuestra esencia de evolucionar constantemente nos llevó
@@ -89,12 +89,17 @@ export default function Home() {
               </Link>
               , para entregarles soluciones innovadoras.
             </p>
-          </Text>
-          <LastText>
-
-            Nuestro objetivo es ampliar sus límites, esforzándonos codo a codo
+            </Text>
+            {/* <Text>
+            <p>
+         
+            </p>
+          </Text> */}
+           <LastText>
+           Nuestro objetivo es ampliar sus límites, esforzándonos codo a codo
             para potenciar su crecimiento al máximo.
-          </LastText>
+     
+          </LastText> 
         </PContainer>
       </TextContainer>
     </>

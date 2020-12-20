@@ -15,9 +15,6 @@ const fadeIn = keyframes`
   }
 `;
 
-const Main = styled.main`
-  // height: 3000px;
-`;
 const TextContainer = styled.div`
   height: 400px;
   display: flex;
@@ -118,7 +115,7 @@ export default function Industry() {
   ];
 
   return (
-    <Main>
+    <>
       <Hero
         title={"HOGAR"}
         text="AMPLIANDO TUS LÍMITES"
@@ -151,7 +148,7 @@ export default function Industry() {
       </TextContainer>
       <SectionImageText image="/industria/industria-1.jpg" />
       <SectionImageText image="/industria/industria-2.png" reverse last />
-    </Main>
+    </>
   );
 }
 

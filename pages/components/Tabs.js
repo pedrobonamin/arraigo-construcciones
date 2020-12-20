@@ -50,14 +50,7 @@ const Tab = styled.div`
   background-position: center;
   background-size: cover;
   position: relative;
-  filter: grayscale(100%);
   transition: all 1s ease;
-  ${props => props.selectedTab === props.tabName && !props.hover &&`
-  filter: none;
-`}
-  :hover {
-    filter: none;
-  }
 `;
 
 const LogoText = styled.div`
@@ -86,13 +79,12 @@ const Filter = styled.div`
   left: 0;
   z-index: 2;
   transition: all 1s ease;
-  filter: none;
   :hover {
     background: ${colors.redHighlight};
     opacity: 0.8;
   }
   ${(props) =>
-    props.selectedTab === props.tabName &&
+    props.selectedTab === props.tabName && 
     `
   background: ${colors.redHighlight};
   opacity: 0.8;
@@ -103,6 +95,11 @@ const Filter = styled.div`
     background: ${colors.redHighlight};
     opacity: 0.8;
     `};
+    ${props => props.hover && props.hover !== props.text && `
+    background: transparent;
+    opacity: 1;
+    `}
+
 `;
 
 const Component = ({ tabs, handleClick, selectedTab }) => {

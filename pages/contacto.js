@@ -10,6 +10,8 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import Hero from "./components/Hero";
 import { colors, units } from "styles";
 import Button from "./components/Button";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from '@material-ui/lab/Alert';
 
 const Main = styled.main``;
 const SecondBlock = styled.div`
@@ -20,7 +22,7 @@ const SecondBlock = styled.div`
   display: flex;
   justify-content: flex-end;
   @media (max-width: 800px) {
-  padding: 20px;
+    padding: 20px;
   }
 `;
 
@@ -41,10 +43,8 @@ const FormContainer = styled.div`
   @media (max-width: 800px) {
     width: 100%;
     clip-path: none;
-  padding: 20px;
-  border-radius: 8px;
-
-
+    padding: 20px;
+    border-radius: 8px;
   }
   // > div {
   //   max-width: 50%;
@@ -175,6 +175,10 @@ const MuiTheme = createMuiTheme({
   },
 });
 
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
 const Contact = () => {
   const [formState, setFormState] = useState({
     nombre: "",
@@ -183,15 +187,82 @@ const Contact = () => {
     asunto: "",
     mensaje: "",
   });
+  const [success, setSuccess] = useState(false)
+  const [errorMessage, setErrorMessage] = useState()
+
+  function validateEmail(email) {
+    // eslint-disable-next-line 
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
+  const handleCloseSuccess = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setSuccess(false);
+  };
+  const handleCloseError = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setErrorMessage(false);
+  };
 
   const handleChange = (e, input) => {
     setFormState({ ...formState, [input]: e.target.value });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateEmail(formState.email)) {
+      return setErrorMessage('Por favor, ingrese un email válido')
+    }
+    if(!formState.telefono){
+      return setErrorMessage('Por favor, ingrese un teléfono')
+    }
+    if(!formState.nombre){
+      return setErrorMessage('Por favor, ingrese un nombre')
+    }
+    if(!formState.asunto){
+      return setErrorMessage('Por favor, seleccione un asunto')
+    }
+    if(!formState.mensaje){
+      return setErrorMessage('Por favor, ingrese una consulta')
+    }
+    const msg = {
+      to: "administracion@grupoarraigo.com",
+      from: "administracion@grupoarraigo.com",
+      subject: formState.asunto,
+      text: formState.mensaje,
+      html: `
+      <div>
+        <strong>Nueva consulta de ${formState.nombre}</strong>
+        <br/>
+        <strong>Nombre:</strong> ${formState.nombre}
+        <br/>
+        <strong> Teléfono: </strong> ${formState.telefono}
+        <br/>
+        <p> ${formState.mensaje}</p>
+      </div>
+      `,
+    };
 
-    console.log("FORM STATE", formState);
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ msg }),
+      });
+      if(response.status === 200){
+        setSuccess(true)
+      } else {
+        setErrorMessage('Lo sentimos, hubo un error, intente de nuevo.')
+      }
+    } catch (e) {
+      setErrorMessage('Lo sentimos, hubo un error, intente de nuevo.')
+    }
   };
+
   return (
     <ThemeProvider theme={MuiTheme}>
       <Main>
@@ -203,7 +274,6 @@ const Contact = () => {
         />
         <SecondBlock>
           <FormContainer>
-
             <Title>CONTACTO</Title>
             <Text>
               Estamos esperandote para poder ayudarte en lo que necesites.
@@ -225,8 +295,6 @@ const Contact = () => {
                 value={formState.email}
                 required
                 onChange={(event) => handleChange(event, "email")}
-                // error={emailError}
-                // helperText={emailError ? "Email incorrecto" : ""}
               />
               <StyledTextField
                 label="Tel / Cel"
@@ -254,9 +322,9 @@ const Contact = () => {
               </StyledFormControl>
               <StyledTextField
                 fullWidth
-                label="Email"
+                label="Mensaje"
                 variant="outlined"
-                name="email"
+                name="mensaje"
                 required
                 multiline
                 rows={5}
@@ -277,6 +345,16 @@ const Contact = () => {
           tabindex="0"
         />
       </Main>
+      <Snackbar open={success} autoHideDuration={6000} onClose={handleCloseSuccess}>
+        <Alert onClose={handleCloseSuccess} severity="success">
+          Email enviado correctamente!
+        </Alert>
+      </Snackbar>
+      <Snackbar open={errorMessage} autoHideDuration={6000} onClose={handleCloseError}>
+        <Alert onClose={handleCloseError} severity="error">
+          {errorMessage}
+        </Alert>
+      </Snackbar>
     </ThemeProvider>
   );
 };

@@ -14,32 +14,6 @@ const Filter = styled.div`
   z-index: 1;
   position: absolute;
   overflow: hidden;
-  ${(props) =>
-    props.addSquares &&
-    `
-  ::before {
-    z-index: 0;
-    content: "";
-    width: 260px;
-    height: 500px;
-    border: 2px solid white;
-    position: absolute;
-    bottom : 0;
-    left: -190px;
-    transform: rotate(45deg)
-  }
-  ::after {
-    z-index: 0;
-    content: "";
-    width: 260px;
-    height: 260px;
-    border: 2px solid white;
-    position: absolute;
-    bottom : 0;
-    left: 100px;
-    transform: rotate(45deg)
-  }
-  `}
 `;
 
 const TextContainer = styled.div`
@@ -83,6 +57,17 @@ const Text = styled.div`
   max-width: ${(props) => props.maxWidth};
 `;
 
+const LogoImage = styled.div`
+  background-image: url(${(props) => props.src});
+  background-position: top;
+  background-size: cover;
+  height: 40%;
+  width: 30%;
+  position: absolute;
+  bottom: 0;
+  left: -110px;
+  z-index: 1;
+`;
 const Hero = ({
   src,
   title,
@@ -105,6 +90,7 @@ const Hero = ({
         sizes="60vh"
         priority
       />
+      {addSquares && <LogoImage src="/isologoContorno.png" />}
       <TextContainer>
         <TextSubContainer>
           <Title underline={underline}>{title}</Title>

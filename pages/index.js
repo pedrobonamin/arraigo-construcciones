@@ -137,7 +137,7 @@ const ThirdBlockText = styled.div`
 
 const ImageDiv = styled.div`
 background-image: url(${(props) => props.src});
-background-position: right;
+background-position: top;
 background-size: cover;
 height: 100%;
 width: 60%;

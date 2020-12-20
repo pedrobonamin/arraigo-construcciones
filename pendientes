@@ -24,17 +24,19 @@ General:
 
 
 TODO:
-    Configurar email para formulario.
-    cambiar logo de heros
-    cambiar imágenes a BN hogar e industria
+
+
     Terminar de acomodar responsive en:
         Inicio
         Hogar e industria, acomodar tabs
 
 
 DONE:
-    Home Page:
+    Todas:
+        cambiar logo de heros
         Navbar = siempre fijo, cambia de color y fondo con scroll
+
+    Home Page:
         Cambiar imágenes blanco y negro.
     Método:
         Texto modificado.
@@ -42,6 +44,12 @@ DONE:
         Texto modificado    
     Contacto:
         Color de fondo igual al resto del sitio.
+        Configurar email para formulario.
+
+    Industria
+        cambiar imágenes a BN
+    Hogar
+        cambiar imágenes a BN
 
 
 PENDIENTE GODI / EQUI / DISEÑADOR
@@ -50,8 +58,8 @@ PENDIENTE GODI / EQUI / DISEÑADOR
         Texto de última sección.
         Saber que filtro va (color y opacidad)
     Contacto:
-        Contraseña email.
         Dirección del lugar.
+    Textos e imágenes de botones de hogar
 
     
 
