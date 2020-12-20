@@ -4,25 +4,26 @@ import styled from "styled-components";
 import { colors, units } from "styles";
 import Image from "next/image";
 import { useRouter } from "next/router";
-// import HeadroomComponent from "react-headroom";
+import HeadroomComponent from "react-headroom";
 
-// const Headroom = styled(HeadroomComponent)`
-//   position: absolute;
-//   top: 0;
-//   width: 100%;
-//   z-index: 100;
-//   .headroom--unpinned {
-//     position: fixed;
-//     transform: translateY(0%);
-//   }
-// `;
-const Nav = styled.nav`
-position: fixed;
-top: 0;
-width: 100%;
-z-index: 100;
+const Headroom = styled(HeadroomComponent)`
+  position: absolute;
+  top: 0;
   width: 100%;
-  background: ${props => props.scrolled ? colors.blackWithOpacity: 'transparent'};
+  z-index: 100;
+  .headroom--unpinned {
+    position: fixed;
+    transform: translateY(0%);
+  }
+`;
+const Nav = styled.nav`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  width: 100%;
+  background: ${(props) =>
+    props.scrolled ? colors.blackWithOpacity : "transparent"};
   color: ${colors.white};
   display: flex;
   flex-wrap: wrap-reverse;
@@ -43,7 +44,7 @@ const Ul = styled.ul`
   @media (max-width: 800px) {
     margin-left: 0;
     justify-content: center;
-    padding: 16px 0;
+    padding: 0 0 8px 0;
     font-size: 12px;
   }
 `;
@@ -52,7 +53,6 @@ const ImageContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  // background: ${colors.blackWithOpacity};
   padding: 8px 60px;
   clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
   min-width: 350px;
@@ -72,6 +72,23 @@ const Li = styled.li`
   color: ${colors.red};
   font-weight: 400;
   `}
+`;
+
+const MobileLogo = styled.div`
+padding: 8px;
+display: flex;
+align-items: center;
+justify-content: center;
+${(props) => props.background && ` background: ${colors.black};`}
+`;
+
+const MobileNav = styled.div`
+position: fixed;
+top: 0;
+width: 100vw;
+z-index: 10;
+background: ${colors.blackWithOpacity};
+  color: white;
 `;
 const Navbar = () => {
   const router = useRouter();
@@ -98,16 +115,39 @@ const Navbar = () => {
   );
 
   const [scrolled, setScrolled] = useState(false);
+  const [mount, setMount] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(0);
+
   const handleScroll = () => {
     const scroll = window.scrollY;
+    console.log("SCROLL", scroll);
+    if (screenWidth < 800 && scroll > 76) {
+      return setScrolled(true);
+    } else if (screenWidth < 800 && scroll < 76) {
+      return setScrolled(false);
+    }
     if (scroll >= 200) {
-      setScrolled(prev => prev < 200 && true);
+      setScrolled((prev) => prev < 200 && true);
     } else {
-      setScrolled(prev => prev > 200 && false);
+      setScrolled((prev) => prev > 200 && false);
     }
   };
+  function reportWindowSize() {
+    setScreenWidth(window.innerWidth);
+  }
+
+  useEffect(() => {
+    setMount(true);
+  }, []);
+  useEffect(() => {
+    if (mount) {
+      setScreenWidth(window.innerWidth);
+    }
+  }, [mount]);
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, true);
+    window.addEventListener("resize", reportWindowSize);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -116,39 +156,77 @@ const Navbar = () => {
   const height = 60;
   const width = height * 3.2;
   return (
-    // <Headroom > 
-      <Nav scrolled={scrolled}>
-        <Ul>
-          {(links || []).map((link, index) => (
-            <Li key={index} selected={router.route === link.ref}>
-              <Link href={link.ref}>
-                <a>{link.name}</a>
-              </Link>
-            </Li>
-          ))}
-        </Ul>
-        <ImageContainer>
+    <>
+      {screenWidth > 800 && (
+        <Nav scrolled={scrolled}>
+          <Ul>
+            {(links || []).map((link, index) => (
+              <Li key={index} selected={router.route === link.ref}>
+                <Link href={link.ref}>
+                  <a>{link.name}</a>
+                </Link>
+              </Li>
+            ))}
+          </Ul>
+          <ImageContainer>
+            {scrolled && (
+              <Image
+                src="/logoalt.png"
+                alt="Picture"
+                width={height}
+                height={height}
+                layout="fixed"
+              />
+            )}
+            {!scrolled && (
+              <Image
+                src="/logo.png"
+                alt="Picture"
+                width={width}
+                height={height}
+                layout="fixed"
+              />
+            )}
+          </ImageContainer>
+        </Nav>
+      )}
+      {screenWidth < 800 && (
+        <>
           {scrolled && (
-            <Image
-              src="/logoalt.png"
-              alt="Picture"
-              width={height}
-              height={height}
-              layout="fixed"
-            />
+            <MobileNav>
+              <MobileLogo>
+                <Image
+                  src="/logo.png"
+                  alt="Picture"
+                  width={width / 2}
+                  height={height / 2}
+                  layout="fixed"
+                />
+              </MobileLogo>
+              <Ul>
+                {(links || []).map((link, index) => (
+                  <Li key={index} selected={router.route === link.ref}>
+                    <Link href={link.ref}>
+                      <a>{link.name}</a>
+                    </Link>
+                  </Li>
+                ))}
+              </Ul>
+            </MobileNav>
           )}
-          {!scrolled && (
+          <MobileLogo background>
             <Image
               src="/logo.png"
               alt="Picture"
-              width={width }
+              width={width}
               height={height}
               layout="fixed"
             />
-          )}
-        </ImageContainer>
-      </Nav>
-    //  </Headroom>
+          </MobileLogo>
+        </>
+      )}
+    </>
   );
 };
+
 export default Navbar;
