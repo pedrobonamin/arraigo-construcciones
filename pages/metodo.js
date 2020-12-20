@@ -41,7 +41,7 @@ const ImageContainer = styled.div`
 
 const ImageBefore = styled.div`
   // flex-shrink: 0;
-  width: 80%;
+  width: 70%;
   // height: 40%;
   position: relative;
   z-index: 2;

@@ -4,23 +4,20 @@ import styled from "styled-components";
 import { colors, units } from "styles";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import HeadroomComponent from "react-headroom";
+// import HeadroomComponent from "react-headroom";
 
-const Headroom = styled(HeadroomComponent)`
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-  .headroom--unpinned {
-    position: fixed;
-    transform: translateY(0%);
-  }
-`;
+// const Headroom = styled(HeadroomComponent)`
+//   position: absolute;
+//   top: 0;
+//   width: 100%;
+//   z-index: 100;
+//   .headroom--unpinned {
+//     position: fixed;
+//     transform: translateY(0%);
+//   }
+// `;
 const Nav = styled.nav`
 position: fixed;
-// top: 0;
-// z-index: 1;
-// position: absolute;
 top: 0;
 width: 100%;
 z-index: 100;
@@ -32,6 +29,7 @@ z-index: 100;
   justify-content: center;
   align-items: center;
   transition: all 1s ease;
+  max-width: 100vw;
 `;
 
 const Ul = styled.ul`
@@ -46,6 +44,7 @@ const Ul = styled.ul`
     margin-left: 0;
     justify-content: center;
     padding: 16px 0;
+    font-size: 12px;
   }
 `;
 
@@ -60,6 +59,8 @@ const ImageContainer = styled.div`
   @media (max-width: 800px) {
     width: 100%;
     clip-path: unset;
+    min-width: 250px;
+    padding: 8px 0;
   }
 `;
 const Li = styled.li`

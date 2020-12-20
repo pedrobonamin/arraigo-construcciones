@@ -38,14 +38,17 @@ const TextSubContainer = styled.div`
 const Title = styled.div`
   font-size: ${units.HeroTitle};
   z-index: 1;
+  @media (max-width: 800px) {
+    font-size: 48px !important;
+  }
   :after {
-	content: '';
+    content: "";
     display: block;
-    margin:${(props) => (props.underline === "center" ? "0 30%" : "0 60% 0 0")};
-	height: 4px;
-	background-color: ${colors.white};
-}
-}
+    margin: ${(props) =>
+      props.underline === "center" ? "0 30%" : "0 60% 0 0"};
+    height: 4px;
+    background-color: ${colors.white};
+  }
 `;
 
 const Text = styled.div`

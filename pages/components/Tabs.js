@@ -84,7 +84,7 @@ const Filter = styled.div`
     opacity: 0.8;
   }
   ${(props) =>
-    props.selectedTab === props.tabName && 
+    props.selectedTab === props.tabName &&
     `
   background: ${colors.redHighlight};
   opacity: 0.8;
@@ -95,54 +95,102 @@ const Filter = styled.div`
     background: ${colors.redHighlight};
     opacity: 0.8;
     `};
-    ${props => props.hover && props.hover !== props.text && `
+  ${(props) =>
+    props.hover &&
+    props.hover !== props.text &&
+    `
     background: transparent;
     opacity: 1;
     `}
-
 `;
 
-const Component = ({ tabs, handleClick, selectedTab }) => {
+const Divider = styled.div`
+width: 100%;
+height: 8px;
+background ${colors.black};
+`;
+
+const Component = ({ tabs, handleClick, selectedTab, secondLineTabs }) => {
   const [hover, setHover] = useState();
 
   return (
-    <TabsContainer>
-      {tabs?.map((tab, index) => {
-        const { image, icon, text, position, tabName } = tab;
-        return (
-          <Tab
-          selectedTab={selectedTab}
-          tabName={tabName}
-          hover={hover}
-            onClick={() => handleClick(tabName)}
-            key={index + text}
-            position={position}
-            url={image}
-            onMouseEnter={() => setHover(text)}
-            onMouseLeave={() => setHover()}
-          >
-            <Filter
+    <>
+      <TabsContainer>
+        {tabs?.map((tab, index) => {
+          const { image, icon, text, position, tabName } = tab;
+          return (
+            <Tab
               selectedTab={selectedTab}
               tabName={tabName}
-              text={text}
               hover={hover}
-            />
-            <LogoText
-       
+              onClick={() => handleClick(tabName)}
+              key={index + text}
+              position={position}
+              url={image}
+              onMouseEnter={() => setHover(text)}
+              onMouseLeave={() => setHover()}
             >
-              <Image
-                src={icon}
-                alt={text}
-                height="160"
-                width="160"
-                layout="fixed"
+              <Filter
+                selectedTab={selectedTab}
+                tabName={tabName}
+                text={text}
+                hover={hover}
               />
-              <Text>{text.toUpperCase()}</Text>
-            </LogoText>
-          </Tab>
-        );
-      })}
-    </TabsContainer>
+              <LogoText>
+                <Image
+                  src={icon}
+                  alt={text}
+                  height="160"
+                  width="160"
+                  layout="fixed"
+                />
+                <Text>{text.toUpperCase()}</Text>
+              </LogoText>
+            </Tab>
+          );
+        })}
+      </TabsContainer>
+      {secondLineTabs && (
+        <>
+          <Divider />
+          <TabsContainer>
+            {secondLineTabs?.map((tab, index) => {
+              const { image, icon, text, position, tabName } = tab;
+              return (
+                <Tab
+                  selectedTab={selectedTab}
+                  tabName={tabName}
+                  hover={hover}
+                  onClick={() => handleClick(tabName)}
+                  key={index + text}
+                  position={position}
+                  url={image}
+                  onMouseEnter={() => setHover(text)}
+                  onMouseLeave={() => setHover()}
+                >
+                  <Filter
+                    selectedTab={selectedTab}
+                    tabName={tabName}
+                    text={text}
+                    hover={hover}
+                  />
+                  <LogoText>
+                    <Image
+                      src={icon}
+                      alt={text}
+                      height="160"
+                      width="160"
+                      layout="fixed"
+                    />
+                    <Text>{text.toUpperCase()}</Text>
+                  </LogoText>
+                </Tab>
+              );
+            })}
+          </TabsContainer>
+        </>
+      )}
+    </>
   );
 };
 

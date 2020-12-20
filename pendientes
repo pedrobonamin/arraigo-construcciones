@@ -23,15 +23,10 @@ General:
 
 
 
-TODO:
 
 
-    Terminar de acomodar responsive en:
-        Inicio
-        Hogar e industria, acomodar tabs
 
-
-DONE:
+CAMBIOS DESDE ULTIMA VERSION:
     Todas:
         cambiar logo de heros
         Navbar = siempre fijo, cambia de color y fondo con scroll
@@ -52,6 +47,12 @@ DONE:
         cambiar imágenes a BN
 
 
+PENDIENTE PEDRO:
+    Terminar de acomodar responsive en:
+        Inicio
+        Hogar e industria, acomodar tabs
+        Navbar
+
 PENDIENTE GODI / EQUI / DISEÑADOR
     Página de inicio
         Texto de Hero.
@@ -59,7 +60,20 @@ PENDIENTE GODI / EQUI / DISEÑADOR
         Saber que filtro va (color y opacidad)
     Contacto:
         Dirección del lugar.
-    Textos e imágenes de botones de hogar
+
+    Industria:
+        Fotos e imágenes que van despues de los servicios.
+    
+    Hogar
+        Imágenes de los servicios
+        Íconos de los servicios.
+        Descripcion de los servicios
+        Fotos e imágenes que van despues de los servicios.
+        
+    Método: 
+        Nada pendiente.
+    Nosotros: 
+        Nada pendiente.
 
     
 

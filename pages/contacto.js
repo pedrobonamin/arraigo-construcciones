@@ -11,7 +11,7 @@ import Hero from "./components/Hero";
 import { colors, units } from "styles";
 import Button from "./components/Button";
 import Snackbar from "@material-ui/core/Snackbar";
-import MuiAlert from '@material-ui/lab/Alert';
+import MuiAlert from "@material-ui/lab/Alert";
 
 const Main = styled.main``;
 const SecondBlock = styled.div`
@@ -187,23 +187,23 @@ const Contact = () => {
     asunto: "",
     mensaje: "",
   });
-  const [success, setSuccess] = useState(false)
-  const [errorMessage, setErrorMessage] = useState()
-
+  const [success, setSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState();
+  const [loading, setLoading] = useState(false);
   function validateEmail(email) {
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   }
 
   const handleCloseSuccess = (event, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
     setSuccess(false);
   };
   const handleCloseError = (event, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
     setErrorMessage(false);
@@ -214,21 +214,23 @@ const Contact = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!validateEmail(formState.email)) {
-      return setErrorMessage('Por favor, ingrese un email válido')
+      return setErrorMessage("Por favor, ingrese un email válido");
     }
-    if(!formState.telefono){
-      return setErrorMessage('Por favor, ingrese un teléfono')
+    if (!formState.telefono) {
+      return setErrorMessage("Por favor, ingrese un teléfono");
     }
-    if(!formState.nombre){
-      return setErrorMessage('Por favor, ingrese un nombre')
+    if (!formState.nombre) {
+      return setErrorMessage("Por favor, ingrese un nombre");
     }
-    if(!formState.asunto){
-      return setErrorMessage('Por favor, seleccione un asunto')
+    if (!formState.asunto) {
+      return setErrorMessage("Por favor, seleccione un asunto");
     }
-    if(!formState.mensaje){
-      return setErrorMessage('Por favor, ingrese una consulta')
+    if (!formState.mensaje) {
+      return setErrorMessage("Por favor, ingrese una consulta");
     }
+    setLoading(true);
     const msg = {
       to: "administracion@grupoarraigo.com",
       from: "administracion@grupoarraigo.com",
@@ -253,14 +255,15 @@ const Contact = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ msg }),
       });
-      if(response.status === 200){
-        setSuccess(true)
+      if (response.status === 200) {
+        setSuccess(true);
       } else {
-        setErrorMessage('Lo sentimos, hubo un error, intente de nuevo.')
+        setErrorMessage("Lo sentimos, hubo un error, intente de nuevo.");
       }
     } catch (e) {
-      setErrorMessage('Lo sentimos, hubo un error, intente de nuevo.')
+      setErrorMessage("Lo sentimos, hubo un error, intente de nuevo.");
     }
+    setLoading(false);
   };
 
   return (
@@ -332,9 +335,10 @@ const Contact = () => {
                 onChange={(event) => handleChange(event, "mensaje")}
               />
               <div style={{ flexGrow: 1, width: "30px" }} />
-              <Button text="ENVIAR" onClick={handleSubmit} />
+              <Button disabled={loading} text="ENVIAR" onClick={handleSubmit} />
             </InputsContainer>
           </FormContainer>
+
         </SecondBlock>
         <Map
           title="map"
@@ -345,12 +349,20 @@ const Contact = () => {
           tabindex="0"
         />
       </Main>
-      <Snackbar open={success} autoHideDuration={6000} onClose={handleCloseSuccess}>
+      <Snackbar
+        open={success}
+        autoHideDuration={6000}
+        onClose={handleCloseSuccess}
+      >
         <Alert onClose={handleCloseSuccess} severity="success">
           Email enviado correctamente!
         </Alert>
       </Snackbar>
-      <Snackbar open={errorMessage} autoHideDuration={6000} onClose={handleCloseError}>
+      <Snackbar
+        open={errorMessage}
+        autoHideDuration={6000}
+        onClose={handleCloseError}
+      >
         <Alert onClose={handleCloseError} severity="error">
           {errorMessage}
         </Alert>

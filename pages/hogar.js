@@ -45,11 +45,6 @@ const BackgroundText = styled.div`
   color: rgb(45 45 45 / 80%);
 `;
 
-const Divider = styled.div`
-width: 100%;
-height: 8px;
-background ${colors.black};
-`;
 
 export default function Industry() {
   const [selectedTab, setSelectedTab] = useState("civ");
@@ -65,9 +60,9 @@ export default function Industry() {
         " En este amplio rubro, estará dejando en nuestras manos todo el trabajo de construcción y refacción para el hogar. Garantizamos una labor de calidad, confianza y responsabilidad con nuestros clientes.",
     },
     {
-      tabName: "tec",
+      tabName: "montaje",
       position: "center",
-      text: "Carpintería",
+      text: "Montajes",
       image: "/hogar/carpinteria.png",
       icon: "/icons/rule.png",
       detailText:
@@ -86,27 +81,27 @@ export default function Industry() {
 
   const tabsInfo2 = [
     {
-      tabName: "civil",
+      tabName: "Arenado",
       position: "first",
-      text: "Albañilería",
+      text: "Arenado",
       image: "/hogar/albanileria.png",
       icon: "/icons/albanil.png",
       detailText:
         " En este amplio rubro, estará dejando en nuestras manos todo el trabajo de construcción y refacción para el hogar. Garantizamos una labor de calidad, confianza y responsabilidad con nuestros clientes.",
     },
     {
-      tabName: "tecno",
+      tabName: "Revestimientos",
       position: "center",
-      text: "Carpintería",
+      text: "Revestimientos",
       image: "/hogar/carpinteria.png",
       icon: "/icons/rule.png",
       detailText:
         "Realizamos tareas de armado, refacción, y mantenimiento de estructuras, obras y equipamiento.",
     },
     {
-      tabName: "pinturas",
+      tabName: "plomeria",
       position: "last",
-      text: "pintura",
+      text: "Plomeria y Gas",
       image: "/hogar/pintura.png",
       icon: "/icons/paint.png",
       detailText:
@@ -124,15 +119,16 @@ export default function Industry() {
       />
       <Tabs
         tabs={tabsInfo}
+        secondLineTabs={tabsInfo2}
         selectedTab={selectedTab}
         handleClick={(tabName) => setSelectedTab(tabName)}
       />
-      <Divider />
-      <Tabs
+      {/* <Divider /> */}
+      {/* <Tabs
         tabs={tabsInfo2}
         selectedTab={selectedTab}
         handleClick={(tabName) => setSelectedTab(tabName)}
-      />
+      /> */}
       <TextContainer>
         {tabsInfo.map((tab) => {
           if (tab.tabName === selectedTab) {
@@ -140,7 +136,18 @@ export default function Industry() {
           } else return null;
         })}
 
-        {tabsInfo.map((tab) => {
+        {tabsInfo2.map((tab) => {
+          if (tab.tabName === selectedTab) {
+            return <BackgroundText> {tab.text} </BackgroundText>;
+          } else return null;
+        })}
+            {tabsInfo2.map((tab) => {
+          if (tab.tabName === selectedTab) {
+            return <Text>{tab.detailText}</Text>;
+          } else return null;
+        })}
+
+        {tabsInfo2.map((tab) => {
           if (tab.tabName === selectedTab) {
             return <BackgroundText> {tab.text} </BackgroundText>;
           } else return null;

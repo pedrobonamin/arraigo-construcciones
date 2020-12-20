@@ -33,10 +33,10 @@ const MUIButton = withStyles({
     },
   })(Button);
 
-const Component = ({ text, fontSize='18px', onClick}) => {
+const Component = ({ text, fontSize='18px', onClick, disabled}) => {
   return (
     <ThemeProvider theme={MuiTheme}>
-      <MUIButton style={{marginTop: '16px'}} onClick={onClick} fontSize={fontSize} variant="contained" color="primary">
+      <MUIButton disabled={disabled} style={{marginTop: '16px'}} onClick={onClick} fontSize={fontSize} variant="contained" color="primary">
         {text}
       </MUIButton>
     </ThemeProvider>

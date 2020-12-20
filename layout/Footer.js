@@ -14,11 +14,18 @@ const Footer = styled.footer`
   border-top: 8px solid ${colors.greyDivider};
   background: ${colors.footerBackground};
   color: white;
+
   > div {
     width: 33%;
     display: flex;
     justify-content: center;
     padding: 12px 16px;
+  }
+  @media (max-width: 800px) {
+    flex-wrap: wrap;
+    > div {
+      width: 100%;
+    }
   }
 `;
 
