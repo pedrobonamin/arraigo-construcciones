@@ -338,11 +338,10 @@ const Contact = () => {
               <Button disabled={loading} text="ENVIAR" onClick={handleSubmit} />
             </InputsContainer>
           </FormContainer>
-
         </SecondBlock>
         <Map
           title="map"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1690.736963456959!2d-60.65909509931456!3d-32.940311111991846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5d6a35d69ff2e036!2sCentro%20de%20Capacitaci%C3%B3n%20BlackSheep!5e0!3m2!1ses-419!2sar!4v1599488847516!5m2!1ses-419!2sar"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.2302769123003!2d-60.63774693743764!3d-32.94492919026916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ab18fa019b8d%3A0xeca6f7adb350f2f0!2sARG%2C%20San%20Lorenzo%201047%2C%20S2000%20Rosario%2C%20Provincia%20de%20Santa%20Fe!5e0!3m2!1ses-419!2sar!4v1608554214822!5m2!1ses-419!2sar"
           frameborder="0"
           allowfullscreen=""
           aria-hidden="false"
