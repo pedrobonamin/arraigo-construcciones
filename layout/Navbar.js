@@ -131,7 +131,6 @@ const Navbar = () => {
 
   const handleScroll = () => {
     const scroll = window.scrollY;
-    console.log("SCROLL", scroll);
     if (screenWidth < 800 && scroll > 76) {
       return setScrolled(true);
     } else if (screenWidth < 800 && scroll < 76) {

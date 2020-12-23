@@ -24,7 +24,7 @@ const MUIButton = withStyles({
     root: {
       boxShadow: 'none',
       textTransform: 'none',
-      fontSize: 18,
+      // fontSize: 18,
       padding: '6px 24px',
       borderRadius: 0,
       lineHeight: 1.5,
@@ -33,10 +33,10 @@ const MUIButton = withStyles({
     },
   })(Button);
 
-const Component = ({ text, fontSize='18px', onClick, disabled}) => {
+const Component = ({ text, fontSize='18px', onClick, disabled, size}) => {
   return (
     <ThemeProvider theme={MuiTheme}>
-      <MUIButton disabled={disabled} style={{marginTop: '16px'}} onClick={onClick} fontSize={fontSize} variant="contained" color="primary">
+      <MUIButton disabled={disabled} style={{marginTop: '16px'}} onClick={onClick} fontSize={fontSize} size={size} variant="contained" color="primary">
         {text}
       </MUIButton>
     </ThemeProvider>

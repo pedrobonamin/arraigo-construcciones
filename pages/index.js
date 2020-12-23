@@ -136,14 +136,14 @@ const ThirdBlockText = styled.div`
 `;
 
 const ImageDiv = styled.div`
-background-image: url(${(props) => props.src});
-background-position: top;
-background-size: cover;
-height: 100%;
-width: 60%;
-position: absolute;
-${props =>props.position};
-`
+  background-image: url(${(props) => props.src});
+  background-position: top;
+  background-size: cover;
+  height: 100%;
+  width: 60%;
+  position: absolute;
+  ${(props) => props.position};
+`;
 
 export default function Home() {
   const router = useRouter();
@@ -151,7 +151,7 @@ export default function Home() {
   return (
     <Main>
       <Hero
-      addSquares={false}
+        addSquares={false}
         title={
           <>
             MÉTODO ICI
@@ -161,14 +161,12 @@ export default function Home() {
         underline="center"
         button="VER MÁS"
         buttonAction={() => router.push("/metodo")}
-        text="Somos un estudio de arquitectura especializado en la construcción de
-        viviendas. Cuidamos cada detalle, desde el inicio hasta el final,
-        para que nuestros clientes se sientan felices en su nuevo hogar."
+        text="Para ampliar tus límites es necesario accionar de forma innovadora y eficaz. Desarrollamos un método propio para llevar a otro nivel la ejecución de cada proyecto"
         textMaxWidth={"60%"}
         src={"/home/home-hero.jpg"}
       />
 
-<ThirdBlock onMouseLeave={() => setHover()}>
+      <ThirdBlock onMouseLeave={() => setHover()}>
         <Link href="industria">
           <ThirdBlockImageContainer first>
             <Filter hover={hover} first />
@@ -187,7 +185,7 @@ export default function Home() {
               <ThirdBlockText>INDUSTRIA</ThirdBlockText>
             </LogoText>
             <ImageDiv
-              position={'left: 0;'}
+              position={"left: 0;"}
               src={"/home/home-industria-bw.jpg"}
               alt={"Industria"}
               layout="fill"
@@ -210,11 +208,11 @@ export default function Home() {
                 height="200"
                 width="200"
                 layout="fixed"
-                />
+              />
               <ThirdBlockText>HOGAR</ThirdBlockText>
             </LogoText>
             <ImageDiv
-                position={'right: 0;'}
+              position={"right: 0;"}
               src={"/home/home-hogar-bw.png"}
               alt={"Hogar"}
               layout="fill"
@@ -223,7 +221,6 @@ export default function Home() {
           </ThirdBlockImageContainer>
         </Link>
       </ThirdBlock>
-
 
       <SecondBlock>
         <ImageContainer>
@@ -250,9 +247,6 @@ export default function Home() {
           />
         </TextContainer>
       </SecondBlock>
-
-
-
     </Main>
   );
 }
