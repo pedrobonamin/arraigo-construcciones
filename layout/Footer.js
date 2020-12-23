@@ -14,7 +14,6 @@ const Footer = styled.footer`
   border-top: 8px solid ${colors.greyDivider};
   background: ${colors.footerBackground};
   color: white;
-
   > div {
     width: 33%;
     display: flex;

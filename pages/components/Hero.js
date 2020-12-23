@@ -5,6 +5,7 @@ import Button from "./Button";
 
 const HeroContainer = styled.div`
   position: relative;
+  overflow: hidden
 `;
 
 const Filter = styled.div`
@@ -64,11 +65,11 @@ const LogoImage = styled.div`
   background-image: url(${(props) => props.src});
   background-position: top;
   background-size: cover;
-  height: 40%;
-  width: 30%;
+  height: 95%;
+  width: 55%;
   position: absolute;
-  bottom: 0;
-  left: -110px;
+  bottom: -5%;
+  left: -10%;
   z-index: 1;
 `;
 const Hero = ({

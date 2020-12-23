@@ -29,6 +29,8 @@ General:
 CAMBIOS DESDE ULTIMA VERSION:
     Todas:
         cambiar logo de heros
+        responsive en navbar
+        responsive en footer
         Navbar = siempre fijo, cambia de color y fondo con scroll
 
     Home Page:
@@ -51,7 +53,6 @@ PENDIENTE PEDRO:
     Terminar de acomodar responsive en:
         Inicio
         Hogar e industria, acomodar tabs
-        Navbar
 
 PENDIENTE GODI / EQUI / DISEÑADOR
     Página de inicio
@@ -69,7 +70,7 @@ PENDIENTE GODI / EQUI / DISEÑADOR
         Íconos de los servicios.
         Descripcion de los servicios
         Fotos e imágenes que van despues de los servicios.
-        
+
     Método: 
         Nada pendiente.
     Nosotros: 

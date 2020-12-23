@@ -65,12 +65,23 @@ const ImageContainer = styled.div`
 `;
 const Li = styled.li`
   margin-left: 5%;
+  position: relative;
 
   ${(props) =>
     props.selected &&
     `
-  color: ${colors.red};
-  font-weight: 400;
+  // color: ${colors.red};
+  letter-spacing: 1.2px;
+  font-weight: 500;
+  :: after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: ${colors.red};
+    position: absolute;
+    left: 0;
+    bottom: -4px
+  }
   `}
 `;
 
@@ -173,8 +184,8 @@ const Navbar = () => {
               <Image
                 src="/logoalt.png"
                 alt="Picture"
-                width={height}
-                height={height}
+                width={height * 0.8}
+                height={height *  0.8 }
                 layout="fixed"
               />
             )}
@@ -198,8 +209,8 @@ const Navbar = () => {
                 <Image
                   src="/logo.png"
                   alt="Picture"
-                  width={width / 2}
-                  height={height / 2}
+                  width={width / 2 *0.8}
+                  height={height / 2 * 0.8}
                   layout="fixed"
                 />
               </MobileLogo>
