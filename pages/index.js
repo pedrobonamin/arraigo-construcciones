@@ -84,6 +84,10 @@ const StyledButton = styled(Button)`
 const ThirdBlock = styled.div`
   position: relative;
   min-height: 600px;
+  @media (max-width: 800px) {
+    flex-wrap: wrap-reverse;
+    min-height: 400px;
+  }
 `;
 
 const ThirdBlockImageContainer = styled.div`
@@ -104,14 +108,23 @@ const ThirdBlockImageContainer = styled.div`
   `};
 
   @media (max-width: 800px) {
+    width: 60%;
     ${(props) =>
       props.first
         ? `left: 0;
-        clip-path: polygon(0 0, 0% 100%, 100% 0);
+        // clip-path: polygon(0 0, 0% 100%, 100% 0);
+        // clip-path: unset;
+
+    clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
+  }
 
       `
         : `right: 0;
-        clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+
+        clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+
+  }
+
     `};
   }
 `;
@@ -148,16 +161,15 @@ const LogoText = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  ${(props) => (props.first ? `left: 20%` : `right: 20%`)};
+  ${(props) => (props.first ? `left: 15%` : `right: 15%`)};
 
   &:hover {
     cursor: pointer;
   }
   @media (max-width: 800px) {
-    ${(props) => (props.first ? `left: 10%` : `right: 10%`)};
-    ${(props) => (props.first ? `top: 0` : `bottom: 0`)};
+    ${(props) => (props.first ? `left: 10px` : `right: 10px`)};
+    ${(props) => (props.first ? `top: 5%` : `bottom: 5%`)};
     padding: 20px;
-    z-index: 100;
   }
 `;
 const ThirdBlockText = styled.div`
@@ -165,7 +177,7 @@ const ThirdBlockText = styled.div`
   text-shadow: 1px 1px 1px black;
   font-size: 48px;
   @media (max-width: 800px) {
-    font-size: 30px;
+    font-size: 24px;
   }
 `;
 
@@ -205,20 +217,20 @@ export default function Home() {
         src={"/home/home-hero.jpg"}
       />
 
-      <ThirdBlock onMouseLeave={() => setHover()}>
+      <ThirdBlock onMouseLeave={() => setHover()}   onClick={() => router.push("/industria")}>
         <ThirdBlockImageContainer first>
           <Filter hover={hover} first />
           <LogoText
             first
-            onClick={() => router.push("/industria")}
+          
             onMouseEnter={() => setHover("first")}
             onMouseLeave={() => setHover()}
           >
               <Image
                 src={"/icons/industry.png"}
                 alt={"Industria"}
-                height={isMobile ? 140 : 200}
-                width={isMobile ? 140 : 200}
+                height={isMobile ? 120 : 200}
+                width={isMobile ? 120 : 200}
                 layout="fixed"
               />
               <ThirdBlockText>INDUSTRIA</ThirdBlockText>
@@ -233,19 +245,19 @@ export default function Home() {
           />
         </ThirdBlockImageContainer>
 
-        <ThirdBlockImageContainer>
+        <ThirdBlockImageContainer      onClick={() => router.push("/hogar")}>
           <Filter hover={hover} />
           <LogoText
             hover={hover}
-            onClick={() => router.push("/hogar")}
+       
             onMouseEnter={() => setHover("second")}
             onMouseLeave={() => setHover()}
           >
               <Image
                 src={"/icons/industry.png"}
                 alt={"Industria"}
-                height={isMobile ? 140 : 200}
-                width={isMobile ? 140 : 200}
+                height={isMobile ? 120 : 200}
+                width={isMobile ? 120 : 200}
                 layout="fixed"
               />
               <ThirdBlockText>HOGAR</ThirdBlockText>
