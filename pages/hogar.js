@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 import styled, { keyframes } from "styled-components";
 import MyLayout from "../layout";
+import { useRouter } from "next/router";
 import Hero from "./components/Hero";
 import Tabs from "./components/Tabs";
 import SectionImageText from "./components/SectionImageText";
@@ -22,12 +24,22 @@ const TextContainer = styled.div`
   align-items: center;
   background: ${colors.footerBackground};
   position: relative;
+  overflow: hidden;
+  @media (max-width: 800px) {
+    height: 300px;
+     
+    }
 `;
 const Text = styled.div`
   font-size: ${units.SectionText};
   animation: ${fadeIn} 1s ease forwards 1;
   color: ${colors.white};
   max-width: 60%;
+  @media (max-width: 800px) {
+    max-width: 90%;
+    text-align: center;
+  }
+
   line-height: 1.5rem;
   letter-spacing: 1px;
   z-index: 1;
@@ -43,11 +55,17 @@ const BackgroundText = styled.div`
   text-transform: uppercase;
   bottom: 0;
   color: rgb(45 45 45 / 80%);
+  white-space: nowrap;
 `;
 
 
 export default function Industry() {
   const [selectedTab, setSelectedTab] = useState("civ");
+  const router = useRouter();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [router]);
 
   const tabsInfo = [
     {
@@ -123,31 +141,23 @@ export default function Industry() {
         selectedTab={selectedTab}
         handleClick={(tabName) => setSelectedTab(tabName)}
       />
-      {/* <Divider /> */}
-      {/* <Tabs
-        tabs={tabsInfo2}
-        selectedTab={selectedTab}
-        handleClick={(tabName) => setSelectedTab(tabName)}
-      /> */}
       <TextContainer>
-        {tabsInfo.map((tab) => {
+      {tabsInfo.map((tab) => {
           if (tab.tabName === selectedTab) {
             return <Text>{tab.detailText}</Text>;
           } else return null;
         })}
-
-        {tabsInfo2.map((tab) => {
+            {tabsInfo.map((tab) => {
           if (tab.tabName === selectedTab) {
             return <BackgroundText> {tab.text} </BackgroundText>;
           } else return null;
         })}
-            {tabsInfo2.map((tab) => {
+              {tabsInfo2.map((tab) => {
           if (tab.tabName === selectedTab) {
             return <Text>{tab.detailText}</Text>;
           } else return null;
         })}
-
-        {tabsInfo2.map((tab) => {
+            {tabsInfo2.map((tab) => {
           if (tab.tabName === selectedTab) {
             return <BackgroundText> {tab.text} </BackgroundText>;
           } else return null;

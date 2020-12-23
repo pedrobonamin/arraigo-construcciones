@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import { units, colors } from "styles";
+import useInMobile  from 'hooks/useInMobile'
 
 const TabsContainer = styled.div`
   display: flex;
@@ -17,6 +18,10 @@ const Tab = styled.div`
   justify-content: center;
   transition: all 1s ease;
   flex-shrink: 0;
+  @media (max-width: 800px) {
+    height: 200px;
+    padding-top: 20px;
+  }
   ${(props) =>
     props.position === "center" &&
     `
@@ -44,6 +49,7 @@ const Tab = styled.div`
   :hover {
       cursor: pointer;
   }
+
   `};
 
   background-image: url(${(props) => props.url});
@@ -70,6 +76,10 @@ const Text = styled.div`
   text-shadow: 1px 1px 1px black;
   font-size: ${units.SectionTitle};
   text-align: center;
+  height: 100px;
+  @media (max-width: 800px) {
+    font-size: 16px;
+  }
 `;
 const Filter = styled.div`
   width: 100%;
@@ -112,6 +122,7 @@ background ${colors.black};
 
 const Component = ({ tabs, handleClick, selectedTab, secondLineTabs }) => {
   const [hover, setHover] = useState();
+  const isMobile = useInMobile()
 
   return (
     <>
@@ -140,8 +151,8 @@ const Component = ({ tabs, handleClick, selectedTab, secondLineTabs }) => {
                 <Image
                   src={icon}
                   alt={text}
-                  height="160"
-                  width="160"
+                  height={isMobile ? 80: 160}
+                  width={isMobile ? 80: 160}
                   layout="fixed"
                 />
                 <Text>{text.toUpperCase()}</Text>
@@ -178,8 +189,8 @@ const Component = ({ tabs, handleClick, selectedTab, secondLineTabs }) => {
                     <Image
                       src={icon}
                       alt={text}
-                      height="160"
-                      width="160"
+                      height={isMobile ? 80: 160}
+                      width={isMobile ? 80: 160}
                       layout="fixed"
                     />
                     <Text>{text.toUpperCase()}</Text>

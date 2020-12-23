@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import MyLayout from "../layout";
@@ -7,7 +7,7 @@ import Image from "next/image";
 import Button from "./components/Button";
 import { units, colors } from "styles";
 import useInMobile from "hooks/useInMobile";
-
+import Link from "next/link";
 const Main = styled.main``;
 const SecondBlock = styled.div`
   position: relative;
@@ -198,6 +198,7 @@ export default function Home() {
   const isMobile = useInMobile();
 
   const router = useRouter();
+
   const [hover, setHover] = useState();
   return (
     <Main>
@@ -217,24 +218,39 @@ export default function Home() {
         src={"/home/home-hero.jpg"}
       />
 
-      <ThirdBlock onMouseLeave={() => setHover()}   onClick={() => router.push("/industria")}>
-        <ThirdBlockImageContainer first>
+      <ThirdBlock onMouseLeave={() => setHover()}>
+        <ThirdBlockImageContainer
+          first
+          onClick={(e) => {
+            if(!isMobile) {
+              console.log('CLICKED ON INDUSTRIA')
+              e.stopPropagation();
+              router.push("/industria");
+            }
+    
+          }}
+        >
           <Filter hover={hover} first />
           <LogoText
             first
-          
             onMouseEnter={() => setHover("first")}
             onMouseLeave={() => setHover()}
+            onClick={(e) => {
+              if(isMobile) {
+                console.log('CLICKED ON industria')
+                e.stopPropagation();
+                router.push("/industria");
+              }
+            }}
           >
-              <Image
-                src={"/icons/industry.png"}
-                alt={"Industria"}
-                height={isMobile ? 120 : 200}
-                width={isMobile ? 120 : 200}
-                layout="fixed"
-              />
-              <ThirdBlockText>INDUSTRIA</ThirdBlockText>
-
+            <Image
+              src={"/icons/industry.png"}
+              alt={"Industria"}
+              height={isMobile ? 120 : 200}
+              width={isMobile ? 120 : 200}
+              layout="fixed"
+            />
+            <ThirdBlockText>INDUSTRIA</ThirdBlockText>
           </LogoText>
           <ImageDiv
             position={"left: 0;"}
@@ -245,22 +261,37 @@ export default function Home() {
           />
         </ThirdBlockImageContainer>
 
-        <ThirdBlockImageContainer      onClick={() => router.push("/hogar")}>
+        <ThirdBlockImageContainer
+          onMouseLeave={() => setHover()}
+          onClick={(e) => {
+            if(!isMobile) {
+              console.log('CLICKED ON HOGAR')
+              e.stopPropagation();
+              router.push("/hogar");
+            }
+          }}
+        >
           <Filter hover={hover} />
           <LogoText
+                onClick={(e) => {
+                  if(isMobile) {
+                    console.log('CLICKED ON HOGAR')
+                    e.stopPropagation();
+                    router.push("/hogar");
+                  }
+                }}
             hover={hover}
-       
             onMouseEnter={() => setHover("second")}
             onMouseLeave={() => setHover()}
           >
-              <Image
-                src={"/icons/industry.png"}
-                alt={"Industria"}
-                height={isMobile ? 120 : 200}
-                width={isMobile ? 120 : 200}
-                layout="fixed"
-              />
-              <ThirdBlockText>HOGAR</ThirdBlockText>
+            <Image
+              src={"/icons/industry.png"}
+              alt={"Industria"}
+              height={isMobile ? 120 : 200}
+              width={isMobile ? 120 : 200}
+              layout="fixed"
+            />
+            <ThirdBlockText>HOGAR</ThirdBlockText>
           </LogoText>
           <ImageDiv
             position={"right: 0;"}

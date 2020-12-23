@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState , useEffect} from "react";
+import { useRouter } from "next/router";
 
 import styled, { keyframes } from "styled-components";
 import MyLayout from "../layout";
@@ -38,6 +39,11 @@ const TextContainer = styled.div`
   // background: ${colors.black};
   background: ${colors.footerBackground};
   position: relative;
+  overflow: hidden;
+  @media (max-width: 800px) {
+  height: 300px;
+   
+  }
 
 `;
 const Text = styled.div`
@@ -49,11 +55,29 @@ const Text = styled.div`
   line-height: 1.5rem;
   letter-spacing: 1px;
   z-index: 1;
+  @media (max-width: 800px) {
+    max-width: 90%;
+    text-align: center;
+  }
 `;
+// const BackgroundText = styled.div`
+//   position: absolute;
+//   display: flex;
+//   align-items: flex-end;
+//   z-index: 0;
+//   font-size: 15vw;
+//   font-weight: 800;
+//   letter-spacing: 6px;
+//   color: white;
+//   text-transform: uppercase;
+//   bottom: 0;
+//   color: rgb(45 45 45 / 80%);
+//   overflow: hidden;
+//   white-space: nowrap;
+//   max-width: 100%;
+// `;
 const BackgroundText = styled.div`
   position: absolute;
-  display: flex;
-  align-items: flex-end;
   z-index: 0;
   font-size: 15vw;
   font-weight: 800;
@@ -62,14 +86,18 @@ const BackgroundText = styled.div`
   text-transform: uppercase;
   bottom: 0;
   color: rgb(45 45 45 / 80%);
-  overflow: hidden;
   white-space: nowrap;
-  max-width: 100%;
 `;
+
 
 
 export default function Industry() {
   const [selectedTab, setSelectedTab] = useState("civ");
+  const router = useRouter();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [router]);
 
   const tabsInfo = [
     {

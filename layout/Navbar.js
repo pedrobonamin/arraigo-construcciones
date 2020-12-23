@@ -42,10 +42,10 @@ const Ul = styled.ul`
   font-size: ${units.NavbarTitles};
   line-height: ${units.NavbarTitles};
   @media (max-width: 800px) {
-    margin-left: 0;
     justify-content: center;
     padding: 0 0 8px 0;
     font-size: 12px;
+    margin-left: 0;
   }
 `;
 
@@ -62,15 +62,19 @@ const ImageContainer = styled.div`
     min-width: 250px;
     padding: 8px 0;
   }
+  :hover {
+    cursor: pointer;
+  }
 `;
 const Li = styled.li`
   margin-left: 5%;
   position: relative;
-
+  @media (max-width: 800px) {
+    margin-left: 0;
+  }
   ${(props) =>
     props.selected &&
     `
-  // color: ${colors.red};
   letter-spacing: 1.2px;
   font-weight: 500;
   :: after {
@@ -81,24 +85,28 @@ const Li = styled.li`
     position: absolute;
     left: 0;
     bottom: -4px
-  }
+  };
+
   `}
 `;
 
 const MobileLogo = styled.div`
-padding: 8px;
-display: flex;
-align-items: center;
-justify-content: center;
-${(props) => props.background && ` background: ${colors.black};`}
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  ${(props) => props.background && ` background: ${colors.black};`}
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 const MobileNav = styled.div`
-position: fixed;
-top: 0;
-width: 100vw;
-z-index: 10;
-background: ${colors.blackWithOpacity};
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 10;
+  background: ${colors.blackWithOpacity};
   color: white;
 `;
 const Navbar = () => {
@@ -178,13 +186,15 @@ const Navbar = () => {
               </Li>
             ))}
           </Ul>
+          <Link href="/">
+
           <ImageContainer>
             {scrolled && (
               <Image
                 src="/logoalt.png"
                 alt="Picture"
                 width={height * 0.8}
-                height={height *  0.8 }
+                height={height * 0.8}
                 layout="fixed"
               />
             )}
@@ -198,28 +208,30 @@ const Navbar = () => {
               />
             )}
           </ImageContainer>
+          </Link>
+
         </Nav>
       )}
       {screenWidth < 800 && (
         <>
           {scrolled && (
             <MobileNav>
-              <MobileLogo>
-                <Image
-                  src="/logo.png"
-                  alt="Picture"
-                  width={width / 2 *0.8}
-                  height={height / 2 * 0.8}
-                  layout="fixed"
-                />
-              </MobileLogo>
+              <Link href="/">
+                <MobileLogo>
+                  <Image
+                    src="/logo.png"
+                    alt="Picture"
+                    width={(width / 2) * 0.8}
+                    height={(height / 2) * 0.8}
+                    layout="fixed"
+                  />
+                </MobileLogo>
+              </Link>
               <Ul>
                 {(links || []).map((link, index) => (
                   <Li key={index} selected={router.route === link.ref}>
                     <Link href={link.ref}>
-                     <span style={{padding: '8px 4px'}}>
-                       {link.name}
-                       </span> 
+                      <span style={{ padding: "10px 12px" }}>{link.name}</span>
                     </Link>
                   </Li>
                 ))}
@@ -227,13 +239,15 @@ const Navbar = () => {
             </MobileNav>
           )}
           <MobileLogo background>
-            <Image
-              src="/logo.png"
-              alt="Picture"
-              width={width}
-              height={height}
-              layout="fixed"
-            />
+            <Link href="/">
+              <Image
+                src="/logo.png"
+                alt="Picture"
+                width={width}
+                height={height}
+                layout="fixed"
+              />
+            </Link>
           </MobileLogo>
         </>
       )}
