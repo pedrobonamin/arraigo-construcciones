@@ -99,8 +99,7 @@ const TextContainer = styled.div`
   @media (max-width: 800px) {
     width: 100vw;
     padding: 40px 20px;
-  align-items: center;
-
+    align-items: center;
   }
 `;
 const Title = styled.div`
@@ -113,6 +112,9 @@ const Title = styled.div`
     margin: 8px 75% 0 0;
     height: 8px;
     background-color: ${colors.red};
+  }
+  @media (max-width: 800px) {
+    font-size: 24px;
   }
 `;
 const Text = styled.div`

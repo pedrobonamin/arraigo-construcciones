@@ -1,11 +1,16 @@
 import styled from "styled-components";
-import Image from "next/image";
+// import Image from "next/image";
 import { units, colors } from "styles";
 import Button from "./Button";
 import useInMobile from "hooks/useInMobile";
 const HeroContainer = styled.div`
   position: relative;
   overflow: hidden;
+  background-image: url(${(props) => props.src});
+  background-position: center;
+  background-size: cover;
+  min-height: 80vh;
+  width: 100vw;
 `;
 
 const Filter = styled.div`
@@ -42,7 +47,7 @@ const Title = styled.div`
   font-size: ${units.HeroTitle};
   z-index: 1;
   @media (max-width: 800px) {
-    font-size: 24px !important;
+    font-size: 36px !important;
   }
   :after {
     content: "";
@@ -64,15 +69,9 @@ const Text = styled.div`
   ${(props) => props.textAlign === "left" && " align-self: flex-start;"}
   max-width: ${(props) => props.maxWidth};
   @media (max-width: 800px) {
-    font-size: 16px;
-    max-height: 40%;
+    font-size: 18px;
     text-overflow: ellipsis;
-  };
-  @media (max-width: 400px) {
-    font-size: 14px;
-    line-height: 1.2em;
-    max-height: 40%;
-    margin: 8px 0;
+    max-width: 80%;
   }
 `;
 
@@ -80,22 +79,31 @@ const LogoImage = styled.div`
   background-image: url(${(props) => props.src});
   background-position: top;
   background-size: cover;
-  height: 78%;
-  width: 45%;
+  height: 60vw;
+  width: 60vw;
+  min-height: 50vh;
   position: absolute;
   bottom: -5%;
-  left: -10%;
+  left: -120px;
   z-index: 1;
+  min-width: 50vh;
+  max-height: 400px;
+  max-width: 400px;
+  @media (max-width: 800px) {
+    max-height: 200px;
+    max-width: 200px;
+    left: -150px;
+  }
 `;
 
-// const Image = styled.div`
-// background-image: url(${(props) => props.src});
-// background-position: top;
-// background-size: cover;
-// height: 80vh;
-// width: 100vw
-// z-index: 0;
-// `
+const Image = styled.div`
+background-image: url(${(props) => props.src});
+background-position: top;
+background-size: cover;
+min-height: 80vh;
+width: 100vw
+z-index: 0;
+`;
 const Hero = ({
   src,
   title,
@@ -111,16 +119,16 @@ const Hero = ({
   console.log("IS MOBILE", isMobile);
 
   return (
-    <HeroContainer>
+    <HeroContainer src={src}>
       <Filter addSquares={addSquares} />
-      <Image
+      {/* <Image
         src={src}
         alt={src}
         height="1000"
         width="1600"
         sizes="60vh"
         priority
-      />
+      /> */}
       {addSquares && <LogoImage src="/isologoContorno.png" />}
       <TextContainer>
         <TextSubContainer>

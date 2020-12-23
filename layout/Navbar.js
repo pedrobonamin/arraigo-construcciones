@@ -216,8 +216,8 @@ const Navbar = () => {
               <Ul>
                 {(links || []).map((link, index) => (
                   <Li key={index} selected={router.route === link.ref}>
-                    <Link href={link.ref}>
-                      <a>{link.name}</a>
+                    <Link style={{padding: '8px 4px'}}href={link.ref}>
+                      {link.name}
                     </Link>
                   </Li>
                 ))}

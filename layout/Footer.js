@@ -70,9 +70,9 @@ const Component = () => {
           <li> +54 (341) 4683676 | +54 (341) 3871945</li>
           <li> J.M Gutierrez 1994, Rosario, Argentina</li>
           <li>
-            <YouTubeIcon fontSize="small" style={{ marginRight: "4px" }} />
+            {/* <YouTubeIcon fontSize="small" style={{ marginRight: "4px" }} /> */}
             <FacebookIcon fontSize="small" style={{ marginRight: "4px" }} />
-            <LinkedinIcon fontSize="small" style={{ marginRight: "4px" }} />
+            {/* <LinkedinIcon fontSize="small" style={{ marginRight: "4px" }} /> */}
             <InstagramIcon fontSize="small" style={{ marginRight: "4px" }} />
           </li>
         </ul>

@@ -26,6 +26,10 @@ const Title = styled.div`
     height: 8px;
     background-color: ${colors.red};
   }
+  @media (max-width: 800px) {
+  font-size: 24px;
+
+  }
 `;
 const PContainer = styled.div`
   display: flex;
