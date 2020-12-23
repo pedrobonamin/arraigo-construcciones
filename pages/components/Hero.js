@@ -71,7 +71,8 @@ const Text = styled.div`
   @media (max-width: 800px) {
     font-size: 18px;
     text-overflow: ellipsis;
-    max-width: 80%;
+    width: 100%;
+    text-align: center;
   }
 `;
 

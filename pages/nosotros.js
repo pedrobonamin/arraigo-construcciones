@@ -52,6 +52,8 @@ const LastText = styled.div`
   line-height: 1.5em;
   margin: 16px 0px;
   letter-spacing: 1.2px;
+  width: 100%;
+  text-align: center;
 
 `;
 const StyledLink = styled.span`
