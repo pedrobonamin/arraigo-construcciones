@@ -205,22 +205,24 @@ const ImageDiv = styled.div`
 
 const BackgroundText = styled.div`
   position: absolute;
-  right: 0;
+  right: 170px;
   width: 100%;
   text-align: right;
   z-index: 0;
-  font-size: 10vw;
+  font-size: 100px;
   font-weight: 800;
-  letter-spacing: 6px;
+  letter-spacing: 20px;
   color: white;
   text-transform: uppercase;
   top: -25px;
   color: rgb(45 45 45 / 20%);
   white-space: nowrap;
   @media (max-width: 800px) {
-    font-size: 80px;
-    left: 0;
+    font-size: 17.5vw;
+  letter-spacing: 6px;
 
+    left: 0px;
+    top: -5vw;
   }
 `;
 
