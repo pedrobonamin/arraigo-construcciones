@@ -89,7 +89,7 @@ export default function Industry() {
       position: "center",
       text: "Montajes",
       image: "/hogar/carpinteria.png",
-      icon: "/icons/rule.png",
+      icon: "/icons/montaje.png",
       image1: '/hogar/servicios/montaje/1.jpeg',
       image2: '/hogar/servicios/montaje/2.jpeg',
       detailText:
@@ -114,7 +114,7 @@ export default function Industry() {
       position: "first",
       text: "Arenado",
       image: "/hogar/albanileria.png",
-      icon: "/icons/albanil.png",
+      icon: "/icons/arenado.png",
       image1: '/hogar/servicios/arenado/1.jpeg',
       image2: '/hogar/servicios/arenado/2.jpeg',
       detailText:
@@ -125,7 +125,7 @@ export default function Industry() {
       position: "center",
       text: "Revestimientos",
       image: "/hogar/carpinteria.png",
-      icon: "/icons/rule.png",
+      icon: "/icons/revestimientos.png",
       image1: '/hogar/servicios/revestimientos/1.jpeg',
       image2: '/hogar/servicios/revestimientos/2.jpeg',
       detailText:
@@ -136,7 +136,7 @@ export default function Industry() {
       position: "last",
       text: "Plomeria y Gas",
       image: "/hogar/pintura.png",
-      icon: "/icons/paint.png",
+      icon: "/icons/plomeria.png",
       image1: '/hogar/servicios/plomeria/1.jpeg',
       image2: '/hogar/servicios/plomeria/2.jpeg',
       detailText:
