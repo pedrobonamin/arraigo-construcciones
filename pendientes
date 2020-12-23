@@ -81,10 +81,11 @@ PENDIENTE GODI / EQUI / DISEÑADOR
 
 General
 -DONE Achicar un 20% isologo y altura del nav cuando queda solo al scrolear. Cuando esta flotante con la tipografia esta bien (queda asi) 
-- Cambiar color de texto de link activo (el bordo oscuro que esta no se ve bien, se pierde). Ver bordo mas clarito, o dejar en blanco y solo cambiar color cuando se pasa por arriba
+- DONE Cambiar color de texto de link activo (el bordo oscuro que esta no se ve bien, se pierde). Ver bordo mas clarito, o dejar en blanco y solo cambiar color cuando se pasa por arriba
 - DONE Contorno de isologo en las imagenes (hero) mas arriba (ver diferencia con mockup)
 
+
 Hogar, Industria
-- Titulo de fondo en texto de servicios, bien pegado a la parte de abajo
+-  DONE Titulo de fondo en texto de servicios, bien pegado a la parte de abajo
 - Imagenes y textos servicios: en Drive (https://drive.google.com/drive/folders/1juPRIAAkWnZ2q-Up5rv_Irnujx3phRb6?usp=sharing). Faltan textos de 4 servicios
 - Pag carga lento (imagenes)

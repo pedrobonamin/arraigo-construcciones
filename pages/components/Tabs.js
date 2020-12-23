@@ -126,8 +126,9 @@ const Text = styled.div`
   font-size: ${units.SectionTitle};
   text-align: center;
   height: 100px;
+  margin-top: 8px;
   @media (max-width: 800px) {
-    font-size: 16px;
+    font-size: 14px;
   }
 `;
 const Filter = styled.div`

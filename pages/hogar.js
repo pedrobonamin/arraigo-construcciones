@@ -61,11 +61,17 @@ const BackgroundText = styled.div`
 
 export default function Industry() {
   const [selectedTab, setSelectedTab] = useState("civ");
+  const [tabDetails, setTabDetails] = useState({})
   const router = useRouter();
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [router]);
+
+  useEffect(() => {
+   const selected = [...tabsInfo, ...tabsInfo2].find(tab => tab.tabName === selectedTab)
+
+    setTabDetails(selected)
+  },[selectedTab])
 
   const tabsInfo = [
     {
@@ -74,8 +80,9 @@ export default function Industry() {
       text: "Albañilería",
       image: "/hogar/albanileria.png",
       icon: "/icons/albanil.png",
-      detailText:
-        " En este amplio rubro, estará dejando en nuestras manos todo el trabajo de construcción y refacción para el hogar. Garantizamos una labor de calidad, confianza y responsabilidad con nuestros clientes.",
+      image1: '/hogar/servicios/civ/1.jpeg',
+      image2: '/hogar/servicios/civ/2.jpeg',
+      detailText: "En este amplio rubro, estará dejando en nuestras manos todo el trabajo de construcción y refacción para el hogar. Garantizamos una labor de calidad, confianza y responsabilidad con nuestros clientes.",
     },
     {
       tabName: "montaje",
@@ -83,6 +90,8 @@ export default function Industry() {
       text: "Montajes",
       image: "/hogar/carpinteria.png",
       icon: "/icons/rule.png",
+      image1: '/hogar/servicios/montaje/1.jpeg',
+      image2: '/hogar/servicios/montaje/2.jpeg',
       detailText:
         "Realizamos tareas de armado, refacción, y mantenimiento de estructuras, obras y equipamiento.",
     },
@@ -92,6 +101,8 @@ export default function Industry() {
       text: "pintura",
       image: "/hogar/pintura.png",
       icon: "/icons/paint.png",
+      image1: '/hogar/servicios/pintura/1.jpeg',
+      image2: '/hogar/servicios/pintura/2.jpeg',
       detailText:
         "Tenemos un equipo especializado en ingenieria electromecanica y electronica para satisfacer todas las necesidades que se presenten para cada tipo de proyecto, tanto en equipamiento, como así también en servicios de instalación y mantenimiento preventivo/correctivo",
     },
@@ -99,11 +110,13 @@ export default function Industry() {
 
   const tabsInfo2 = [
     {
-      tabName: "Arenado",
+      tabName: "arenado",
       position: "first",
       text: "Arenado",
       image: "/hogar/albanileria.png",
       icon: "/icons/albanil.png",
+      image1: '/hogar/servicios/arenado/1.jpeg',
+      image2: '/hogar/servicios/arenado/2.jpeg',
       detailText:
         " En este amplio rubro, estará dejando en nuestras manos todo el trabajo de construcción y refacción para el hogar. Garantizamos una labor de calidad, confianza y responsabilidad con nuestros clientes.",
     },
@@ -113,6 +126,8 @@ export default function Industry() {
       text: "Revestimientos",
       image: "/hogar/carpinteria.png",
       icon: "/icons/rule.png",
+      image1: '/hogar/servicios/revestimientos/1.jpeg',
+      image2: '/hogar/servicios/revestimientos/2.jpeg',
       detailText:
         "Realizamos tareas de armado, refacción, y mantenimiento de estructuras, obras y equipamiento.",
     },
@@ -122,6 +137,8 @@ export default function Industry() {
       text: "Plomeria y Gas",
       image: "/hogar/pintura.png",
       icon: "/icons/paint.png",
+      image1: '/hogar/servicios/plomeria/1.jpeg',
+      image2: '/hogar/servicios/plomeria/2.jpeg',
       detailText:
         "Tenemos un equipo especializado en ingenieria electromecanica y electronica para satisfacer todas las necesidades que se presenten para cada tipo de proyecto, tanto en equipamiento, como así también en servicios de instalación y mantenimiento preventivo/correctivo",
     },
@@ -163,8 +180,8 @@ export default function Industry() {
           } else return null;
         })}
       </TextContainer>
-      <SectionImageText image="/industria/industria-1.jpg" />
-      <SectionImageText image="/industria/industria-2.png" reverse last />
+      <SectionImageText image={tabDetails.image1} />
+      <SectionImageText image={tabDetails.image2}reverse last />
     </>
   );
 }

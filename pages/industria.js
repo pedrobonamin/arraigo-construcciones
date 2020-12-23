@@ -60,22 +60,7 @@ const Text = styled.div`
     text-align: center;
   }
 `;
-// const BackgroundText = styled.div`
-//   position: absolute;
-//   display: flex;
-//   align-items: flex-end;
-//   z-index: 0;
-//   font-size: 15vw;
-//   font-weight: 800;
-//   letter-spacing: 6px;
-//   color: white;
-//   text-transform: uppercase;
-//   bottom: 0;
-//   color: rgb(45 45 45 / 80%);
-//   overflow: hidden;
-//   white-space: nowrap;
-//   max-width: 100%;
-// `;
+
 const BackgroundText = styled.div`
   position: absolute;
   z-index: 0;
@@ -93,6 +78,14 @@ const BackgroundText = styled.div`
 
 export default function Industry() {
   const [selectedTab, setSelectedTab] = useState("civ");
+  const [tabDetails, setTabDetails] = useState({})
+
+  useEffect(() => {
+    const selected = [...tabsInfo].find(tab => tab.tabName === selectedTab)
+ 
+     setTabDetails(selected)
+   },[selectedTab])
+
   const router = useRouter();
 
   useEffect(() => {
@@ -106,6 +99,8 @@ export default function Industry() {
       text: "Civil",
       image: "/industria/civil.png",
       icon: "/icons/helmet.png",
+      image1: '/industria/servicios/civil/1.jpeg',
+      image2: '/industria/servicios/civil/2.jpeg',
       detailText:
         "Te ofrecemos ser el cimiento de tu estructura. Desde Arraigo nos encargaremos de realizar toda obra civil desde el inicio del proyecto, teniendo así una visión futura de los requerimientos del mismo para adecuar las instalaciones pertinentes logrando así una eficiencia constructiva",
     },
@@ -115,6 +110,8 @@ export default function Industry() {
       text: "tecnología e innovación",
       image: "/industria/tec.png",
       icon: "/icons/engranaje.png",
+      image1: '/industria/servicios/tec/1.jpeg',
+      image2: '/industria/servicios/tec/2.jpeg',
       detailText:
         "Con un alto grado de infraestructura tecnológica, estamos al alcance de cualquier tipo de innovación en cuanto a lo que la tecnología refiere. Realizamos cableados estructurados de datos y E+, Inteligencia hogareña, sistemas de seguridad integrales, servicios de housing, entre otros.",
     },
@@ -124,6 +121,8 @@ export default function Industry() {
       text: "Energia",
       image: "/industria/clim.png",
       icon: "/icons/wind.png",
+      image1: '/industria/servicios/energia/1.jpeg',
+      image2: '/industria/servicios/energia/2.jpeg',
       detailText:
         "Tenemos un equipo especializado en ingenieria electromecanica y electronica para satisfacer todas las necesidades que se presenten para cada tipo de proyecto, tanto en equipamiento, como así también en servicios de instalación y mantenimiento preventivo/correctivo",
     },
@@ -154,8 +153,8 @@ export default function Industry() {
           } else return null;
         })}
       </TextContainer>
-      <SectionImageText image="/industria/industria-1.jpg" />
-      <SectionImageText image="/industria/industria-2.png" reverse last />
+      <SectionImageText image={tabDetails.image1} />
+      <SectionImageText image={tabDetails.image2}reverse last />
     </Main>
   );
 }

@@ -105,7 +105,7 @@ const Text = styled.div`
   margin: 32px 0;
 `;
 
-const Component = ({ reverse, last, image }) => {
+const Component = ({ reverse, last, image, text }) => {
   return (
     <Main reverse={reverse} last={last}>
       <ImageContainer>
@@ -118,11 +118,11 @@ const Component = ({ reverse, last, image }) => {
           <div style={{ color: colors.red }}>NUESTRA TRAYECTORIA</div>
           <div>ES SINÓNIMO DE CALIDAD</div>
         </Title>
+        {text && 
         <Text>
-          Somos un estudio de arquitectura especializado en la construcción de
-          viviendas. Cuidamos cada detalle, desde el inicio hasta el final, para
-          que nuestros clientes se sientan felices en su nuevo hogar.
-        </Text>
+          {text}
+          </Text>
+        }
       </TextContainer>
     </Main>
   );
