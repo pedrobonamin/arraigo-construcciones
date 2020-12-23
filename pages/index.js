@@ -14,6 +14,7 @@ const SecondBlock = styled.div`
   min-height: 600px;
   display: flex;
   justify-content: flex-end;
+  overflow: hidden;
   @media (max-width: 800px) {
     flex-wrap: wrap-reverse;
     min-height: 400px;
@@ -194,6 +195,27 @@ const ImageDiv = styled.div`
   }
 `;
 
+const BackgroundText = styled.div`
+  position: absolute;
+  right: 0;
+  width: 100%;
+  text-align: right;
+  z-index: 0;
+  font-size: 10vw;
+  font-weight: 800;
+  letter-spacing: 6px;
+  color: white;
+  text-transform: uppercase;
+  top: -25px;
+  color: rgb(45 45 45 / 20%);
+  white-space: nowrap;
+  @media (max-width: 800px) {
+    font-size: 80px;
+    left: 0;
+
+  }
+`;
+
 export default function Home() {
   const isMobile = useInMobile();
 
@@ -312,15 +334,20 @@ export default function Home() {
             loading="eager"
           />
         </ImageContainer>
+
         <TextContainer>
           <Title>
             <div style={{ color: colors.red }}>NUESTRA TRAYECTORIA</div>
             <div>ES SINÓNIMO DE CALIDAD</div>
           </Title>
+          <BackgroundText>NOSOTROS</BackgroundText>
           <Text>
-            Somos un estudio de arquitectura especializado en la construcción de
-            viviendas. Cuidamos cada detalle, desde el inicio hasta el final,
-            para que nuestros clientes se sientan felices en su nuevo hogar.
+          Arraigo inicia en 2005, desarrollando sus primeros pasos en el
+              ámbito de la construcción y dando nuestro mayor esfuerzo proyecto
+              a proyecto. De esta manera logramos consolidar un equipo
+              experimentado, eficaz y orientado al clientes siendo flexibles,
+              responsables, innovadores, resolutivos, con alta capacidad de
+              respuesta y cumpliendo con los plazos acordados.
           </Text>
           <StyledButton
             text="VER MÁS"
