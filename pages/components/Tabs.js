@@ -58,6 +58,55 @@ const Tab = styled.div`
   position: relative;
   transition: all 1s ease;
 `;
+const SecondTab = styled.div`
+  display: flex;
+  z-index: 1;
+  height: 300px;
+  width: 36%;
+  align-items: center;
+  justify-content: center;
+  transition: all 1s ease;
+  flex-shrink: 0;
+  @media (max-width: 800px) {
+    height: 200px;
+    padding-top: 20px;
+  }
+  ${(props) =>
+    props.position === "center" &&
+    `
+    clip-path: polygon(0 0,78% 0, 98% 100%,22% 100%);
+    position: absolute;
+    left: -10.5%;
+    width: 50%;
+    `}
+  ${(props) =>
+    props.position === "first" &&
+    ` 
+  clip-path: polygon(0 0, 70% 0, 100% 100%, 0% 100%);
+  padding-right: 10%;
+  `};
+
+  ${(props) =>
+    props.position === "last" &&
+    `
+    position: absolute;
+    left: -21%;
+
+    clip-path: polygon(0 0,100% 0,100% 100%,30% 100%);
+  padding-right: 0%;
+  padding-left: 10%;
+  :hover {
+      cursor: pointer;
+  }
+
+  `};
+
+  background-image: url(${(props) => props.url});
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  transition: all 1s ease;
+`;
 
 const LogoText = styled.div`
   display: flex;
@@ -168,7 +217,7 @@ const Component = ({ tabs, handleClick, selectedTab, secondLineTabs }) => {
             {secondLineTabs?.map((tab, index) => {
               const { image, icon, text, position, tabName } = tab;
               return (
-                <Tab
+                <SecondTab
                   selectedTab={selectedTab}
                   tabName={tabName}
                   hover={hover}
@@ -195,7 +244,7 @@ const Component = ({ tabs, handleClick, selectedTab, secondLineTabs }) => {
                     />
                     <Text>{text.toUpperCase()}</Text>
                   </LogoText>
-                </Tab>
+                </SecondTab>
               );
             })}
           </TabsContainer>
