@@ -70,12 +70,20 @@ const Title = styled.div`
     background-color: ${colors.red};
   }
   @media (max-width: 800px) {
-    max-width: 90% !important;
+    margin-top: 16px;
+    max-width: 100% !important;
+  font-size: 24px;
+
   }
 `;
 const Text = styled.div`
   font-size: ${units.SectionText};
   margin: 32px 0;
+  @media (max-width: 800px) {
+    margin: 16px 0;
+
+
+  }
 `;
 
 const StyledButton = styled(Button)`
