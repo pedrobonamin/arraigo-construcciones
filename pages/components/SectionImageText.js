@@ -105,7 +105,12 @@ const Text = styled.div`
   margin: 32px 0;
 `;
 
-const Component = ({ reverse, last, image, text }) => {
+const Component = ({ reverse, last, image, text, title }) => {
+  const titleArray = title?.split(' ') || []
+  const first = titleArray.slice(0,2).join(' ')
+  console.log('title array',titleArray)
+  const second = titleArray.slice(2, titleArray.length).join(' ')
+
   return (
     <Main reverse={reverse} last={last}>
       <ImageContainer>
@@ -115,8 +120,8 @@ const Component = ({ reverse, last, image, text }) => {
       </ImageContainer>
       <TextContainer last={last}>
         <Title>
-          <div style={{ color: colors.red }}>NUESTRA TRAYECTORIA</div>
-          <div>ES SINÓNIMO DE CALIDAD</div>
+          <div style={{ color: colors.red }}>{first}</div>
+          <div>{second}</div>
         </Title>
         {text && 
         <Text>

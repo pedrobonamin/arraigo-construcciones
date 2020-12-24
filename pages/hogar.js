@@ -48,12 +48,12 @@ const Text = styled.div`
 const BackgroundText = styled.div`
   position: absolute;
   z-index: 0;
-  font-size: 15vw;
+  font-size: 10vw;
   font-weight: 800;
   letter-spacing: 6px;
   color: white;
   text-transform: uppercase;
-  bottom: 0;
+  bottom: -2vw;
   color: rgb(45 45 45 / 80%);
   white-space: nowrap;
 `;
@@ -82,18 +82,22 @@ export default function Industry() {
       icon: "/icons/albanil.png",
       image1: '/hogar/servicios/civ/1.jpeg',
       image2: '/hogar/servicios/civ/2.jpeg',
+      title1: 'Construccion de piscina',
+      title2: 'Construccion de quincho',
       detailText: "En este amplio rubro, estará dejando en nuestras manos todo el trabajo de construcción y refacción para el hogar. Garantizamos una labor de calidad, confianza y responsabilidad con nuestros clientes.",
     },
     {
       tabName: "montaje",
       position: "center",
       text: "Montajes",
-      image: "/hogar/carpinteria.png",
+      image: "/hogar/servicios/montaje/2-bw.jpg",
       icon: "/icons/montaje.png",
-      image1: '/hogar/servicios/montaje/1.jpeg',
-      image2: '/hogar/servicios/montaje/2.jpeg',
+      image1: '/hogar/servicios/montaje/2.jpeg',
+      image2: '/hogar/servicios/montaje/1.jpeg',
+      title2: 'Montaje de vigas',
+      title1: 'Vigas a montar',
       detailText:
-        "Realizamos tareas de armado, refacción, y mantenimiento de estructuras, obras y equipamiento.",
+        "Estamos a la altura de la realizacion de todo tipo de montajes con maquinaria especializada y personal capacitado para dicha tarea.",
     },
     {
       tabName: "pintura",
@@ -101,10 +105,12 @@ export default function Industry() {
       text: "pintura",
       image: "/hogar/pintura.png",
       icon: "/icons/paint.png",
-      image1: '/hogar/servicios/pintura/1.jpeg',
-      image2: '/hogar/servicios/pintura/2.jpeg',
+      image1: '/hogar/servicios/pintura/2.jpeg',
+      image2: '/hogar/servicios/pintura/1.jpeg',
+      title2: 'Pintado industrial con pistola',
+      title1: 'Pintura industrial terminada',
       detailText:
-        "Tenemos un equipo especializado en ingenieria electromecanica y electronica para satisfacer todas las necesidades que se presenten para cada tipo de proyecto, tanto en equipamiento, como así también en servicios de instalación y mantenimiento preventivo/correctivo",
+        "Contamos con equipamiento de alta calidad para brindar el mejor servicio en pintura para el hogar y la industria. No tenemos limites para ello, ya que ofrecemos un servicio tanto terrestre como en alturas",
     },
   ];
 
@@ -113,12 +119,14 @@ export default function Industry() {
       tabName: "arenado",
       position: "first",
       text: "Arenado",
-      image: "/hogar/albanileria.png",
+      image: '/hogar/servicios/arenado/bw.png',
       icon: "/icons/arenado.png",
       image1: '/hogar/servicios/arenado/1.jpeg',
       image2: '/hogar/servicios/arenado/2.jpeg',
+      title1: 'Arenado industrial',
+      title2: 'Arenado industrial',
       detailText:
-        " En este amplio rubro, estará dejando en nuestras manos todo el trabajo de construcción y refacción para el hogar. Garantizamos una labor de calidad, confianza y responsabilidad con nuestros clientes.",
+        "Con nuestras maquinas a presion nos especializamos en arenado para cualquier tipo de estructura que asi requiera. No solo lo realizamos para elementos hogareños, sino que tambien para el mundo de la industria",
     },
     {
       tabName: "Revestimientos",
@@ -126,21 +134,23 @@ export default function Industry() {
       text: "Revestimientos",
       image: "/hogar/carpinteria.png",
       icon: "/icons/revestimientos.png",
-      image1: '/hogar/servicios/revestimientos/1.jpeg',
-      image2: '/hogar/servicios/revestimientos/2.jpeg',
+      title1: '',
+      title2: '',
       detailText:
-        "Realizamos tareas de armado, refacción, y mantenimiento de estructuras, obras y equipamiento.",
+        "Si se busca realizar un cambio de apariencia o fachada para el hogar, nos encargaremos de ascesorar, guiar y llevar a cabo las tareas de revestimientos con nuestro equipo para dar las mejores terminaciones a la superficie deseada.",
     },
     {
       tabName: "plomeria",
       position: "last",
       text: "Plomeria y Gas",
-      image: "/hogar/pintura.png",
+      image: '/hogar/servicios/plomeria/bw.jpg',
       icon: "/icons/plomeria.png",
       image1: '/hogar/servicios/plomeria/1.jpeg',
       image2: '/hogar/servicios/plomeria/2.jpeg',
+      title1: 'Refaccion de baño (Plomeria)',
+      title2: 'Reparacion de cocina (Gas)',
       detailText:
-        "Tenemos un equipo especializado en ingenieria electromecanica y electronica para satisfacer todas las necesidades que se presenten para cada tipo de proyecto, tanto en equipamiento, como así también en servicios de instalación y mantenimiento preventivo/correctivo",
+        "Fisuras, perdidas, refacciones, instalaciones y mas es lo que Arraigo le ofrece a sus clientes en cuanto a trabajos de Plomeria y Gas, donde la calidad y profesionalismo son nuestro principal objetivo",
     },
   ];
 
@@ -180,8 +190,17 @@ export default function Industry() {
           } else return null;
         })}
       </TextContainer>
-      <SectionImageText image={tabDetails.image1} />
-      <SectionImageText image={tabDetails.image2}reverse last />
+      {tabDetails.image1 && (
+        <SectionImageText image={tabDetails.image1} title={tabDetails.title1} />
+      )}
+      {tabDetails.image2 && (
+        <SectionImageText
+          image={tabDetails.image2}
+          title={tabDetails.title2}
+          reverse
+          last
+        />
+      )}
     </>
   );
 }

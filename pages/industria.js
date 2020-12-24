@@ -1,4 +1,4 @@
-import { useState , useEffect} from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 import styled, { keyframes } from "styled-components";
@@ -41,10 +41,8 @@ const TextContainer = styled.div`
   position: relative;
   overflow: hidden;
   @media (max-width: 800px) {
-  height: 300px;
-   
+    height: 300px;
   }
-
 `;
 const Text = styled.div`
   animation: ${fadeIn} 1s ease forwards 1;
@@ -64,27 +62,25 @@ const Text = styled.div`
 const BackgroundText = styled.div`
   position: absolute;
   z-index: 0;
-  font-size: 15vw;
+  font-size: 10vw;
   font-weight: 800;
   letter-spacing: 6px;
   color: white;
   text-transform: uppercase;
-  bottom: 0;
+  bottom: -2vw;
   color: rgb(45 45 45 / 80%);
   white-space: nowrap;
 `;
 
-
-
 export default function Industry() {
   const [selectedTab, setSelectedTab] = useState("civ");
-  const [tabDetails, setTabDetails] = useState({})
+  const [tabDetails, setTabDetails] = useState({});
 
   useEffect(() => {
-    const selected = [...tabsInfo].find(tab => tab.tabName === selectedTab)
- 
-     setTabDetails(selected)
-   },[selectedTab])
+    const selected = [...tabsInfo].find((tab) => tab.tabName === selectedTab);
+
+    setTabDetails(selected);
+  }, [selectedTab]);
 
   const router = useRouter();
 
@@ -99,8 +95,10 @@ export default function Industry() {
       text: "Civil",
       image: "/industria/civil.png",
       icon: "/icons/helmet.png",
-      image1: '/industria/servicios/civil/1.jpeg',
-      image2: '/industria/servicios/civil/2.jpeg',
+      image1: "/industria/servicios/civil/1.jpeg",
+      image2: "/industria/servicios/civil/2.jpeg",
+      title1: "Materiales para construccion de Silos",
+      title2: "Silo principal",
       detailText:
         "Te ofrecemos ser el cimiento de tu estructura. Desde Arraigo nos encargaremos de realizar toda obra civil desde el inicio del proyecto, teniendo así una visión futura de los requerimientos del mismo para adecuar las instalaciones pertinentes logrando así una eficiencia constructiva",
     },
@@ -110,8 +108,10 @@ export default function Industry() {
       text: "tecnología e innovación",
       image: "/industria/tec.png",
       icon: "/icons/engranaje.png",
-      image1: '/industria/servicios/tec/1.jpeg',
-      image2: '/industria/servicios/tec/2.jpeg',
+      image1: "/industria/servicios/tec/1.jpeg",
+      image2: "/industria/servicios/tec/2.jpeg",
+      title1: "Tendido de cables de Datos y E+",
+      title2: "Silo principal",
       detailText:
         "Con un alto grado de infraestructura tecnológica, estamos al alcance de cualquier tipo de innovación en cuanto a lo que la tecnología refiere. Realizamos cableados estructurados de datos y E+, Inteligencia hogareña, sistemas de seguridad integrales, servicios de housing, entre otros.",
     },
@@ -121,8 +121,6 @@ export default function Industry() {
       text: "Energia",
       image: "/industria/clim.png",
       icon: "/icons/wind.png",
-      image1: '/industria/servicios/energia/1.jpeg',
-      image2: '/industria/servicios/energia/2.jpeg',
       detailText:
         "Tenemos un equipo especializado en ingenieria electromecanica y electronica para satisfacer todas las necesidades que se presenten para cada tipo de proyecto, tanto en equipamiento, como así también en servicios de instalación y mantenimiento preventivo/correctivo",
     },
@@ -147,14 +145,23 @@ export default function Industry() {
             return <Text>{tab.detailText}</Text>;
           } else return null;
         })}
-            {tabsInfo.map((tab) => {
+        {tabsInfo.map((tab) => {
           if (tab.tabName === selectedTab) {
-            return <BackgroundText> {tab.text} </BackgroundText>;
+            return <BackgroundText> {tab.text}</BackgroundText>;
           } else return null;
         })}
       </TextContainer>
-      <SectionImageText image={tabDetails.image1} />
-      <SectionImageText image={tabDetails.image2}reverse last />
+      {tabDetails.image1 && (
+        <SectionImageText image={tabDetails.image1} title={tabDetails.title1} />
+      )}
+      {tabDetails.image2 && (
+        <SectionImageText
+          image={tabDetails.image2}
+          title={tabDetails.title2}
+          reverse
+          last
+        />
+      )}
     </Main>
   );
 }

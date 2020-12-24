@@ -177,7 +177,6 @@ const LogoText = styled.div`
   }
   @media (max-width: 800px) {
     ${(props) => (props.first ? `left: 10px` : `right: 10px`)};
-    ${(props) => (props.first ? `top: 5%` : `bottom: 5%`)};
     padding: 20px;
   }
 `;
@@ -317,7 +316,7 @@ export default function Home() {
             onMouseLeave={() => setHover()}
           >
             <Image
-              src={"/icons/industry.png"}
+              src={"/icons/home.png"}
               alt={"Industria"}
               height={isMobile ? 120 : 200}
               width={isMobile ? 120 : 200}

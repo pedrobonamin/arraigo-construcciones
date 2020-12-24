@@ -2,8 +2,8 @@ import styled from "styled-components";
 import Image from "next/image";
 import { colors } from "styles";
 import FacebookIcon from "@material-ui/icons/Facebook";
-import YouTubeIcon from "@material-ui/icons/YouTube";
-import LinkedinIcon from "@material-ui/icons/LinkedIn";
+// import YouTubeIcon from "@material-ui/icons/YouTube";
+// import LinkedinIcon from "@material-ui/icons/LinkedIn";
 import InstagramIcon from "@material-ui/icons/Instagram";
 
 const Footer = styled.footer`
@@ -35,15 +35,18 @@ const Contact = styled.div`
 const Staff = styled.div`
   border-right: 1px solid ${colors.greyDivider};
   border-left: 1px solid ${colors.greyDivider};
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
 `;
 const Titles = styled.span`
   font-size: 14px;
 `;
 
 const Component = () => {
-
-  const height = 60
-  const width = height * 3.20
+  const height = 60;
+  const width = height * 3.2;
   return (
     <Footer>
       <div>
@@ -52,30 +55,41 @@ const Component = () => {
           alt="Picture of the author"
           width={width}
           height={height}
-          layout='fixed'
+          layout="fixed"
         />
       </div>
       <Staff>
         <Titles>STAFF</Titles>
+        <Image src="/icons/sercomp.png" height="80" width="80" />
       </Staff>
       <Contact>
-        <ul>
-          <li>
-            <Titles>CONTACTO:</Titles>
-          </li>
-          <li> <a href="mailto:administracion@grupoarraigo.com">
-            administracion@grupoarraigo.com
-            </a>
+        <address>
+          <ul>
+            <li>
+              <Titles>CONTACTO:</Titles>
             </li>
-          <li> +54 (341) 4683676 | +54 (341) 3871945</li>
-          <li> J.M Gutierrez 1994, Rosario, Argentina</li>
-          <li>
-            {/* <YouTubeIcon fontSize="small" style={{ marginRight: "4px" }} /> */}
-            <FacebookIcon fontSize="small" style={{ marginRight: "4px" }} />
-            {/* <LinkedinIcon fontSize="small" style={{ marginRight: "4px" }} /> */}
-            <InstagramIcon fontSize="small" style={{ marginRight: "4px" }} />
-          </li>
-        </ul>
+            <li>
+              {" "}
+              <a href="mailto:administracion@grupoarraigo.com">
+                administracion@grupoarraigo.com
+              </a>
+            </li>
+
+            <li> +54 (0341) 2972732) </li>
+            <li>
+              {" "}
+              <a href="https://goo.gl/maps/oWHUHgeypuuNTWpMA" target="_blank">
+                San Lorenzo 1047 1 A, Rosario, Santa Fe{" "}
+              </a>
+            </li>
+            <li>
+              {/* <YouTubeIcon fontSize="small" style={{ marginRight: "4px" }} /> */}
+              <FacebookIcon fontSize="small" style={{ marginRight: "4px" }} />
+              {/* <LinkedinIcon fontSize="small" style={{ marginRight: "4px" }} /> */}
+              <InstagramIcon fontSize="small" style={{ marginRight: "4px" }} />
+            </li>
+          </ul>
+        </address>
       </Contact>
     </Footer>
   );
