@@ -60,7 +60,7 @@ const Component = () => {
       </div>
       <Staff>
         <Titles>STAFF</Titles>
-        <Image src="/icons/martini.png" height="80" width="80" />
+        <Image src="/icons/martini.png" height="80" width="126" />
       </Staff>
       <Contact>
         <address>
