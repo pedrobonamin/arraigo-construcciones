@@ -82,7 +82,7 @@ export default function Industry() {
       icon: "/icons/albanil.png",
       image1: '/hogar/servicios/civ/1.jpeg',
       image2: '/hogar/servicios/civ/2.jpeg',
-      title1: 'Construccion de piscina',
+      title1: 'Edificación Casa de 2 plantas',
       title2: 'Construccion de quincho',
       detailText: "En este amplio rubro, estará dejando en nuestras manos todo el trabajo de construcción y refacción para el hogar. Garantizamos una labor de calidad, confianza y responsabilidad con nuestros clientes.",
     },

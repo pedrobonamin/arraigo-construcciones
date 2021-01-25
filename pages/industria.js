@@ -95,10 +95,10 @@ export default function Industry() {
       text: "Civil",
       image: "/industria/civil.png",
       icon: "/icons/helmet.png",
-      image1: "/industria/servicios/civil/1.jpeg",
-      image2: "/industria/servicios/civil/2.jpeg",
-      title1: "Materiales para construccion de Silos",
-      title2: "Silo principal",
+      image1: "/industria/servicios/civil/1.jpg",
+      image2: "/industria/servicios/civil/2.jpg",
+      title1: "Techado sombreado",
+      title2: "Construcción en acopio",
       detailText:
         "Te ofrecemos ser el cimiento de tu estructura. Desde Arraigo nos encargaremos de realizar toda obra civil desde el inicio del proyecto, teniendo así una visión futura de los requerimientos del mismo para adecuar las instalaciones pertinentes logrando así una eficiencia constructiva",
     },
@@ -108,10 +108,10 @@ export default function Industry() {
       text: "tecnología e innovación",
       image: "/industria/tec.png",
       icon: "/icons/engranaje.png",
-      image1: "/industria/servicios/tec/1.jpeg",
+      image1: "/industria/servicios/tec/1.jpg",
       image2: "/industria/servicios/tec/2.jpeg",
-      title1: "Tendido de cables de Datos y E+",
-      title2: "Silo principal",
+      title1: "Mantenimiento IT",
+      title2: "Cableado de Fibra Óptica",
       detailText:
         "Con un alto grado de infraestructura tecnológica, estamos al alcance de cualquier tipo de innovación en cuanto a lo que la tecnología refiere. Realizamos cableados estructurados de datos y E+, Inteligencia hogareña, sistemas de seguridad integrales, servicios de housing, entre otros.",
     },
@@ -121,8 +121,11 @@ export default function Industry() {
       text: "Energia",
       image: "/industria/clim.png",
       icon: "/icons/wind.png",
-      detailText:
-        "Tenemos un equipo especializado en ingenieria electromecanica y electronica para satisfacer todas las necesidades que se presenten para cada tipo de proyecto, tanto en equipamiento, como así también en servicios de instalación y mantenimiento preventivo/correctivo",
+      image1: "/industria/servicios/energia/1.jpg",
+      image2: "/industria/servicios/energia/2.jpg",
+      title1: "Tablero Electrico",
+      title2: "Generadores",
+      detailText:''
     },
   ];
 
