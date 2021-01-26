@@ -110,14 +110,14 @@ const LogoImage = styled.div`
   }
 `;
 
-const Image = styled.div`
-background-image: url(${(props) => props.src});
-background-position: top;
-background-size: cover;
-min-height: 80vh;
-width: 100vw
-z-index: 0;
-`;
+// const Image = styled.div`
+// background-image: url(${(props) => props.src});
+// background-position: top;
+// background-size: cover;
+// min-height: 80vh;
+// width: 100vw
+// z-index: 0;
+// `;
 const Hero = ({
   src,
   title,
