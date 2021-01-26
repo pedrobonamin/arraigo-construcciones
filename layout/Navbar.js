@@ -4,18 +4,19 @@ import styled from "styled-components";
 import { colors, units } from "styles";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import HeadroomComponent from "react-headroom";
+// import HeadroomComponent from "react-headroom";
+import Head from "next/head";
 
-const Headroom = styled(HeadroomComponent)`
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-  .headroom--unpinned {
-    position: fixed;
-    transform: translateY(0%);
-  }
-`;
+// const Headroom = styled(HeadroomComponent)`
+//   position: absolute;
+//   top: 0;
+//   width: 100%;
+//   z-index: 100;
+//   .headroom--unpinned {
+//     position: fixed;
+//     transform: translateY(0%);
+//   }
+// `;
 const Nav = styled.nav`
   position: fixed;
   top: 0;
@@ -175,6 +176,10 @@ const Navbar = () => {
   const width = height * 3.2;
   return (
     <>
+      <Head>
+        <meta lang="en" />
+        <meta name="Description" content="Arraigo Ingenieria de Proyectos." />
+      </Head>
       {screenWidth > 800 && (
         <Nav scrolled={scrolled}>
           <Ul>
@@ -187,29 +192,27 @@ const Navbar = () => {
             ))}
           </Ul>
           <Link href="/">
-
-          <ImageContainer>
-            {scrolled && (
-              <Image
-                src="/logoalt.png"
-                alt="Picture"
-                width={height * 0.8}
-                height={height * 0.8}
-                layout="fixed"
-              />
-            )}
-            {!scrolled && (
-              <Image
-                src="/logo.png"
-                alt="Picture"
-                width={width}
-                height={height}
-                layout="fixed"
-              />
-            )}
-          </ImageContainer>
+            <ImageContainer>
+              {scrolled && (
+                <Image
+                  src="/logoalt.png"
+                  alt="Picture"
+                  width={height * 0.8}
+                  height={height * 0.8}
+                  layout="fixed"
+                />
+              )}
+              {!scrolled && (
+                <Image
+                  src="/logo.png"
+                  alt="Picture"
+                  width={width}
+                  height={height}
+                  layout="fixed"
+                />
+              )}
+            </ImageContainer>
           </Link>
-
         </Nav>
       )}
       {screenWidth < 800 && (

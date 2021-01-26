@@ -41,9 +41,11 @@ const TextSubContainer = styled.div`
   align-items: center;
   max-height: 100%;
 `;
-const Title = styled.div`
+const Title = styled.h1`
   font-size: ${units.HeroTitle};
+  font-weight: 400;
   z-index: 1;
+  margin: 0;
   @media (max-width: 800px) {
     font-size: 36px !important;
   }
@@ -57,8 +59,9 @@ const Title = styled.div`
   }
 `;
 
-const Text = styled.div`
+const Text = styled.h3`
   font-size: ${units.HeroText};
+  font-weight: 300;
   text-align: ${(props) => props.textAlign};
   line-height: 1.5em;
   margin: 16px 0px;
@@ -133,7 +136,7 @@ const Hero = ({
   console.log("IS MOBILE", isMobile);
 
   return (
-    <HeroContainer >
+    <HeroContainer>
       <Filter addSquares={addSquares} />
       <Image
         src={src}
