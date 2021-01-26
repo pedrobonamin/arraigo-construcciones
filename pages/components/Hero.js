@@ -1,14 +1,12 @@
 import styled from "styled-components";
-// import Image from "next/image";
+import Image from "next/image";
 import { units, colors } from "styles";
 import Button from "./Button";
 import useInMobile from "hooks/useInMobile";
+
 const HeroContainer = styled.div`
   position: relative;
   overflow: hidden;
-  background-image: url(${(props) => props.src});
-  background-position: center;
-  background-size: cover;
   min-height: 80vh;
   width: 100vw;
 `;
@@ -77,21 +75,20 @@ const Text = styled.div`
 `;
 
 const SubText = styled.span`
-font-size: 24px;
-position: absolute;
-top: 100px;
-right: 20px;
-color: white;
-z-index: 2;
-letter-spacing: 2px;
-font-weight: 300;
-@media (max-width: 800px) {
-top: 20px;
-right: 8px;
-font-size: 12px;
-}
-
-`
+  font-size: 24px;
+  position: absolute;
+  top: 100px;
+  right: 20px;
+  color: white;
+  z-index: 2;
+  letter-spacing: 2px;
+  font-weight: 300;
+  @media (max-width: 800px) {
+    top: 20px;
+    right: 8px;
+    font-size: 12px;
+  }
+`;
 const LogoImage = styled.div`
   background-image: url(${(props) => props.src});
   background-position: top;
@@ -136,16 +133,16 @@ const Hero = ({
   console.log("IS MOBILE", isMobile);
 
   return (
-    <HeroContainer src={src}>
+    <HeroContainer >
       <Filter addSquares={addSquares} />
-      {/* <Image
+      <Image
         src={src}
         alt={src}
         height="1000"
         width="1600"
         sizes="60vh"
         priority
-      /> */}
+      />
       {!addSquares && <SubText>AMPLIANDO TUS LIMITES</SubText>}
       {addSquares && <LogoImage src="/isologoContorno.png" />}
       <TextContainer>
