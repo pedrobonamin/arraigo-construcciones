@@ -15,7 +15,7 @@ import MuiAlert from "@material-ui/lab/Alert";
 
 const Main = styled.main``;
 const SecondBlock = styled.div`
-  background-image: url("/contacto/contact.png");
+  background-image: url("/contacto/contact.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -273,7 +273,7 @@ const Contact = () => {
           title="ESCRIBINOS"
           text="AMPLIANDO TUS LÍMITES"
           textAlign="left"
-          src={"/contacto/contacto-hero.jpg"}
+          src={"/contacto/contacto-hero.webp"}
         />
         <SecondBlock>
           <FormContainer>
