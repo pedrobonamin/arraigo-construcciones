@@ -78,7 +78,7 @@ export default function Industry() {
       tabName: "civ",
       position: "first",
       text: "Albañilería",
-      image: "/hogar/albanileria.png",
+      image: "/hogar/albanileria.webp",
       icon: "/icons/albanil.png",
       image1: '/hogar/servicios/civ/1.jpeg',
       image2: '/hogar/servicios/civ/2.jpeg',
@@ -103,7 +103,7 @@ export default function Industry() {
       tabName: "pintura",
       position: "last",
       text: "pintura",
-      image: "/hogar/pintura.png",
+      image: "/hogar/pintura.webp",
       icon: "/icons/paint.png",
       image1: '/hogar/servicios/pintura/2.jpeg',
       image2: '/hogar/servicios/pintura/1.jpeg',
@@ -132,7 +132,7 @@ export default function Industry() {
       tabName: "Revestimientos",
       position: "center",
       text: "Revestimientos",
-      image: "/hogar/carpinteria.png",
+      image: "/hogar/carpinteria.webp",
       icon: "/icons/revestimientos.png",
       title1: '',
       title2: '',
@@ -160,7 +160,7 @@ export default function Industry() {
         title={"HOGAR"}
         text="AMPLIANDO TUS LÍMITES"
         textAlign="left"
-        src={"/hogar/hogar-hero.jpg"}
+        src={"/hogar/hogar-hero.webp"}
       />
       <Tabs
         tabs={tabsInfo}

@@ -153,13 +153,13 @@ export default function Home() {
         }
         text="AMPLIANDO TUS LÍMITES"
         textAlign="left"
-        src={"/metodo/metodo-hero.png"}
+        src={"/metodo/metodo-hero.webp"}
       />
 
       <SecondSection last reverse>
         <ImageContainer>
           <ImageBefore reverse={true}>
-            <Image reverse src={"/metodo/metodo.png"} alt={"trayectoria"} />
+            <Image reverse src={"/metodo/metodo.webp"} alt={"trayectoria"} />
           </ImageBefore>
           <ImageText>
             <p>

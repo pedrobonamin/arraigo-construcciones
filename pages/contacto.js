@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import MyLayout from "../layout";
 import TextField from "@material-ui/core/TextField";
@@ -15,7 +15,7 @@ import MuiAlert from "@material-ui/lab/Alert";
 
 const Main = styled.main``;
 const SecondBlock = styled.div`
-  background-image: url("/contacto/contact.png");
+  background-image: url("/contacto/contact.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -190,6 +190,12 @@ const Contact = () => {
   const [success, setSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState();
   const [loading, setLoading] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    if (!mounted) {
+      setMounted(true);
+    }
+  }, [mounted]);
   function validateEmail(email) {
     // eslint-disable-next-line
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -273,7 +279,7 @@ const Contact = () => {
           title="ESCRIBINOS"
           text="AMPLIANDO TUS LÍMITES"
           textAlign="left"
-          src={"/contacto/contacto-hero.jpg"}
+          src={"/contacto/contacto-hero.webp"}
         />
         <SecondBlock>
           <FormContainer>
@@ -339,14 +345,16 @@ const Contact = () => {
             </InputsContainer>
           </FormContainer>
         </SecondBlock>
-        <Map
-          title="map"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.2302769123003!2d-60.63774693743764!3d-32.94492919026916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ab18fa019b8d%3A0xeca6f7adb350f2f0!2sARG%2C%20San%20Lorenzo%201047%2C%20S2000%20Rosario%2C%20Provincia%20de%20Santa%20Fe!5e0!3m2!1ses-419!2sar!4v1608554214822!5m2!1ses-419!2sar"
-          frameborder="0"
-          allowfullscreen=""
-          aria-hidden="false"
-          tabindex="0"
-        />
+        {mounted && (
+          <Map
+            title="map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.2302769123003!2d-60.63774693743764!3d-32.94492919026916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ab18fa019b8d%3A0xeca6f7adb350f2f0!2sARG%2C%20San%20Lorenzo%201047%2C%20S2000%20Rosario%2C%20Provincia%20de%20Santa%20Fe!5e0!3m2!1ses-419!2sar!4v1608554214822!5m2!1ses-419!2sar"
+            frameborder="0"
+            allowfullscreen=""
+            aria-hidden="false"
+            tabindex="0"
+          />
+        )}
       </Main>
       <Snackbar
         open={success}

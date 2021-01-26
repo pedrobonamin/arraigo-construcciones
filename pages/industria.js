@@ -106,7 +106,7 @@ export default function Industry() {
       tabName: "tec",
       position: "center",
       text: "tecnología e innovación",
-      image: "/industria/tec.png",
+      image: "/industria/tec.webp",
       icon: "/icons/engranaje.png",
       image1: "/industria/servicios/tec/1.jpg",
       image2: "/industria/servicios/tec/2.jpeg",

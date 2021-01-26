@@ -60,7 +60,7 @@ const Component = () => {
       </div>
       <Staff>
         <Titles>STAFF</Titles>
-        <Image src="/icons/martini.png" height="80" width="126" />
+        <Image src="/icons/martini.png" height="80" width="126" alt='contact-image'/>
       </Staff>
       <Contact>
         <address>
@@ -78,7 +78,11 @@ const Component = () => {
             <li> +54 (0341) 2972732) </li>
             <li>
               {" "}
-              <a href="https://goo.gl/maps/oWHUHgeypuuNTWpMA" target="_blank">
+              <a
+                href="https://goo.gl/maps/oWHUHgeypuuNTWpMA"
+                target="_blank"
+                rel="noreferrer"
+              >
                 San Lorenzo 1047 1 A, Rosario, Santa Fe{" "}
               </a>
             </li>
