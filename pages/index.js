@@ -246,7 +246,7 @@ export default function Home() {
         buttonAction={() => router.push("/metodo")}
         text="Para ampliar tus límites es necesario accionar de forma innovadora y eficaz. Desarrollamos un método propio para llevar a otro nivel la ejecución de cada proyecto"
         textMaxWidth={"60%"}
-        src={"/home/home-hero.jpg"}
+        src={"/home/home-hero.webp"}
       />
 
       <ThirdBlock onMouseLeave={() => setHover()}>
@@ -283,9 +283,9 @@ export default function Home() {
             />
             <ThirdBlockText>INDUSTRIA</ThirdBlockText>
           </LogoText>
-          <ImageDiv
+          <Image
             position={"left: 0;"}
-            src={"/home/home-industria-bw.jpg"}
+            src={"/home/home-industria-bw.webp"}
             alt={"Industria"}
             layout="fill"
             loading="eager"
@@ -324,9 +324,9 @@ export default function Home() {
             />
             <ThirdBlockText>HOGAR</ThirdBlockText>
           </LogoText>
-          <ImageDiv
+          <Image
             position={"right: 0;"}
-            src={"/home/home-hogar-bw.png"}
+            src={"/home/home-hogar-bw.webp"}
             alt={"Hogar"}
             layout="fill"
             loading="eager"
@@ -337,7 +337,7 @@ export default function Home() {
       <SecondBlock>
         <ImageContainer>
           <Image
-            src={"/home/home-trayectoria.jpg"}
+            src={"/home/home-trayectoria.webp"}
             alt={"trayectoria"}
             layout="fill"
             loading="eager"

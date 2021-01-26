@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Image from "next/image";
+// import Image from "next/image";
 import { units, colors } from "styles";
 import Button from "./Button";
 import useInMobile from "hooks/useInMobile";
@@ -109,15 +109,15 @@ const LogoImage = styled.div`
     left: -150px;
   }
 `;
+const Image = styled.div`
+background-image: url(${(props) => props.src});
+background-position: top;
+background-size: cover;
+min-height: 80vh;
+width: 100vw
+z-index: 0;
+`;
 
-// const Image = styled.div`
-// background-image: url(${(props) => props.src});
-// background-position: top;
-// background-size: cover;
-// min-height: 80vh;
-// width: 100vw
-// z-index: 0;
-// `;
 const Hero = ({
   src,
   title,
