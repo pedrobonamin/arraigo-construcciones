@@ -7,6 +7,7 @@ import Image from "next/image";
 import Button from "./components/Button";
 import { units, colors } from "styles";
 import useInMobile from "hooks/useInMobile";
+import useScroll from 'hooks/useScroll'
 
 const Main = styled.main``;
 const SecondBlock = styled.div`
@@ -211,16 +212,10 @@ const BackgroundText = styled.div`
 
 export default function Home() {
   const isMobile = useInMobile();
-
   const router = useRouter();
-
   const [hover, setHover] = useState();
-  const [mounted, setIsMounted] = useState(true);
-  useEffect(() => {
-    if (!mounted) {
-      setIsMounted(true);
-    }
-  }, []);
+  const scrolled = useScroll()
+
   return (
     <Main>
       <Hero
@@ -326,7 +321,7 @@ export default function Home() {
           />
         </ThirdBlockImageContainer>
       </ThirdBlock>
-      {mounted && (
+      {scrolled && (
         <SecondBlock>
           <ImageContainer>
             <Image
