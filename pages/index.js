@@ -7,7 +7,7 @@ import Image from "next/image";
 import Button from "./components/Button";
 import { units, colors } from "styles";
 import useInMobile from "hooks/useInMobile";
-import Link from "next/link";
+
 const Main = styled.main``;
 const SecondBlock = styled.div`
   position: relative;
@@ -72,8 +72,7 @@ const Title = styled.div`
   @media (max-width: 800px) {
     margin-top: 16px;
     max-width: 100% !important;
-  font-size: 24px;
-
+    font-size: 24px;
   }
 `;
 const Text = styled.div`
@@ -81,8 +80,6 @@ const Text = styled.div`
   margin: 32px 0;
   @media (max-width: 800px) {
     margin: 16px 0;
-
-
   }
 `;
 
@@ -189,19 +186,6 @@ const ThirdBlockText = styled.div`
   }
 `;
 
-const ImageDiv = styled.div`
-  background-image: url(${(props) => props.src});
-  background-position: top;
-  background-size: cover;
-  height: 100%;
-  width: 60%;
-  position: absolute;
-  ${(props) => props.position};
-  @media (max-width: 800px) {
-    width: 100%;
-  }
-`;
-
 const BackgroundText = styled.div`
   position: absolute;
   right: 170px;
@@ -218,7 +202,7 @@ const BackgroundText = styled.div`
   white-space: nowrap;
   @media (max-width: 800px) {
     font-size: 17.5vw;
-  letter-spacing: 6px;
+    letter-spacing: 6px;
 
     left: 0px;
     top: -5vw;
@@ -231,6 +215,12 @@ export default function Home() {
   const router = useRouter();
 
   const [hover, setHover] = useState();
+  const [mounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    if (!mounted) {
+      setIsMounted(true);
+    }
+  }, []);
   return (
     <Main>
       <Hero
@@ -246,19 +236,20 @@ export default function Home() {
         buttonAction={() => router.push("/metodo")}
         text="Para ampliar tus límites es necesario accionar de forma innovadora y eficaz. Desarrollamos un método propio para llevar a otro nivel la ejecución de cada proyecto"
         textMaxWidth={"60%"}
-        src={"/home/home-hero.webp"}
+        src={
+          "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/home-hero.webp?alt=media&token=0123c61a-0460-4dc1-8153-7189aa46b4fb"
+        }
       />
 
       <ThirdBlock onMouseLeave={() => setHover()}>
         <ThirdBlockImageContainer
           first
           onClick={(e) => {
-            if(!isMobile) {
-              console.log('CLICKED ON INDUSTRIA')
+            if (!isMobile) {
+              console.log("CLICKED ON INDUSTRIA");
               e.stopPropagation();
               router.push("/industria");
             }
-    
           }}
         >
           <Filter hover={hover} first />
@@ -267,8 +258,8 @@ export default function Home() {
             onMouseEnter={() => setHover("first")}
             onMouseLeave={() => setHover()}
             onClick={(e) => {
-              if(isMobile) {
-                console.log('CLICKED ON industria')
+              if (isMobile) {
+                console.log("CLICKED ON industria");
                 e.stopPropagation();
                 router.push("/industria");
               }
@@ -285,7 +276,9 @@ export default function Home() {
           </LogoText>
           <Image
             position={"left: 0;"}
-            src={"/home/home-industria-bw.webp"}
+            src={
+              "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/home-industria-bw.webp?alt=media&token=33e20fe0-9e15-45bf-ac89-7caa81f7975f"
+            }
             alt={"Industria"}
             layout="fill"
             loading="eager"
@@ -295,8 +288,8 @@ export default function Home() {
         <ThirdBlockImageContainer
           onMouseLeave={() => setHover()}
           onClick={(e) => {
-            if(!isMobile) {
-              console.log('CLICKED ON HOGAR')
+            if (!isMobile) {
+              console.log("CLICKED ON HOGAR");
               e.stopPropagation();
               router.push("/hogar");
             }
@@ -304,20 +297,20 @@ export default function Home() {
         >
           <Filter hover={hover} />
           <LogoText
-                onClick={(e) => {
-                  if(isMobile) {
-                    console.log('CLICKED ON HOGAR')
-                    e.stopPropagation();
-                    router.push("/hogar");
-                  }
-                }}
+            onClick={(e) => {
+              if (isMobile) {
+                console.log("CLICKED ON HOGAR");
+                e.stopPropagation();
+                router.push("/hogar");
+              }
+            }}
             hover={hover}
             onMouseEnter={() => setHover("second")}
             onMouseLeave={() => setHover()}
           >
             <Image
-              src={"/icons/home.png"}
-              alt={"Industria"}
+              src="/icons/home.png"
+              alt="Industria"
               height={isMobile ? 120 : 200}
               width={isMobile ? 120 : 200}
               layout="fixed"
@@ -326,44 +319,45 @@ export default function Home() {
           </LogoText>
           <Image
             position={"right: 0;"}
-            src={"/home/home-hogar-bw.webp"}
-            alt={"Hogar"}
+            src="https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/home-hogar-bw.webp?alt=media&token=0f9f1530-8cc5-4ac0-8f8c-1f89e8eac78f"
+            alt="Hogar"
             layout="fill"
             loading="eager"
           />
         </ThirdBlockImageContainer>
       </ThirdBlock>
+      {mounted && (
+        <SecondBlock>
+          <ImageContainer>
+            <Image
+              src="https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/home-trayectoria.webp?alt=media&token=205736ec-b7a8-4262-a365-3edd3b8de797"
+              alt="trayectoria"
+              layout="fill"
+              loading="eager"
+            />
+          </ImageContainer>
 
-      <SecondBlock>
-        <ImageContainer>
-          <Image
-            src={"/home/home-trayectoria.webp"}
-            alt={"trayectoria"}
-            layout="fill"
-            loading="eager"
-          />
-        </ImageContainer>
-
-        <TextContainer>
-          <Title>
-            <div style={{ color: colors.red }}>NUESTRA TRAYECTORIA</div>
-            <div>ES SINÓNIMO DE CALIDAD</div>
-          </Title>
-          <BackgroundText>NOSOTROS</BackgroundText>
-          <Text>
-          Arraigo inicia en 2005, desarrollando sus primeros pasos en el
+          <TextContainer>
+            <Title>
+              <div style={{ color: colors.red }}>NUESTRA TRAYECTORIA</div>
+              <div>ES SINÓNIMO DE CALIDAD</div>
+            </Title>
+            <BackgroundText>NOSOTROS</BackgroundText>
+            <Text>
+              Arraigo inicia en 2005, desarrollando sus primeros pasos en el
               ámbito de la construcción y dando nuestro mayor esfuerzo proyecto
               a proyecto. De esta manera logramos consolidar un equipo
               experimentado, eficaz y orientado al clientes siendo flexibles,
               responsables, innovadores, resolutivos, con alta capacidad de
               respuesta y cumpliendo con los plazos acordados.
-          </Text>
-          <StyledButton
-            text="VER MÁS"
-            onClick={() => router.push("/nosotros")}
-          />
-        </TextContainer>
-      </SecondBlock>
+            </Text>
+            <StyledButton
+              text="VER MÁS"
+              onClick={() => router.push("/nosotros")}
+            />
+          </TextContainer>
+        </SecondBlock>
+      )}
     </Main>
   );
 }

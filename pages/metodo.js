@@ -153,13 +153,17 @@ export default function Home() {
         }
         text="AMPLIANDO TUS LÍMITES"
         textAlign="left"
-        src={"/metodo/metodo-hero.webp"}
+        src="https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/metodo-hero.webp?alt=media&token=72903107-67f0-4c29-bc40-c92580490707"
       />
 
       <SecondSection last reverse>
         <ImageContainer>
           <ImageBefore reverse={true}>
-            <Image reverse src={"/metodo/metodo.webp"} alt={"trayectoria"} />
+            <Image
+              reverse
+              src="https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/ezgif.com-gif-maker.webp?alt=media&token=a2726fe5-9574-4212-a036-31bee4a47827"
+              alt="trayectoria"
+            />
           </ImageBefore>
           <ImageText>
             <p>

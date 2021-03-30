@@ -15,7 +15,7 @@ import MuiAlert from "@material-ui/lab/Alert";
 
 const Main = styled.main``;
 const SecondBlock = styled.div`
-  background-image: url("/contacto/contact.webp");
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/contact.webp?alt=media&token=ecfbf08b-95df-40e1-a9e7-ef917ceb4848");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -279,72 +279,81 @@ const Contact = () => {
           title="ESCRIBINOS"
           text="AMPLIANDO TUS LÍMITES"
           textAlign="left"
-          src={"/contacto/contacto-hero.webp"}
+          src={
+            "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/contacto-hero.webp?alt=media&token=6f5c7353-ec84-4b0c-ad89-843d09f3083a"
+          }
         />
-        <SecondBlock>
-          <FormContainer>
-            <Title>CONTACTO</Title>
-            <Text>
-              Estamos esperandote para poder ayudarte en lo que necesites.
-              Escribinos para mantenernos unidos.
-            </Text>
-            <InputsContainer>
-              <StyledTextField
-                label="Nombre y apellido"
-                variant="outlined"
-                name="name"
-                value={formState.nombre}
-                onChange={(event) => handleChange(event, "nombre")}
-                required
-              />
-              <StyledTextField
-                label="E-mail"
-                variant="outlined"
-                name="email"
-                value={formState.email}
-                required
-                onChange={(event) => handleChange(event, "email")}
-              />
-              <StyledTextField
-                label="Tel / Cel"
-                variant="outlined"
-                name="email"
-                type="number"
-                required
-                value={formState.telefono}
-                onChange={(event) => handleChange(event, "telefono")}
-              />
-              <StyledFormControl variant="outlined">
-                <InputLabel id="demo-simple-select-filled-label">
-                  Asunto
-                </InputLabel>
-                <StyledSelect
+        {mounted && (
+          <SecondBlock>
+            <FormContainer>
+              <Title>CONTACTO</Title>
+              <Text>
+                Estamos esperandote para poder ayudarte en lo que necesites.
+                Escribinos para mantenernos unidos.
+              </Text>
+              <InputsContainer>
+                <StyledTextField
+                  label="Nombre y apellido"
+                  variant="outlined"
+                  name="name"
+                  value={formState.nombre}
+                  onChange={(event) => handleChange(event, "nombre")}
                   required
-                  labelId="demo-simple-select-filled-label"
-                  id="demo-simple-select-filled"
-                  value={formState.asunto}
-                  onChange={(event) => handleChange(event, "asunto")}
-                >
-                  <MenuItem value={"Industria"}>INDUSTRIA</MenuItem>
-                  <MenuItem value={"Hogar"}>HOGAR</MenuItem>
-                </StyledSelect>
-              </StyledFormControl>
-              <StyledTextField
-                fullWidth
-                label="Mensaje"
-                variant="outlined"
-                name="mensaje"
-                required
-                multiline
-                rows={5}
-                value={formState.mensaje}
-                onChange={(event) => handleChange(event, "mensaje")}
-              />
-              <div style={{ flexGrow: 1, width: "30px" }} />
-              <Button disabled={loading} text="ENVIAR" onClick={handleSubmit} />
-            </InputsContainer>
-          </FormContainer>
-        </SecondBlock>
+                />
+                <StyledTextField
+                  label="E-mail"
+                  variant="outlined"
+                  name="email"
+                  value={formState.email}
+                  required
+                  onChange={(event) => handleChange(event, "email")}
+                />
+                <StyledTextField
+                  label="Tel / Cel"
+                  variant="outlined"
+                  name="email"
+                  type="number"
+                  required
+                  value={formState.telefono}
+                  onChange={(event) => handleChange(event, "telefono")}
+                />
+                <StyledFormControl variant="outlined">
+                  <InputLabel id="demo-simple-select-filled-label">
+                    Asunto
+                  </InputLabel>
+                  <StyledSelect
+                    required
+                    labelId="demo-simple-select-filled-label"
+                    id="demo-simple-select-filled"
+                    value={formState.asunto}
+                    onChange={(event) => handleChange(event, "asunto")}
+                  >
+                    <MenuItem value={"Industria"}>INDUSTRIA</MenuItem>
+                    <MenuItem value={"Hogar"}>HOGAR</MenuItem>
+                  </StyledSelect>
+                </StyledFormControl>
+                <StyledTextField
+                  fullWidth
+                  label="Mensaje"
+                  variant="outlined"
+                  name="mensaje"
+                  required
+                  multiline
+                  rows={5}
+                  value={formState.mensaje}
+                  onChange={(event) => handleChange(event, "mensaje")}
+                />
+                <div style={{ flexGrow: 1, width: "30px" }} />
+                <Button
+                  disabled={loading}
+                  text="ENVIAR"
+                  onClick={handleSubmit}
+                />
+              </InputsContainer>
+            </FormContainer>
+          </SecondBlock>
+        )}
+
         {mounted && (
           <Map
             title="map"

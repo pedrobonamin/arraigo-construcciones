@@ -78,7 +78,7 @@ export default function Industry() {
       tabName: "civ",
       position: "first",
       text: "Albañilería",
-      image: "/hogar/albanileria.webp",
+      image: "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/albanileria.webp?alt=media&token=bab988b0-6fac-44f2-8fdb-4cb5ab4be9d6",
       icon: "/icons/albanil.png",
       image1: '/hogar/servicios/civ/1.jpeg',
       image2: '/hogar/servicios/civ/2.jpeg',
@@ -90,7 +90,7 @@ export default function Industry() {
       tabName: "montaje",
       position: "center",
       text: "Montajes",
-      image: "/hogar/servicios/montaje/2-bw.jpg",
+      image: "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/2-bw.jpg?alt=media&token=ae257d5d-d6e3-4ee6-a3a3-1e1c694f5bdb",
       icon: "/icons/montaje.png",
       image1: '/hogar/servicios/montaje/2.jpeg',
       image2: '/hogar/servicios/montaje/1.jpeg',
@@ -103,7 +103,7 @@ export default function Industry() {
       tabName: "pintura",
       position: "last",
       text: "pintura",
-      image: "/hogar/pintura.webp",
+      image: "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/pintura.webp?alt=media&token=2b85ef3d-533a-4ba2-9d9c-9e5ea9b68edd",
       icon: "/icons/paint.png",
       image1: '/hogar/servicios/pintura/2.jpeg',
       image2: '/hogar/servicios/pintura/1.jpeg',
@@ -119,7 +119,7 @@ export default function Industry() {
       tabName: "arenado",
       position: "first",
       text: "Arenado",
-      image: '/hogar/servicios/arenado/bw.png',
+      image: 'https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/bw.png?alt=media&token=82ad28d0-6006-44ac-9b5a-fff31c20a028',
       icon: "/icons/arenado.png",
       image1: '/hogar/servicios/arenado/1.jpeg',
       image2: '/hogar/servicios/arenado/2.jpeg',
@@ -132,7 +132,7 @@ export default function Industry() {
       tabName: "Revestimientos",
       position: "center",
       text: "Revestimientos",
-      image: "/hogar/carpinteria.webp",
+      image: "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/carpinteria.webp?alt=media&token=840fa512-0566-46ab-b7b2-9b327a7d8a12",
       icon: "/icons/revestimientos.png",
       title1: '',
       title2: '',
@@ -143,7 +143,7 @@ export default function Industry() {
       tabName: "plomeria",
       position: "last",
       text: "Plomeria y Gas",
-      image: '/hogar/servicios/plomeria/bw.jpg',
+      image: 'https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/bw.jpg?alt=media&token=b5963b6f-9818-4322-9769-1ac18d684f42',
       icon: "/icons/plomeria.png",
       image1: '/hogar/servicios/plomeria/1.jpeg',
       image2: '/hogar/servicios/plomeria/2.jpeg',
@@ -160,7 +160,7 @@ export default function Industry() {
         title={"HOGAR"}
         text="AMPLIANDO TUS LÍMITES"
         textAlign="left"
-        src={"/hogar/hogar-hero.webp"}
+        src="https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/hogar-hero.webp?alt=media&token=2d3fcb5b-f4bd-41ba-8c17-26d893051337"
       />
       <Tabs
         tabs={tabsInfo}

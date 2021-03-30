@@ -67,7 +67,7 @@ export default function Home() {
         title="CONOCENOS"
         text="AMPLIANDO TUS LÍMITES"
         textAlign="left"
-        src={"/nosotros/nosotros-hero.png"}
+        src={"https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/nosotros-hero.png?alt=media&token=3fd72c81-6c77-4468-a681-bd09d5db4819"}
       />
       <TextContainer>
         <Title>
