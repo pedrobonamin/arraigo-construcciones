@@ -215,7 +215,7 @@ export default function Home() {
   const router = useRouter();
 
   const [hover, setHover] = useState();
-  const [mounted, setIsMounted] = useState(false);
+  const [mounted, setIsMounted] = useState(true);
   useEffect(() => {
     if (!mounted) {
       setIsMounted(true);
