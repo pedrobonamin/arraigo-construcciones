@@ -237,7 +237,7 @@ export default function Home() {
         text="Para ampliar tus límites es necesario accionar de forma innovadora y eficaz. Desarrollamos un método propio para llevar a otro nivel la ejecución de cada proyecto"
         textMaxWidth={"60%"}
         src={
-          "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/home-hero.webp?alt=media&token=0123c61a-0460-4dc1-8153-7189aa46b4fb"
+          "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/optimized-home-hero.webp?alt=media&token=b86f12c4-9fe8-4a2f-ad13-7fcdf0afbd1c"
         }
       />
 
@@ -277,7 +277,7 @@ export default function Home() {
           <Image
             position={"left: 0;"}
             src={
-              "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/home-industria-bw.webp?alt=media&token=33e20fe0-9e15-45bf-ac89-7caa81f7975f"
+              "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/home%2Foptimized-home-industria.webp?alt=media&token=18c707a0-d154-4aed-aef8-daf1d2b276df"
             }
             alt={"Industria"}
             layout="fill"
@@ -319,7 +319,7 @@ export default function Home() {
           </LogoText>
           <Image
             position={"right: 0;"}
-            src="https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/home-hogar-bw.webp?alt=media&token=0f9f1530-8cc5-4ac0-8f8c-1f89e8eac78f"
+            src="https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/home%2Foptimized-home-hogar.webp?alt=media&token=584ed5cf-2860-4fbb-82ca-d417f173db9e"
             alt="Hogar"
             layout="fill"
             loading="eager"
@@ -330,7 +330,7 @@ export default function Home() {
         <SecondBlock>
           <ImageContainer>
             <Image
-              src="https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/home-trayectoria.webp?alt=media&token=205736ec-b7a8-4262-a365-3edd3b8de797"
+              src="https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/home%2Foptimized-home-trayectoria.webp?alt=media&token=8bdab547-2954-4578-b272-661e5f9f5123"
               alt="trayectoria"
               layout="fill"
               loading="eager"
