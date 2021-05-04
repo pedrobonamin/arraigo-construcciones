@@ -12,10 +12,11 @@ import { colors, units } from "styles";
 import Button from "./components/Button";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
+import useScroll from 'hooks/useScroll'
 
 const Main = styled.main``;
 const SecondBlock = styled.div`
-  background-image: url("/contacto/contact.webp");
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/contact.webp?alt=media&token=ecfbf08b-95df-40e1-a9e7-ef917ceb4848");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -191,6 +192,8 @@ const Contact = () => {
   const [errorMessage, setErrorMessage] = useState();
   const [loading, setLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const scrolled = useScroll()
+  console.log('SCROLLED', scrolled)
   useEffect(() => {
     if (!mounted) {
       setMounted(true);
@@ -279,73 +282,82 @@ const Contact = () => {
           title="ESCRIBINOS"
           text="AMPLIANDO TUS LÍMITES"
           textAlign="left"
-          src={"/contacto/contacto-hero.webp"}
+          src={
+            "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/contacto-hero.webp?alt=media&token=6f5c7353-ec84-4b0c-ad89-843d09f3083a"
+          }
         />
-        <SecondBlock>
-          <FormContainer>
-            <Title>CONTACTO</Title>
-            <Text>
-              Estamos esperandote para poder ayudarte en lo que necesites.
-              Escribinos para mantenernos unidos.
-            </Text>
-            <InputsContainer>
-              <StyledTextField
-                label="Nombre y apellido"
-                variant="outlined"
-                name="name"
-                value={formState.nombre}
-                onChange={(event) => handleChange(event, "nombre")}
-                required
-              />
-              <StyledTextField
-                label="E-mail"
-                variant="outlined"
-                name="email"
-                value={formState.email}
-                required
-                onChange={(event) => handleChange(event, "email")}
-              />
-              <StyledTextField
-                label="Tel / Cel"
-                variant="outlined"
-                name="email"
-                type="number"
-                required
-                value={formState.telefono}
-                onChange={(event) => handleChange(event, "telefono")}
-              />
-              <StyledFormControl variant="outlined">
-                <InputLabel id="demo-simple-select-filled-label">
-                  Asunto
-                </InputLabel>
-                <StyledSelect
-                  required
-                  labelId="demo-simple-select-filled-label"
-                  id="demo-simple-select-filled"
-                  value={formState.asunto}
-                  onChange={(event) => handleChange(event, "asunto")}
-                >
-                  <MenuItem value={"Industria"}>INDUSTRIA</MenuItem>
-                  <MenuItem value={"Hogar"}>HOGAR</MenuItem>
-                </StyledSelect>
-              </StyledFormControl>
-              <StyledTextField
-                fullWidth
-                label="Mensaje"
-                variant="outlined"
-                name="mensaje"
-                required
-                multiline
-                rows={5}
-                value={formState.mensaje}
-                onChange={(event) => handleChange(event, "mensaje")}
-              />
-              <div style={{ flexGrow: 1, width: "30px" }} />
-              <Button disabled={loading} text="ENVIAR" onClick={handleSubmit} />
-            </InputsContainer>
-          </FormContainer>
-        </SecondBlock>
         {mounted && (
+          <SecondBlock>
+            <FormContainer>
+              <Title>CONTACTO</Title>
+              <Text>
+                Estamos esperandote para poder ayudarte en lo que necesites.
+                Escribinos para mantenernos unidos.
+              </Text>
+              <InputsContainer>
+                <StyledTextField
+                  label="Nombre y apellido"
+                  variant="outlined"
+                  name="name"
+                  value={formState.nombre}
+                  onChange={(event) => handleChange(event, "nombre")}
+                  required
+                />
+                <StyledTextField
+                  label="E-mail"
+                  variant="outlined"
+                  name="email"
+                  value={formState.email}
+                  required
+                  onChange={(event) => handleChange(event, "email")}
+                />
+                <StyledTextField
+                  label="Tel / Cel"
+                  variant="outlined"
+                  name="email"
+                  type="number"
+                  required
+                  value={formState.telefono}
+                  onChange={(event) => handleChange(event, "telefono")}
+                />
+                <StyledFormControl variant="outlined">
+                  <InputLabel id="demo-simple-select-filled-label">
+                    Asunto
+                  </InputLabel>
+                  <StyledSelect
+                    required
+                    labelId="demo-simple-select-filled-label"
+                    id="demo-simple-select-filled"
+                    value={formState.asunto}
+                    onChange={(event) => handleChange(event, "asunto")}
+                  >
+                    <MenuItem value={"Industria"}>INDUSTRIA</MenuItem>
+                    <MenuItem value={"Hogar"}>HOGAR</MenuItem>
+                  </StyledSelect>
+                </StyledFormControl>
+                <StyledTextField
+                  fullWidth
+                  label="Mensaje"
+                  variant="outlined"
+                  name="mensaje"
+                  required
+                  multiline
+                  rows={5}
+                  value={formState.mensaje}
+                  onChange={(event) => handleChange(event, "mensaje")}
+                />
+                <div style={{ flexGrow: 1, width: "30px" }} />
+                <Button
+                  disabled={loading}
+                  text="ENVIAR"
+                  onClick={handleSubmit}
+                />
+              </InputsContainer>
+            </FormContainer>
+          </SecondBlock>
+        )}
+
+        {scrolled && (
           <Map
             title="map"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.2302769123003!2d-60.63774693743764!3d-32.94492919026916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ab18fa019b8d%3A0xeca6f7adb350f2f0!2sARG%2C%20San%20Lorenzo%201047%2C%20S2000%20Rosario%2C%20Provincia%20de%20Santa%20Fe!5e0!3m2!1ses-419!2sar!4v1608554214822!5m2!1ses-419!2sar"

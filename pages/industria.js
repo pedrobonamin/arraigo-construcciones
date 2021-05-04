@@ -93,7 +93,7 @@ export default function Industry() {
       tabName: "civ",
       position: "first",
       text: "Civil",
-      image: "/industria/civil.png",
+      image: "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/civil.webp?alt=media&token=e525922a-5a53-4150-b58f-cb125e05acdb",
       icon: "/icons/helmet.png",
       image1: "/industria/servicios/civil/1.jpg",
       image2: "/industria/servicios/civil/2.jpg",
@@ -106,7 +106,7 @@ export default function Industry() {
       tabName: "tec",
       position: "center",
       text: "tecnología e innovación",
-      image: "/industria/tec.webp",
+      image: "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/tec.webp?alt=media&token=5dfe8b0b-3300-48db-a30d-6d6225d2bb70",
       icon: "/icons/engranaje.png",
       image1: "/industria/servicios/tec/1.jpg",
       image2: "/industria/servicios/tec/2.jpeg",
@@ -119,7 +119,7 @@ export default function Industry() {
       tabName: "Energia",
       position: "last",
       text: "Energia",
-      image: "/industria/clim.png",
+      image: "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/clim.webp?alt=media&token=b82112d8-0ed1-41c8-96b6-3c76c32878c8",
       icon: "/icons/wind.png",
       image1: "/industria/servicios/energia/1.jpg",
       image2: "/industria/servicios/energia/2.jpg",
@@ -135,7 +135,7 @@ export default function Industry() {
         title={"INDUSTRIA"}
         text="AMPLIANDO TUS LÍMITES"
         textAlign="left"
-        src={"/industria/industria-hero.jpg"}
+        src="https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/industria-hero.webp?alt=media&token=e59edc25-a8ea-43d5-af8f-d6ea86c0a649"
       />
       <Tabs
         selectedTab={selectedTab}

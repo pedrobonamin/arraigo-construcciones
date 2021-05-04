@@ -59,7 +59,7 @@ const Title = styled.h1`
   }
 `;
 
-const Text = styled.h3`
+const Text = styled.h2`
   font-size: ${units.HeroText};
   font-weight: 300;
   text-align: ${(props) => props.textAlign};
