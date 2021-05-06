@@ -113,7 +113,7 @@ const LogoText = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 60%;
+  max-width: 50%;
   ${(props) => (props.first ? `left: 20%` : `right: 20%`)};
   z-index: 3;
   &:hover {
@@ -167,7 +167,7 @@ const Filter = styled.div`
 const Divider = styled.div`
 width: 100%;
 height: 8px;
-background ${colors.black};
+background: ${colors.black};
 `;
 
 const Component = ({ tabs, handleClick, selectedTab, secondLineTabs }) => {
@@ -201,8 +201,8 @@ const Component = ({ tabs, handleClick, selectedTab, secondLineTabs }) => {
                 <Image
                   src={icon}
                   alt={text}
-                  height={isMobile ? 80: 160}
-                  width={isMobile ? 80: 160}
+                  height={isMobile ? 60: 100}
+                  width={isMobile ? 60: 100}
                   layout="fixed"
                 />
                 <Text>{text.toUpperCase()}</Text>
