@@ -108,7 +108,7 @@ export default function Industry() {
       text: "tecnología e innovación",
       image: "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/tec.webp?alt=media&token=5dfe8b0b-3300-48db-a30d-6d6225d2bb70",
       icon: "/icons/engranaje.png",
-      image1: "/industria/servicios/tec/1.jpg",
+      image1: "/industria/servicios/tec/1-tec.jpg",
       image2: "/industria/servicios/tec/2.jpeg",
       title1: "Mantenimiento IT",
       title2: "Cableado de Fibra Óptica",
