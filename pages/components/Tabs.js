@@ -12,7 +12,7 @@ const TabsContainer = styled.div`
 const Tab = styled.div`
   display: flex;
   z-index: 1;
-  height: 300px;
+  height: 320px;
   width: 36%;
   align-items: center;
   justify-content: center;

@@ -125,7 +125,7 @@ export default function Industry() {
       image2: "/industria/servicios/energia/2.jpg",
       title1: "Tablero Electrico",
       title2: "Generadores",
-      detailText:''
+      detailText:'Tenemos un equipo especializado en ingenieria electromecanica y electronica para satisfacer todas las necesidades que se presenten para cada tipo de proyecto, tanto en equipamiento, como así también en servicios de instalación y mantenimiento preventivo/correctivo.'
     },
   ];
 
