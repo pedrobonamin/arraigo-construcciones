@@ -114,8 +114,9 @@ const LogoImage = styled.div`
 `;
 const Image = styled.div`
 background-image: url(${(props) => props.src});
-background-position: top;
+background-position: center;
 background-size: cover;
+
 min-height: 100vh;
 width: 100vw;
 z-index: 0;
@@ -133,7 +134,6 @@ const Hero = ({
   addSquares = true,
 }) => {
   const isMobile = useInMobile();
-  console.log("IS MOBILE", isMobile);
 
   return (
     <HeroContainer>
