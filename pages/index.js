@@ -91,6 +91,8 @@ const StyledButton = styled(Button)`
 const ThirdBlock = styled.div`
   position: relative;
   min-height: 600px;
+  background: black;
+  padding: 0 10%;
   @media (max-width: 800px) {
     flex-wrap: wrap-reverse;
     min-height: 400px;
@@ -98,7 +100,7 @@ const ThirdBlock = styled.div`
 `;
 
 const ThirdBlockImageContainer = styled.div`
-  width: 100vw;
+  width: 80vw;
   height: 100%;
   position: absolute;
   display: flex;
@@ -107,10 +109,10 @@ const ThirdBlockImageContainer = styled.div`
 
   ${(props) =>
     props.first
-      ? `left: 0;
+      ? `left: 10%;
     clip-path: polygon(60% 0, 50% 100%, 0 100%, 0 0);
     `
-      : `right: 0;
+      : `right: 10%;
   clip-path: polygon(100% 0, 100% 100%, 40% 100%, 60% 0);
   `};
 
