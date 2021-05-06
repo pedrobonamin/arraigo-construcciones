@@ -7,7 +7,7 @@ import useInMobile from "hooks/useInMobile";
 const HeroContainer = styled.div`
   position: relative;
   overflow: hidden;
-  min-height: 80vh;
+  height: 100vh;
   width: 100vw;
 `;
 
@@ -116,8 +116,8 @@ const Image = styled.div`
 background-image: url(${(props) => props.src});
 background-position: top;
 background-size: cover;
-min-height: 80vh;
-width: 100vw
+min-height: 100vh;
+width: 100vw;
 z-index: 0;
 `;
 
@@ -141,9 +141,6 @@ const Hero = ({
       <Image
         src={src}
         alt={src}
-        height="1000"
-        width="1600"
-        sizes="60vh"
         priority
       />
       {!addSquares && <SubText>AMPLIANDO TUS LIMITES</SubText>}

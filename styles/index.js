@@ -15,8 +15,8 @@ export const colors = {
 export const units = {
     NavbarTitles: '16px',
     NavbarHeight: '186px',
-    HeroTitle: '54px',
-    HeroText: '24px',
+    HeroTitle: '48px',
+    HeroText: '20px',
     SectionTitle: '36px',
     SectionText: '16px'
 }
