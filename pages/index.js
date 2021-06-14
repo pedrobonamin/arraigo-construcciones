@@ -7,7 +7,7 @@ import Image from "next/image";
 import Button from "./components/Button";
 import { units, colors } from "styles";
 import useInMobile from "hooks/useInMobile";
-import useScroll from 'hooks/useScroll'
+import useScroll from "hooks/useScroll";
 
 const Main = styled.main``;
 const SecondBlock = styled.div`
@@ -91,8 +91,6 @@ const StyledButton = styled(Button)`
 const ThirdBlock = styled.div`
   position: relative;
   min-height: 600px;
-  background: black;
-  padding: 0 10%;
   @media (max-width: 800px) {
     flex-wrap: wrap-reverse;
     min-height: 400px;
@@ -100,7 +98,7 @@ const ThirdBlock = styled.div`
 `;
 
 const ThirdBlockImageContainer = styled.div`
-  width: 80vw;
+  width: 100vw;
   height: 100%;
   position: absolute;
   display: flex;
@@ -109,10 +107,10 @@ const ThirdBlockImageContainer = styled.div`
 
   ${(props) =>
     props.first
-      ? `left: 10%;
+      ? `left: 0;
     clip-path: polygon(60% 0, 50% 100%, 0 100%, 0 0);
     `
-      : `right: 10%;
+      : `right: 0;
   clip-path: polygon(100% 0, 100% 100%, 40% 100%, 60% 0);
   `};
 
@@ -216,7 +214,7 @@ export default function Home() {
   const isMobile = useInMobile();
   const router = useRouter();
   const [hover, setHover] = useState();
-  const scrolled = useScroll()
+  const scrolled = useScroll();
 
   return (
     <Main>
