@@ -98,7 +98,7 @@ const ThirdBlock = styled.div`
 `;
 
 const ThirdBlockImageContainer = styled.div`
-  width: 100vw;
+  width: 60vw;
   height: 100%;
   position: absolute;
   display: flex;
@@ -108,10 +108,10 @@ const ThirdBlockImageContainer = styled.div`
   ${(props) =>
     props.first
       ? `left: 0;
-    clip-path: polygon(60% 0, 50% 100%, 0 100%, 0 0);
+    clip-path: polygon(100% 0, 80% 100%, 0 100%, 0 0);
     `
       : `right: 0;
-  clip-path: polygon(100% 0, 100% 100%, 40% 100%, 60% 0);
+      clip-path: polygon(100% 0,100% 100%,10% 100%,30% 0);
   `};
 
   @media (max-width: 800px) {
