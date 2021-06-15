@@ -4,14 +4,16 @@ import { useState, useEffect, useRef } from "react";
 const useScroll = (offset = 400) => {
   const [scrolled, setScrolled] = useState(false);
   const prevScroll = useRef(false);
-  const router = useRouter()
   const handleScroll = () => {
     const scroll = window.scrollY;
-    if(scroll === 0) router.push('#')
     if (scroll >= offset && !prevScroll.current) {
       setScrolled(true);
       prevScroll.current = true;
-    } 
+    }
+    if(scroll < offset && prevScroll.current){
+      setScrolled(false);
+      prevScroll.current = false;
+    }
   };
 
   useEffect(() => {

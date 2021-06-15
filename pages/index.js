@@ -104,7 +104,7 @@ const ThirdBlockImageContainer = styled.div`
   display: flex;
   align-items: center;
   transition: all 1s ease;
-
+  cursor: pointer;
   ${(props) =>
     props.first
       ? `left: 0;
@@ -168,7 +168,7 @@ const LogoText = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  ${(props) => (props.first ? `left: 15%` : `right: 15%`)};
+  ${(props) => (props.first ? `left: 25%` : `right: 25%`)};
 
   &:hover {
     cursor: pointer;
@@ -181,7 +181,7 @@ const LogoText = styled.div`
 const ThirdBlockText = styled.div`
   color: white;
   text-shadow: 1px 1px 1px black;
-  font-size: 48px;
+  font-size: 36px;
   @media (max-width: 800px) {
     font-size: 24px;
   }
@@ -263,8 +263,8 @@ export default function Home() {
             <Image
               src={"/icons/industry.png"}
               alt={"Industria"}
-              height={isMobile ? 120 : 200}
-              width={isMobile ? 120 : 200}
+              height={isMobile ? 100 : 140}
+              width={isMobile ? 100 : 140}
               layout="fixed"
             />
             <ThirdBlockText>INDUSTRIA</ThirdBlockText>
@@ -284,7 +284,6 @@ export default function Home() {
           onMouseLeave={() => setHover()}
           onClick={(e) => {
             if (!isMobile) {
-              console.log("CLICKED ON HOGAR");
               e.stopPropagation();
               router.push("/hogar");
             }
@@ -294,7 +293,6 @@ export default function Home() {
           <LogoText
             onClick={(e) => {
               if (isMobile) {
-                console.log("CLICKED ON HOGAR");
                 e.stopPropagation();
                 router.push("/hogar");
               }
@@ -306,8 +304,8 @@ export default function Home() {
             <Image
               src="/icons/home.png"
               alt="Industria"
-              height={isMobile ? 120 : 200}
-              width={isMobile ? 120 : 200}
+              height={isMobile ? 100 : 140}
+              width={isMobile ? 100 : 140}
               layout="fixed"
             />
             <ThirdBlockText>HOGAR</ThirdBlockText>

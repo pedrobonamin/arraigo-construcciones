@@ -2,6 +2,7 @@ import React from "react";
 import { ThemeProvider as StyledComponentThemeProvider } from "styled-components";
 import {colors} from 'styles'
 
+
 export default function MyApp({ Component, pageProps }) {
   const Layout = Component.Layout ? Component.Layout : React.Fragment;
   const styledComponentsTheme = {

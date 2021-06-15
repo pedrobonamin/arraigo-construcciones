@@ -1,11 +1,12 @@
+
 import { useState, useEffect } from "react";
 
 const inMobile = () => {
-  const [screenWidth, setScreenWidth] = useState(0);
+  const [screenHeight, setScreenHeight] = useState(0);
   const [mount, setMount] = useState(false)
 
   function reportWindowSize() {
-    setScreenWidth(window.innerWidth);
+    setScreenHeight(window.innerWidth);
   }
 
   useEffect(() => {
@@ -17,7 +18,7 @@ const inMobile = () => {
 
   useEffect(() => {
     if(mount){
-      setScreenWidth(window.innerWidth);
+      setScreenHeight(window.innerHeight);
     }
   }, [mount])
   useEffect(() => {
@@ -26,7 +27,7 @@ const inMobile = () => {
 
 
 
-  return screenWidth < 800;
+  return screenHeight;
 };
 
 export default inMobile;

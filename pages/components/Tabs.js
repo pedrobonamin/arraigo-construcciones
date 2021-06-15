@@ -4,6 +4,7 @@ import Image from "next/image";
 import { units, colors } from "styles";
 import useInMobile from "hooks/useInMobile";
 import { useRouter } from "next/router";
+import useHeight from "hooks/useHeight";
 
 const TabsContainer = styled.div`
   display: flex;
@@ -175,9 +176,12 @@ const Component = ({ tabs, handleClick, selectedTab, secondLineTabs }) => {
   const [hover, setHover] = useState();
   const isMobile = useInMobile();
   const router = useRouter();
+  const screenHeight = useHeight();
+
   const onClick = (tabName) => {
     handleClick(tabName);
-    if (router.asPath.includes("#tabs")) return;
+    const scroll = window.scrollY;
+    if(scroll >screenHeight) return
     router.push("#tabs");
   };
   return (

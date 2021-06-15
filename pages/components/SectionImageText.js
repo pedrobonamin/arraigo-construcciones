@@ -108,10 +108,8 @@ const Text = styled.div`
 `;
 
 const Component = ({ reverse, last, image, text, title, bottom }) => {
-  console.log("image", image);
   const titleArray = title?.split(" ") || [];
   const first = titleArray.slice(0, 2).join(" ");
-  console.log("title array", titleArray);
   const second = titleArray.slice(2, titleArray.length).join(" ");
 
   return (
