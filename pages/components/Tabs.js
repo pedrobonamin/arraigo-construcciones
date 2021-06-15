@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import { units, colors } from "styles";
-import useInMobile  from 'hooks/useInMobile'
+import useInMobile from "hooks/useInMobile";
+import { useRouter } from "next/router";
 
 const TabsContainer = styled.div`
   display: flex;
@@ -123,7 +124,7 @@ const LogoText = styled.div`
 const Text = styled.div`
   color: white;
   text-shadow: 1px 1px 1px black;
-  font-size: ${units.SectionTitle};
+  font-size: 25px;
   text-align: center;
   height: 100px;
   margin-top: 8px;
@@ -165,15 +166,20 @@ const Filter = styled.div`
 `;
 
 const Divider = styled.div`
-width: 100%;
-height: 8px;
-background: ${colors.black};
+  width: 100%;
+  height: 8px;
+  background: ${colors.black};
 `;
 
 const Component = ({ tabs, handleClick, selectedTab, secondLineTabs }) => {
   const [hover, setHover] = useState();
-  const isMobile = useInMobile()
-
+  const isMobile = useInMobile();
+  const router = useRouter();
+  const onClick = (tabName) => {
+    handleClick(tabName);
+    if (router.asPath.includes("#tabs")) return;
+    router.push("#tabs");
+  };
   return (
     <>
       <TabsContainer>
@@ -184,7 +190,7 @@ const Component = ({ tabs, handleClick, selectedTab, secondLineTabs }) => {
               selectedTab={selectedTab}
               tabName={tabName}
               hover={hover}
-              onClick={() => handleClick(tabName)}
+              onClick={() => onClick(tabName)}
               key={index + text}
               position={position}
               url={image}
@@ -201,8 +207,8 @@ const Component = ({ tabs, handleClick, selectedTab, secondLineTabs }) => {
                 <Image
                   src={icon}
                   alt={text}
-                  height={isMobile ? 60: 100}
-                  width={isMobile ? 60: 100}
+                  height={isMobile ? 60 : 100}
+                  width={isMobile ? 60 : 100}
                   layout="fixed"
                 />
                 <Text>{text.toUpperCase()}</Text>
@@ -222,7 +228,7 @@ const Component = ({ tabs, handleClick, selectedTab, secondLineTabs }) => {
                   selectedTab={selectedTab}
                   tabName={tabName}
                   hover={hover}
-                  onClick={() => handleClick(tabName)}
+                  onClick={() => onClick(tabName)}
                   key={index + text}
                   position={position}
                   url={image}
@@ -239,8 +245,8 @@ const Component = ({ tabs, handleClick, selectedTab, secondLineTabs }) => {
                     <Image
                       src={icon}
                       alt={text}
-                      height={isMobile ? 80: 160}
-                      width={isMobile ? 80: 160}
+                      height={isMobile ? 80 : 160}
+                      width={isMobile ? 80 : 160}
                       layout="fixed"
                     />
                     <Text>{text.toUpperCase()}</Text>

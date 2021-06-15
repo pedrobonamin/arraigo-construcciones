@@ -12,7 +12,7 @@ import { colors, units } from "styles";
 import Button from "./components/Button";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
-import useScroll from 'hooks/useScroll'
+import useScroll from "hooks/useScroll";
 
 const Main = styled.main``;
 const SecondBlock = styled.div`
@@ -192,8 +192,7 @@ const Contact = () => {
   const [errorMessage, setErrorMessage] = useState();
   const [loading, setLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const scrolled = useScroll()
-  console.log('SCROLLED', scrolled)
+  const scrolled = useScroll();
   useEffect(() => {
     if (!mounted) {
       setMounted(true);
@@ -201,7 +200,8 @@ const Contact = () => {
   }, [mounted]);
   function validateEmail(email) {
     // eslint-disable-next-line
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   }
 
@@ -357,16 +357,14 @@ const Contact = () => {
           </SecondBlock>
         )}
 
-        {scrolled && (
-          <Map
-            title="map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.2302769123003!2d-60.63774693743764!3d-32.94492919026916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ab18fa019b8d%3A0xeca6f7adb350f2f0!2sARG%2C%20San%20Lorenzo%201047%2C%20S2000%20Rosario%2C%20Provincia%20de%20Santa%20Fe!5e0!3m2!1ses-419!2sar!4v1608554214822!5m2!1ses-419!2sar"
-            frameborder="0"
-            allowfullscreen=""
-            aria-hidden="false"
-            tabindex="0"
-          />
-        )}
+        <Map
+          title="map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.2302769123003!2d-60.63774693743764!3d-32.94492919026916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ab18fa019b8d%3A0xeca6f7adb350f2f0!2sARG%2C%20San%20Lorenzo%201047%2C%20S2000%20Rosario%2C%20Provincia%20de%20Santa%20Fe!5e0!3m2!1ses-419!2sar!4v1608554214822!5m2!1ses-419!2sar"
+          frameborder="0"
+          allowfullscreen=""
+          aria-hidden="false"
+          tabindex="0"
+        />
       </Main>
       <Snackbar
         open={success}

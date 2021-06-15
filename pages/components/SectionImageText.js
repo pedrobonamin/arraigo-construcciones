@@ -14,11 +14,12 @@ const Main = styled.div`
     background: ${colors.footerBackground};
 background: linear-gradient(125deg, ${colors.footerBackground} 66%, rgba(255,255,255,1) 66%);
     `}
-    @media (max-width: 800px) {
-      ${(props) =>
-        props.last && `
+  @media (max-width: 800px) {
+    ${(props) =>
+      props.last &&
+      `
       background: ${colors.footerBackground};`}
-    }
+  }
 `;
 const ImageContainer = styled.div`
   display: flex;
@@ -57,7 +58,7 @@ const ImageBefore = styled.div`
 `;
 const Image = styled.div`
   background-image: url(${(props) => props.src});
-  background-position: center;
+  background-position: ${(props) => (props.bottom ? "bottom" : "center")};
   background-size: cover;
   width: 100%;
   height: 100%;
@@ -78,15 +79,16 @@ const TextContainer = styled.div`
     width: 500px;
     max-width: 70%;
   }
-  ${props => props.last && `
+  ${(props) =>
+    props.last &&
+    `
   color: white;`}
   @media (max-width: 800px) {
-  >div {
-    width: 90%;
-    max-width: unset;
-  } 
+    > div {
+      width: 90%;
+      max-width: unset;
+    }
   }
-  
 `;
 const Title = styled.div`
   font-size: ${units.SectionTitle};
@@ -105,17 +107,22 @@ const Text = styled.div`
   margin: 32px 0;
 `;
 
-const Component = ({ reverse, last, image, text, title }) => {
-  const titleArray = title?.split(' ') || []
-  const first = titleArray.slice(0,2).join(' ')
-  console.log('title array',titleArray)
-  const second = titleArray.slice(2, titleArray.length).join(' ')
+const Component = ({ reverse, last, image, text, title, bottom }) => {
+  console.log("image", image);
+  const titleArray = title?.split(" ") || [];
+  const first = titleArray.slice(0, 2).join(" ");
+  console.log("title array", titleArray);
+  const second = titleArray.slice(2, titleArray.length).join(" ");
 
   return (
     <Main reverse={reverse} last={last}>
       <ImageContainer>
         <ImageBefore reverse={reverse}>
-          <Image src={image} alt={"trayectoria"} />
+          <Image
+            bottom={image === "/hogar/servicios/plomeria/1.jpeg"}
+            src={image}
+            alt={"trayectoria"}
+          />
         </ImageBefore>
       </ImageContainer>
       <TextContainer last={last}>
@@ -123,11 +130,7 @@ const Component = ({ reverse, last, image, text, title }) => {
           <div style={{ color: colors.red }}>{first}</div>
           <div>{second}</div>
         </Title>
-        {text && 
-        <Text>
-          {text}
-          </Text>
-        }
+        {text && <Text>{text}</Text>}
       </TextContainer>
     </Main>
   );

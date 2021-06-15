@@ -174,6 +174,8 @@ const Navbar = () => {
 
   const height = 60;
   const width = height * 3.2;
+  const storeUrl =
+    "http://builder.ferozo.com/tienda---arraigo-ingenieria-de-proyectos";
   return (
     <>
       <Head>
@@ -190,6 +192,11 @@ const Navbar = () => {
                 </Link>
               </Li>
             ))}
+            <Li selected={false}>
+              <a href={storeUrl} target="_blank">
+                TIENDA
+              </a>
+            </Li>
           </Ul>
           <Link href="/">
             <ImageContainer>
@@ -238,6 +245,11 @@ const Navbar = () => {
                     </Link>
                   </Li>
                 ))}
+                <Li selected={false}>
+                  <a href={storeUrl} target="_blank">
+                    <span style={{ padding: "10px 12px" }}>TIENDA</span>
+                  </a>
+                </Li>
               </Ul>
             </MobileNav>
           )}

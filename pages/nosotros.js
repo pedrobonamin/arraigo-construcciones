@@ -27,8 +27,7 @@ const Title = styled.div`
     background-color: ${colors.red};
   }
   @media (max-width: 800px) {
-  font-size: 24px;
-
+    font-size: 24px;
   }
 `;
 const PContainer = styled.div`
@@ -54,7 +53,6 @@ const LastText = styled.div`
   letter-spacing: 1.2px;
   width: 100%;
   text-align: center;
-
 `;
 const StyledLink = styled.span`
   text-decoration: underline !important;
@@ -67,7 +65,7 @@ export default function Home() {
         title="CONOCENOS"
         text="AMPLIANDO TUS LÍMITES"
         textAlign="left"
-        src={"https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/nosotros-hero.png?alt=media&token=3fd72c81-6c77-4468-a681-bd09d5db4819"}
+        src="https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/Nosotros.webp?alt=media&token=06149d12-e7cd-46a6-b931-595c3fa5ddf4"
       />
       <TextContainer>
         <Title>
@@ -95,17 +93,16 @@ export default function Home() {
               </Link>
               , para entregarles soluciones innovadoras.
             </p>
-            </Text>
-            {/* <Text>
+          </Text>
+          {/* <Text>
             <p>
          
             </p>
           </Text> */}
-           <LastText>
-           Nuestro objetivo es ampliar sus límites, esforzándonos codo a codo
+          <LastText>
+            Nuestro objetivo es ampliar sus límites, esforzándonos codo a codo
             para potenciar su crecimiento al máximo.
-     
-          </LastText> 
+          </LastText>
         </PContainer>
       </TextContainer>
     </>

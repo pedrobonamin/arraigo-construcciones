@@ -153,7 +153,7 @@ export default function Home() {
         }
         text="AMPLIANDO TUS LÍMITES"
         textAlign="left"
-        src="https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/metodo-hero.webp?alt=media&token=72903107-67f0-4c29-bc40-c92580490707"
+        src="https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/metodo%2FMetodo.webp?alt=media&token=00578ecc-a3fe-41e0-9877-5cdd99392c27"
       />
 
       <SecondSection last reverse>

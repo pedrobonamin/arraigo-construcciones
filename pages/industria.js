@@ -7,6 +7,7 @@ import Hero from "./components/Hero";
 import Tabs from "./components/Tabs";
 import SectionImageText from "./components/SectionImageText";
 import { colors, units } from "styles";
+import useScroll from "hooks/useScroll";
 
 const fadeIn = keyframes`
   from {
@@ -32,7 +33,7 @@ const Main = styled.main`
   // height: 3000px;
 `;
 const TextContainer = styled.div`
-  height: 400px;
+  height: 320px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,7 +84,7 @@ export default function Industry() {
   }, [selectedTab]);
 
   const router = useRouter();
-
+  useScroll();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [router]);
@@ -92,10 +93,11 @@ export default function Industry() {
     {
       tabName: "civ",
       position: "first",
-      text: "Civil",
-      image: "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/civil.webp?alt=media&token=e525922a-5a53-4150-b58f-cb125e05acdb",
+      text: " Construcción de silos y Techados",
+      image:
+        "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/civil.webp?alt=media&token=e525922a-5a53-4150-b58f-cb125e05acdb",
       icon: "/icons/helmet.png",
-      image1: "/industria/servicios/civil/1.jpg",
+      image1: "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/Reemplazar-Inustria-Civil-1.jpg?alt=media&token=84491536-df80-4357-a12e-c0994398bea9",
       image2: "/industria/servicios/civil/2.jpg",
       title1: "Techado sombreado",
       title2: "Construcción en acopio",
@@ -105,8 +107,9 @@ export default function Industry() {
     {
       tabName: "tec",
       position: "center",
-      text: "tecnología e innovación",
-      image: "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/tec.webp?alt=media&token=5dfe8b0b-3300-48db-a30d-6d6225d2bb70",
+      text: "Cableado estructurado y Mantenimiento IT",
+      image:
+        "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/tec.webp?alt=media&token=5dfe8b0b-3300-48db-a30d-6d6225d2bb70",
       icon: "/icons/engranaje.png",
       image1: "/industria/servicios/tec/1-tec.jpg",
       image2: "/industria/servicios/tec/2.jpeg",
@@ -118,14 +121,17 @@ export default function Industry() {
     {
       tabName: "Energia",
       position: "last",
-      text: "Energia",
-      image: "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/clim.webp?alt=media&token=b82112d8-0ed1-41c8-96b6-3c76c32878c8",
+      text: "Cableados y Tableros",
+      image:
+        "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/clim.webp?alt=media&token=b82112d8-0ed1-41c8-96b6-3c76c32878c8",
       icon: "/icons/wind.png",
-      image1: "/industria/servicios/energia/1.jpg",
-      image2: "/industria/servicios/energia/2.jpg",
+      image1: "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/Reemplazar-Industria-Energia1.webp?alt=media&token=81ab7806-2d74-426b-9766-3da210219c03",
+      image2: "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/Reemplazar-Industria-Energia2.webp?alt=media&token=07a2d2a6-3509-415d-a357-354f64108087",
       title1: "Tablero Electrico",
       title2: "Generadores",
-      detailText:'Tenemos un equipo especializado en ingenieria electromecanica y electronica para satisfacer todas las necesidades que se presenten para cada tipo de proyecto, tanto en equipamiento, como así también en servicios de instalación y mantenimiento preventivo/correctivo.'
+      subtitle: "Generadores - Venta, Instalacion y Mantenimiento",
+      detailText:
+        "Tenemos un equipo especializado en ingenieria electromecanica y electronica para satisfacer todas las necesidades que se presenten para cada tipo de proyecto, tanto en equipamiento, como así también en servicios de instalación y mantenimiento preventivo/correctivo.",
     },
   ];
 
@@ -137,6 +143,7 @@ export default function Industry() {
         textAlign="left"
         src="https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/industria-hero.webp?alt=media&token=e59edc25-a8ea-43d5-af8f-d6ea86c0a649"
       />
+      <a id="tabs" />
       <Tabs
         selectedTab={selectedTab}
         tabs={tabsInfo}
@@ -145,7 +152,13 @@ export default function Industry() {
       <TextContainer>
         {tabsInfo.map((tab) => {
           if (tab.tabName === selectedTab) {
-            return <Text>{tab.detailText}</Text>;
+            return (
+              <Text>
+                {tab.subtitle}
+                <br/>
+                {tab.detailText}
+              </Text>
+            );
           } else return null;
         })}
         {tabsInfo.map((tab) => {

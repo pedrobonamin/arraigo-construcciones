@@ -59,11 +59,16 @@ const Component = () => {
         />
       </div>
       <Staff>
-        <Titles>STAFF</Titles>
-        <Image src="/icons/martini.png" height="80" width="126" alt='contact-image'/>
+        <Titles>STAFF DE APOYO</Titles>
+        <Image
+          src="/icons/martini.png"
+          height="60"
+          width={60*1.575}
+          alt="contact-image"
+        />
       </Staff>
       <Contact>
-        <address>
+        <address style={{fontStyle: 'normal'}}>
           <ul>
             <li>
               <Titles>CONTACTO:</Titles>
@@ -75,7 +80,7 @@ const Component = () => {
               </a>
             </li>
 
-            <li> +54 (0341) 2972732) </li>
+            <li> +54 (0341) 2972732 </li>
             <li>
               {" "}
               <a

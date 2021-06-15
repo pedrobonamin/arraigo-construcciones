@@ -14,10 +14,11 @@ const HeroContainer = styled.div`
 const Filter = styled.div`
   width: 100%;
   height: 100%;
-  background: #0e0e0ea3;
+  background: #0e0e0e;
   z-index: 1;
   position: absolute;
   overflow: hidden;
+  opacity: 0.4;
 `;
 
 const TextContainer = styled.div`
@@ -78,10 +79,10 @@ const Text = styled.h2`
 `;
 
 const SubText = styled.span`
-  font-size: 24px;
+  font-size: 18px;
   position: absolute;
-  top: 100px;
-  right: 20px;
+  top: 70px;
+  right: 65px;
   color: white;
   z-index: 2;
   letter-spacing: 2px;
@@ -116,7 +117,6 @@ const Image = styled.div`
 background-image: url(${(props) => props.src});
 background-position: center;
 background-size: cover;
-
 min-height: 100vh;
 width: 100vw;
 z-index: 0;
