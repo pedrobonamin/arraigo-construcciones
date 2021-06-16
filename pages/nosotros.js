@@ -2,6 +2,7 @@ import styled from "styled-components";
 import MyLayout from "../layout";
 import Hero from "./components/Hero";
 import Link from "next/link";
+import hero from '../public/heros/nosotros-hero.webp'
 
 import { units, colors } from "styles";
 
@@ -65,7 +66,7 @@ export default function Home() {
         title="CONOCENOS"
         text="AMPLIANDO TUS LÍMITES"
         textAlign="left"
-        src="https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/Nosotros.webp?alt=media&token=06149d12-e7cd-46a6-b931-595c3fa5ddf4"
+        src={hero}
       />
       <TextContainer>
         <Title>
@@ -88,7 +89,7 @@ export default function Home() {
               a brindar un servicio integrador para poder cubrir sus necesidades
               en un solo lugar, reinventándonos como ingeniería de proyectos. De
               esta manera, diseñamos una nueva forma de trabajo,{" "}
-              <Link href="/metodo">
+              <Link href="/metodo" passHref>
                 <StyledLink>Método ICI</StyledLink>
               </Link>
               , para entregarles soluciones innovadoras.

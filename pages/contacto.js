@@ -13,6 +13,7 @@ import Button from "./components/Button";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
 import useScroll from "hooks/useScroll";
+import hero from '../public/heros/contacto-hero.webp'
 
 const Main = styled.main``;
 const SecondBlock = styled.div`
@@ -282,9 +283,7 @@ const Contact = () => {
           title="ESCRIBINOS"
           text="AMPLIANDO TUS LÍMITES"
           textAlign="left"
-          src={
-            "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/contacto-hero.webp?alt=media&token=6f5c7353-ec84-4b0c-ad89-843d09f3083a"
-          }
+          src={hero}
         />
         {mounted && (
           <SecondBlock>
