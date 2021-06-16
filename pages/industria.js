@@ -8,6 +8,7 @@ import Tabs from "./components/Tabs";
 import SectionImageText from "./components/SectionImageText";
 import { colors, units } from "styles";
 import useScroll from "hooks/useScroll";
+import hero from '../public/heros/industria-hero.webp'
 
 const fadeIn = keyframes`
   from {
@@ -141,7 +142,7 @@ export default function Industry() {
         title={"INDUSTRIA"}
         text="AMPLIANDO TUS LÍMITES"
         textAlign="left"
-        src="https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/industria-hero.webp?alt=media&token=e59edc25-a8ea-43d5-af8f-d6ea86c0a649"
+        src={hero}
       />
       <a id="tabs" />
       <Tabs

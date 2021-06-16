@@ -8,7 +8,7 @@ import Button from "./components/Button";
 import { units, colors } from "styles";
 import useInMobile from "hooks/useInMobile";
 import useScroll from "hooks/useScroll";
-
+import hero from "../public/heros/home-hero.webp";
 const Main = styled.main``;
 const SecondBlock = styled.div`
   position: relative;
@@ -231,9 +231,7 @@ export default function Home() {
         buttonAction={() => router.push("/metodo")}
         text="Para ampliar tus límites es necesario accionar de forma innovadora y eficaz. Desarrollamos un método propio para llevar a otro nivel la ejecución de cada proyecto"
         textMaxWidth={"60%"}
-        src={
-          "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/optimized-home-hero.webp?alt=media&token=b86f12c4-9fe8-4a2f-ad13-7fcdf0afbd1c"
-        }
+        src={hero}
       />
 
       <ThirdBlock onMouseLeave={() => setHover()}>
@@ -261,8 +259,8 @@ export default function Home() {
             }}
           >
             <Image
-              src={"/icons/industry.png"}
-              alt={"Industria"}
+              src="/icons/industry.png"
+              alt="Industria"
               height={isMobile ? 100 : 140}
               width={isMobile ? 100 : 140}
               layout="fixed"
@@ -271,10 +269,8 @@ export default function Home() {
           </LogoText>
           <Image
             position={"left: 0;"}
-            src={
-              "https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/home%2Foptimized-home-industria.webp?alt=media&token=18c707a0-d154-4aed-aef8-daf1d2b276df"
-            }
-            alt={"Industria"}
+            src="https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/home%2Foptimized-home-industria.webp?alt=media&token=18c707a0-d154-4aed-aef8-daf1d2b276df"
+            alt="Industria"
             layout="fill"
             loading="eager"
           />
@@ -327,6 +323,8 @@ export default function Home() {
               alt="trayectoria"
               layout="fill"
               loading="eager"
+              placeholder="blur"
+              blurDataURL="LBE:0n4nRjIU~qM{%MRj?bD%%MD%"
             />
           </ImageContainer>
 

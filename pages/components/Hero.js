@@ -1,5 +1,5 @@
 import styled from "styled-components";
-// import Image from "next/image";
+import Image from "next/image";
 import { units, colors } from "styles";
 import Button from "./Button";
 import useInMobile from "hooks/useInMobile";
@@ -113,14 +113,14 @@ const LogoImage = styled.div`
     left: -150px;
   }
 `;
-const Image = styled.div`
-background-image: url(${(props) => props.src});
-background-position: center;
-background-size: cover;
-min-height: 100vh;
-width: 100vw;
-z-index: 0;
-`;
+// const Image = styled.div`
+// background-image: url(${(props) => props.src});
+// background-position: center;
+// background-size: cover;
+// min-height: 100vh;
+// width: 100vw;
+// z-index: 0;
+// `;
 
 const Hero = ({
   src,
@@ -139,10 +139,19 @@ const Hero = ({
     <HeroContainer>
       <Filter addSquares={addSquares} />
       <Image
+        layout="fill"
+        src={src}
+        alt={title || 'Page hero'}
+        loading="eager"
+        placeholder="blur"
+      />
+
+      {/*   
+      <Image  
         src={src}
         alt={src}
         priority
-      />
+      /> */}
       {!addSquares && <SubText>AMPLIANDO TUS LIMITES</SubText>}
       {addSquares && <LogoImage src="/isologoContorno.png" />}
       <TextContainer>

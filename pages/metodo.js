@@ -2,6 +2,7 @@ import styled from "styled-components";
 import MyLayout from "../layout";
 import Hero from "./components/Hero";
 import { units, colors } from "styles";
+import hero from '../public/heros/metodo-hero.webp'
 
 const Main = styled.div``;
 const SecondSection = styled.div`
@@ -119,7 +120,7 @@ const Title = styled.div`
 `;
 const Text = styled.div`
   padding: 1em;
-  background: ${colors.footerBackground}
+  background: ${colors.footerBackground};
   font-size: ${units.SectionText};
   margin: 32px 0;
   line-height: 1.5em;
@@ -153,7 +154,7 @@ export default function Home() {
         }
         text="AMPLIANDO TUS LÍMITES"
         textAlign="left"
-        src="https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/metodo%2FMetodo.webp?alt=media&token=00578ecc-a3fe-41e0-9877-5cdd99392c27"
+        src={hero}
       />
 
       <SecondSection last reverse>

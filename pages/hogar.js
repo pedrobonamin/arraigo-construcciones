@@ -8,6 +8,7 @@ import Tabs from "./components/Tabs";
 import SectionImageText from "./components/SectionImageText";
 import { colors, units } from "styles";
 import useScroll from "hooks/useScroll";
+import hero from '../public/heros/hogar-hero.webp'
 
 const fadeIn = keyframes`
   from {
@@ -172,7 +173,7 @@ export default function Industry() {
         title={"HOGAR"}
         text="AMPLIANDO TUS LÍMITES"
         textAlign="left"
-        src="https://firebasestorage.googleapis.com/v0/b/arraigo-ingeniera.appspot.com/o/hogar-hero.webp?alt=media&token=2d3fcb5b-f4bd-41ba-8c17-26d893051337"
+        src={hero}
       />
       <a id="tabs" />
       <Tabs
