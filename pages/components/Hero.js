@@ -144,6 +144,8 @@ const Hero = ({
         alt={title || 'Page hero'}
         loading="eager"
         placeholder="blur"
+        objectFit="cover"
+        objectPosition='center'
       />
 
       {/*   
